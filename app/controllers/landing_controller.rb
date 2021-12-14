@@ -1,6 +1,6 @@
 class LandingController < ApplicationController
   def index
+    redirect_to app_url if Current.user
   end
-  def react
-  end
+  
 end
