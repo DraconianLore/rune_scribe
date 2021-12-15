@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { MenuItem, Menu as MenuInner } from "@szhsin/react-menu";
 import { menuSelector, menuItemSelector } from "@szhsin/react-menu/style-utils";
 import "@szhsin/react-menu/dist/core.css";
-
+import themes from "./themes";
 
 export default (props) => (
   <MenuBar>
@@ -25,15 +25,17 @@ export default (props) => (
 
 
 // Styling
+const theme = 'mind';  // to be replaced prop
+let currentTheme = themes(theme); //load theme from prop
 
 const MenuBar = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-background-color: #333344;
+background-color: ${currentTheme.headerBG};
 margin: 0;
 padding: 0 2em;
-color: #aaccff;
+color: ${currentTheme.headerFG};
 font-family: 'Roboto Mono', monospace;
 font-weight: 400;
 `
@@ -57,7 +59,7 @@ const Menu = styled(MenuInner)`
     border-radius: 6px;
     padding: 6px;
     min-width: 10rem;
-    background-color: #555566;
+    background-color: #556;
   }
   ${menuSelector.stateOpening} {
     animation: ${menuShow} 0.15s ease-out;
@@ -71,7 +73,7 @@ const Menu = styled(MenuInner)`
     border-radius: 6px;
     padding: 0.375rem 0.625rem;
   }
-  
+
   ${menuItemSelector.hover} {
     background-color: #334;
   }
