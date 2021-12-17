@@ -1,33 +1,41 @@
 const mind = {
     headerBG: "#334",
-    headerFG: "#acf"
+    headerFG: "#acf",
+    bodyBG: "#112",
+    bodyFG: "#9be"
 }
 const power = {
     headerBG: "#530",
-    headerFG: "#d95"
+    headerFG: "#d95",
+    bodyBG: "#310",
+    bodyFG: "#c84"
 }
 const death = {
     headerBG: "#324",
-    headerFG: "#bad"
+    headerFG: "#bad",
+    bodyBG: "#213",
+    bodyFG: "#a9c"
 }
 const life = {
     headerBG: "#343",
-    headerFG: "#cfc"
+    headerFG: "#cfc",
+    bodyBG: "#121",
+    bodyFG: "#beb"
 }
 
 export default (theme) => {
     let currentTheme;
     switch (theme) {
-        case 'mind':
+        case 'Mind':
             currentTheme = mind;
             break;
-        case 'power':
+        case 'Power':
             currentTheme = power;
             break;
-        case 'death':
+        case 'Death':
             currentTheme = death;
             break;
-        case 'life':
+        case 'Life':
             currentTheme = life;
             break;
         default:

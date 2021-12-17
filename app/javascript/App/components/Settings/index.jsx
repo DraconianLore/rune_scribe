@@ -4,12 +4,11 @@ import styled from "styled-components";
 import themes from "../common/themes";
 import { getFromLS } from "../../utils/storage";
 
-
 export default () => (
   <>
-    <Header page={{name: "Rune Scribe Familiar", pageId: "main"}}/>
+    <Header page={{name: "Settings", pageId: "settings"}}/>
     <MainPageLayout>
-      <h3>Main page content to go here</h3>
+    <p>add user settings here editable</p>
     </MainPageLayout>
     <div style={{ textAlign: "center" }}>Steven Wing ©2021.</div>
   </>

@@ -1,23 +1,25 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { Link } from "react-router-dom";
 import { MenuItem, Menu as MenuInner } from "@szhsin/react-menu";
 import { menuSelector, menuItemSelector } from "@szhsin/react-menu/style-utils";
 import "@szhsin/react-menu/dist/core.css";
 import themes from "./themes";
+import { getFromLS } from "../../utils/storage";
 
 export default (props) => (
   <MenuBar>
     <div>
       <Menu menuButton={<h1><i className="fa fa-bars"></i></h1>}>
-        <MenuItem>Home</MenuItem>
+        <MenuItem><Link to="/app">Home</Link></MenuItem>
       </Menu>
     </div>
     <h1>{props.page.name}</h1>
     <div>
 
       <Menu menuButton={<h1><i className="fa fa-user-circle"></i></h1>}>
-        <MenuItem>Settings</MenuItem>
-        <MenuItem>Log Out</MenuItem>
+        <MenuItem><Link to="/app/settings">Settings</Link></MenuItem>
+        <MenuItem href="/logout">Log Out</MenuItem>
       </Menu>
     </div>
   </MenuBar>
@@ -25,8 +27,7 @@ export default (props) => (
 
 
 // Styling
-const theme = 'mind';  // to be replaced prop
-let currentTheme = themes(theme); //load theme from prop
+let currentTheme = themes(getFromLS('Theme')); 
 
 const MenuBar = styled.div`
 display: flex;
