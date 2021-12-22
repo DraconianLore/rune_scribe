@@ -1,28 +1,20 @@
 import React from "react";
-import Header from "../common/Header";
-import styled from "styled-components";
-import themes from "../common/themes";
-import { getFromLS } from "../../utils/storage";
+import { setToLS } from "../../utils/storage";
 
+const changeTheme = (theme) => {
+  setToLS("Theme", theme)
+}
 export default () => (
   <>
-    <Header page={{name: "Settings", pageId: "settings"}}/>
-    <MainPageLayout>
-    <p>add user settings here editable</p>
-    </MainPageLayout>
-    <div style={{ textAlign: "center" }}>Steven Wing ©2021.</div>
+    <h1>Change Theme</h1>
+    <div className="themes">
+      <div className="theme mind" onClick={() => changeTheme("Mind")}>Mind</div>
+      <div className="theme power" onClick={() => changeTheme("Power")}>Power</div>
+      <div className="theme death" onClick={() => changeTheme("Death")}>Death</div>
+      <div className="theme life" onClick={() => changeTheme("Life")}>Life</div>
+    </div>
   </>
 );
 
 // Styling
-let currentTheme = themes(getFromLS('Theme')); 
 
-const MainPageLayout = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-background-color: ${currentTheme.bodyBG};
-color: ${currentTheme.bodyFG};
-min-height: 80vh;
-`

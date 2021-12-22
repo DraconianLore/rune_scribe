@@ -7,14 +7,14 @@ import "@szhsin/react-menu/dist/core.css";
 import themes from "./themes";
 import { getFromLS } from "../../utils/storage";
 
-export default (props) => (
+export default (pops) => (
   <MenuBar>
     <div>
       <Menu menuButton={<h1><i className="fa fa-bars"></i></h1>}>
         <MenuItem><Link to="/app">Home</Link></MenuItem>
       </Menu>
     </div>
-    <h1>{props.page.name}</h1>
+    <h1>Rune Scribe Familiar</h1>
     <div>
 
       <Menu menuButton={<h1><i className="fa fa-user-circle"></i></h1>}>
