@@ -17,13 +17,9 @@ export default (props) => {
   </>
 );}
 
-const checkThemes = () => {
-  return themes(getFromLS('Theme'))
-}
-
 // Styling
 
-let currentTheme = checkThemes(); 
+let currentTheme = themes(getFromLS('Theme')); 
 
 
 const MainPageLayout = styled.div`

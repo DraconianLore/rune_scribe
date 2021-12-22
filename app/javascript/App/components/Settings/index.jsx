@@ -1,20 +1,68 @@
 import React from "react";
-import { setToLS } from "../../utils/storage";
+import themes from "../common/themes";
+import { setToLS, getFromLS } from "../../utils/storage";
+import styled from "styled-components";
 
 const changeTheme = (theme) => {
   setToLS("Theme", theme)
 }
 export default () => (
   <>
-    <h1>Change Theme</h1>
-    <div className="themes">
-      <div className="theme mind" onClick={() => changeTheme("Mind")}>Mind</div>
-      <div className="theme power" onClick={() => changeTheme("Power")}>Power</div>
-      <div className="theme death" onClick={() => changeTheme("Death")}>Death</div>
-      <div className="theme life" onClick={() => changeTheme("Life")}>Life</div>
-    </div>
+    <h2>Settings</h2>
+    <SettingsPage>
+      <SettingsSection>
+        <h1>Change Theme</h1>
+        <Themes>
+          <Theme className="themes mind" onClick={() => changeTheme("Mind")}>Mind</Theme>
+          <Theme className="themes power" onClick={() => changeTheme("Power")}>Power</Theme>
+          <Theme className="themes death" onClick={() => changeTheme("Death")}>Death</Theme>
+          <Theme className="themes life" onClick={() => changeTheme("Life")}>Life</Theme>
+        </Themes>
+      </SettingsSection>
+    </SettingsPage>
   </>
 );
 
+
 // Styling
 
+let currentTheme = themes(getFromLS('Theme')); 
+
+const SettingsPage = styled.div`
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: flex-start;
+height: 70vh;
+`
+const SettingsSection = styled.div`
+  max-width: 600px;
+  text-align: center;
+  border-radius: 20px;
+  border-style: ridge;
+  border: ridge 4px ${currentTheme.bodyFG};
+  margin: 1em;
+  padding: 0.5em;
+  background-color: ${currentTheme.headerBG};
+  color: ${currentTheme.headerFG};
+`
+
+const Themes = styled.div`
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+`
+
+const Theme = styled.div`
+  width: 80px;
+  font-size: 120%;
+  font-weight: 700;
+  padding: 2px 10px;
+  margin: 0.5em;
+  text-align: center;
+  border-radius: 20px;
+  border-style: outset;
+  cursor: pointer;
+`

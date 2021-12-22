@@ -14,7 +14,7 @@ export default (pops) => (
         <MenuItem><Link to="/app">Home</Link></MenuItem>
       </Menu>
     </div>
-    <h1>Rune Scribe Familiar</h1>
+    <PageHeading>Rune Scribe Familiar</PageHeading>
     <div>
 
       <Menu menuButton={<h1><i className="fa fa-user-circle"></i></h1>}>
@@ -39,6 +39,10 @@ padding: 0 2em;
 color: ${currentTheme.headerFG};
 font-family: 'Roboto Mono', monospace;
 font-weight: 400;
+`
+
+const PageHeading = styled.h1`
+  padding: 0 1em;
 `
 
 const menuShow = keyframes`
