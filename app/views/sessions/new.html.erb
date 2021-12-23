@@ -1,15 +1,21 @@
-<h1>Sign In</h1>
-<%= form_with url: sign_in_path do |f| %>
+<div class="login-page">
+  <h1 class="welcome-header">Welcome Back</h1>
+  <%= form_with url: sign_in_path do |f| %>
+    <div class="form-line">
+      <%= f.label 'email:'%> <%= f.text_field :email, id: 'email' %>
+    </div>
+    <div class="form-line">
+      <%= f.label 'password:'%> <%= f.password_field :password, id: 'password' %>
+    </div>
+    <div class="centered">
+      <%= f.submit 'Log In', class: "submit-button" %>
+    </div>
+    <div class="centered">
+      <%= link_to 'Forgot your password?', password_reset_path %>
+    </div>
+    <br>
+  <% end %>
   <p>
-  <%= f.label 'email:'%><br>
-  <%= f.text_field :email, id: 'email' %>
+    <a href="/">Back</a>
   </p>
-  <p>
-  <%= f.label 'password:'%><br>
-  <%= f.password_field :password, id: 'password' %><br>
-  <%= link_to 'Forgot your password?', password_reset_path %>
-  </p>
-  <p>
-  <%= f.submit 'Log In' %>
-  </p>
-<% end %>
+</div>
