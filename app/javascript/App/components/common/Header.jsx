@@ -5,7 +5,7 @@ import { MenuItem, Menu as MenuInner } from "@szhsin/react-menu";
 import { menuSelector, menuItemSelector } from "@szhsin/react-menu/style-utils";
 import "@szhsin/react-menu/dist/core.css";
 import themes from "./themes";
-import { getFromLS } from "../../utils/storage";
+import Cookies from 'js-cookie'
 
 export default (pops) => (
   <MenuBar>
@@ -27,7 +27,7 @@ export default (pops) => (
 
 
 // Styling
-let currentTheme = themes(getFromLS('Theme')); 
+let currentTheme = themes(Cookies.get('Theme') || 'Mind'); 
 
 const MenuBar = styled.div`
 display: flex;

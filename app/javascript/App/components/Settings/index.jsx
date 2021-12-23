@@ -1,10 +1,12 @@
 import React from "react";
 import themes from "../common/themes";
-import { setToLS, getFromLS } from "../../utils/storage";
 import styled from "styled-components";
+import Cookies from "js-cookie"
 
 const changeTheme = (theme) => {
-  setToLS("Theme", theme)
+  Cookies.set('Theme', theme, { sameSite: 'Lax'})
+  window.location.reload(false);
+
 }
 export default () => (
   <>
@@ -26,7 +28,7 @@ export default () => (
 
 // Styling
 
-let currentTheme = themes(getFromLS('Theme')); 
+const currentTheme = themes(Cookies.get('Theme') || 'Mind'); 
 
 const SettingsPage = styled.div`
 display: flex;

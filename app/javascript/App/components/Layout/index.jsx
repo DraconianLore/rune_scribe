@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../common/Header";
 import styled from "styled-components";
 import themes from "../common/themes";
-import { getFromLS } from "../../utils/storage";
+import Cookies from 'js-cookie';
 
 
 export default (props) => {
@@ -19,7 +19,7 @@ export default (props) => {
 
 // Styling
 
-let currentTheme = themes(getFromLS('Theme')); 
+let currentTheme = themes(Cookies.get('Theme') || "Mind"); 
 
 
 const MainPageLayout = styled.div`

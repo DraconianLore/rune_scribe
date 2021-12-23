@@ -3,11 +3,10 @@ export const setToLS = (key, value) => {
     window.location.reload(false);
   }
   
-  export const getFromLS = key => {
-    const value = window.localStorage.getItem(key);
-  
-    if (value) {
-      return JSON.parse(value);
-    }
+export const getFromLS = key => {
+  const value = window.localStorage.getItem(key);
+
+  if (value) {
+    return JSON.parse(value);
   }
-  
+}
