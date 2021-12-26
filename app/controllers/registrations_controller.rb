@@ -9,6 +9,7 @@ class RegistrationsController < ApplicationController
             WelcomeMailer.with(user: @user).welcome_email.deliver_now
             # deliver_now is provided by ActiveJob.
             session[:user_id] = @user.id
+            cookies.signed[:user_id] = user.id
             redirect_to root_path, notice: 'Successfully created account'
         else
             render :new
@@ -17,6 +18,6 @@ class RegistrationsController < ApplicationController
     private
     def user_params
       # strong parameters
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:character, :email, :password, :password_confirmation)
     end
   end
