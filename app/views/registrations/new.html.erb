@@ -2,6 +2,10 @@
   <h1>Sign Up</h1>
   <%= form_with model: @user, url: sign_up_path do |f| %>
     <div class="form-line">
+    <%= f.label 'character' %><br>
+    <%= f.text_field :character %>
+    </div>
+    <div class="form-line">
       <%= f.label 'email' %><br>
       <%= f.text_field :email %>
     </div>

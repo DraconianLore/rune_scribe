@@ -27,7 +27,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 250px;
-    margin: 1em;
+    margin: 0.5em 1em;
   }
   input {
     border-radius: 2px;
@@ -49,4 +49,11 @@ body {
 }
 .centered {
   text-align: center;
+}
+
+.notice, .alert {
+  text-align: center;
+  font-size: 2em;
+  background-color: chocolate;
+  font-weight: bold;
 }
