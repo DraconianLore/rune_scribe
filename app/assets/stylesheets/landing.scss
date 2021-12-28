@@ -50,3 +50,10 @@ body {
 .centered {
   text-align: center;
 }
+
+.notice, .alert {
+  text-align: center;
+  font-size: 2em;
+  background-color: chocolate;
+  font-weight: bold;
+}

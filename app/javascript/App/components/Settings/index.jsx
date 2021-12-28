@@ -3,13 +3,13 @@ import themes from "../common/themes";
 import styled from "styled-components";
 import Cookies from "js-cookie"
 
-const changeTheme = (theme) => {
-  Cookies.set('Theme', theme, { sameSite: 'Lax'})
-  window.location.reload(false);
+export default (props) => {
+  const changeTheme = (theme) => {
+    props.updateData({'type': 'Theme', 'theme': theme})  
+  }
+  return(
 
-}
-export default () => (
-  <>
+    <>
     <h2>Settings</h2>
     <SettingsPage>
       <SettingsSection>
@@ -23,7 +23,8 @@ export default () => (
       </SettingsSection>
     </SettingsPage>
   </>
-);
+  )
+};
 
 
 // Styling

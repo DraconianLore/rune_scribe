@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         cookies.signed[:user_id] = user.id
         redirect_to root_path, notice: 'Logged in successfully'
       else
-        flash.now[:alert] = 'Invalid email or password'
+        flash.now[:alert] = 'Invalid character or password'
         render :new
       end
     end

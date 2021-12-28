@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../common/Header";
 import styled from "styled-components";
+import Header from "../common/Header";
 import themes from "../common/themes";
 import Cookies from 'js-cookie';
 
@@ -11,7 +11,7 @@ export default (props) => {
   <>
     <Header />
     <MainPageLayout>
-      <Page />
+      <Page user={props.user} updateData={props.updateData} />
     </MainPageLayout>
     <div style={{ textAlign: "center" }}>Steven Wing ©2021.</div>
   </>
@@ -20,7 +20,6 @@ export default (props) => {
 // Styling
 
 let currentTheme = themes(Cookies.get('Theme') || "Mind"); 
-
 
 const MainPageLayout = styled.div`
 display: flex;
