@@ -51,11 +51,23 @@ class ApiController < ApplicationController
 
     def load_runes
         # load and organize runes
-        Rune.all
+        house = Current.user.house
+        userlevel = Current.user.level
+        house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
+        runes = Rune.where("level <= ?", userlevel).or(Rune.where("level <= ? AND house = ?", house_level[userlevel], house))
+        # to be tested
+        runes
     end
+    
     def load_structures
         # load and organize structures
-        Structure.all
+        house = Current.user.house
+        userlevel = Current.user.level
+        house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
+        # work out how do have all that have house level and exclude ones with overlevelled other hosues
+        all = Structure.joins(:level).where("levels.all <= ?", userlevel)
+        # house = Structure.joins(:level).where("levels.#{house} <= ?", house_level[level])
+
     end
 
 
