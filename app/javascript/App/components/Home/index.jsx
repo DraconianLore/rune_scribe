@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { StructureContextProvider } from "../../helpers/StructureContext";
+import { useUserContextState } from "../../helpers/UserContext";
 
-export default (props) => (
-  <>
-    <p>users home page</p>
-    {/* <p>{props.user.name}</p> */}
-  </>
-);
+function Homepage() {
+  
+
+  return(
+    <StructureContextProvider>
+      <p>users home page</p>
+    </StructureContextProvider>
+  );
+}
+
+
+export default Homepage
 
 // Styling
 

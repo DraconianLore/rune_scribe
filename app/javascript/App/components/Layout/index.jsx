@@ -11,7 +11,7 @@ export default (props) => {
   <>
     <Header />
     <MainPageLayout>
-      <Page user={props.user} updateData={props.updateData} />
+      <Page updateData={props.updateData} />
     </MainPageLayout>
     <div style={{ textAlign: "center" }}>Steven Wing ©2021.</div>
   </>

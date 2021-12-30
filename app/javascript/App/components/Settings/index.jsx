@@ -1,14 +1,22 @@
-import React from "react";
+import React,  { useContext } from "react";
 import themes from "../common/themes";
 import styled from "styled-components";
 import Cookies from "js-cookie"
+import { useUserContextState, useUserContextUpdater } from "../../helpers/UserContext";
+
 
 export default (props) => {
-  const changeTheme = (theme) => {
-    props.updateData({'type': 'Theme', 'theme': theme})  
-  }
-  return(
+  const user = useUserContextState();
+  const updateSettings = useUserContextUpdater();
 
+  const changeTheme = (theme) => {
+    updateSettings({
+      'theme': theme
+    })
+  }
+  
+  return(
+    
     <>
     <h2>Settings</h2>
     <SettingsPage>
@@ -28,8 +36,8 @@ export default (props) => {
 
 
 // Styling
-
 const currentTheme = themes(Cookies.get('Theme') || 'Mind'); 
+
 
 const SettingsPage = styled.div`
 display: flex;
