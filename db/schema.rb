@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_30_072836) do
+ActiveRecord::Schema.define(version: 2021_12_30_194911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2021_12_30_072836) do
     t.integer "level"
     t.string "trace"
     t.string "draw"
-    t.string "target"
     t.text "additional"
+    t.string "target", default: [], array: true
   end
 
   create_table "runes_structures", force: :cascade do |t|
@@ -58,12 +58,12 @@ ActiveRecord::Schema.define(version: 2021_12_30_072836) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "trace"
     t.string "draw"
-    t.string "target"
     t.boolean "strained", default: false
     t.string "dominant"
     t.text "additional"
     t.integer "number_of_runes"
     t.boolean "discovered", default: false
+    t.string "target", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|

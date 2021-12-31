@@ -25,7 +25,7 @@ class Structure < ApplicationRecord
         most_common = houses.values.max
         dominant = houses.select{|k,v| v == most_common}.keys
         
-        # Console output while testing to ensure correctness
+        # Verbose console output
         puts '############################################'
         puts "Structure: #{self.name}"
         puts "Runes in structure: #{houses}"
