@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../common/Header";
 import themes from "../common/themes";
 import Cookies from 'js-cookie';
+import Header from "../common/Header";
 
 
 export default (props) => {

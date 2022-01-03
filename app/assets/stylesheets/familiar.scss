@@ -41,3 +41,35 @@
         }
     }
 }
+
+// Level Table
+
+#levels {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 5px 5px 5px rgba($color: #fff, $alpha: 0.1), -5px -5px 5px rgba($color: #fff, $alpha: 0.1);
+    th, td {
+        padding: 0.25rem;
+        text-align: center;
+        border: 1px solid rgba($color: #fff, $alpha: 0.5);
+        &:nth-child(3) {
+            text-align: left;
+        }
+    }
+    th {
+        padding: 0.25rem 0.5rem;
+    }
+    tbody tr {
+        &:nth-child(odd) {
+            background: rgba($color: #000000, $alpha: 0.5);
+        }
+        &:nth-child(even) {
+            background: rgba($color: #000000, $alpha: 0.3);
+        }
+        &.current_level {
+            background: rgba($color: #fff, $alpha: 0.1);
+            font-weight: 700;
+            color: bisque;
+        }
+    }
+}
