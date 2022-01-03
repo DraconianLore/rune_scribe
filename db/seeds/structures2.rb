@@ -505,7 +505,7 @@ s.runes << Rune.find_by(name: 'Rune of Oblivion')
 s.save!
 
 s = Structure.new(
-    name: 'Death march',
+    name: 'Death March',
     description: %(When drawn the caster selects three 5ft squares of unoccupied ground within 30ft. The first space selected becomes active.
 
     While the target is active and a creature enters the space it takes 2d6 bludgeoning damage and the target fades.

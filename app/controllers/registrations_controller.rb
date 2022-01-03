@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
           WelcomeMailer.with(user: @user).welcome_email.deliver_now
           # deliver_now is provided by ActiveJob.
           session[:user_id] = @user.id
-          cookies.signed[:user_id] = user.id
+          cookies.signed[:user_id] = @user.id
           redirect_to root_path, notice: 'Successfully created account'
         else
           notice = 'An unknown error occurred'

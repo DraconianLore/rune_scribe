@@ -65,6 +65,7 @@ class ApiController < ApplicationController
         userlevel = Current.user.level
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
         # work out how do have all that have house level and exclude ones with overlevelled other hosues
+        # work out how to restrick levels to x rune structures
         all = Structure.joins(:level).where("levels.all <= ?", userlevel)
         # house = Structure.joins(:level).where("levels.#{house} <= ?", house_level[level])
 
