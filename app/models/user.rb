@@ -10,7 +10,5 @@ class User < ApplicationRecord
         # logic to level up a character
     end
 
-
-
 end
 
