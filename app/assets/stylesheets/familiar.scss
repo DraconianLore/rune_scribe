@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Ubuntu:wght@300&display=swap');
 
+
 .themes {
     &.mind {
         border-color: #334;
@@ -48,6 +49,7 @@
     border-collapse: collapse;
     width: 100%;
     box-shadow: 5px 5px 5px rgba($color: #fff, $alpha: 0.1), -5px -5px 5px rgba($color: #fff, $alpha: 0.1);
+    margin: 1em auto;
     th, td {
         padding: 0.25rem;
         text-align: center;
@@ -70,6 +72,51 @@
             background: rgba($color: #fff, $alpha: 0.1);
             font-weight: 700;
             color: bisque;
+        }
+    }
+}
+#levelDetails {
+    display: flex;
+    max-height: 600px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: calc(800px + 6em);
+    height: 100%;
+    flex-direction: column;
+    border: 2px ridge rgba($color: #fff, $alpha: 0.1);
+    padding: 0 1em;
+    text-align: left;
+    padding-bottom: 2em;
+    
+    .scribe-feature {
+        width: 100%;
+        max-width: 800px;
+        border-bottom: 2px ridge rgba($color: #fff, $alpha: 0.3);
+        padding: 0 2em;
+        h2 {
+            text-decoration: underline;
+            font-weight: 700;
+            text-align: center;
+        }
+        &.house {
+            filter: brightness(125%);
+        }
+    }
+    .smallTable {
+        text-align: center;
+        border-collapse: collapse;
+        margin: auto;
+            th, td {
+            padding: 0.25rem 0.5rem;
+            border: 1px solid rgba($color: #fff, $alpha: 0.5);
+        }
+        tbody tr {
+            &:nth-child(odd) {
+                background: rgba($color: #000000, $alpha: 0.5);
+            }
+            &:nth-child(even) {
+                background: rgba($color: #000000, $alpha: 0.3);
+            }
         }
     }
 }

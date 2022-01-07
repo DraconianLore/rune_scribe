@@ -8,6 +8,7 @@ class ApiController < ApplicationController
             house: Current.user.house,
             level: Current.user.level,
             theme: Current.user.theme,
+            follower: Current.user.follower,
             is_dm: Current.user.dungeonmaster
         }
     end
@@ -43,8 +44,51 @@ class ApiController < ApplicationController
             house: Current.user.house,
             level: Current.user.level,
             theme: Current.user.theme,
+            follower: Current.user.follower,
             is_dm: Current.user.dungeonmaster
         }
+    end
+
+    def unlock_structure
+        structure = Structure.find(params[:id])
+        structure.discovered = true
+        if structure.save!
+            # TODO: maybe broadcast refresh?
+            render :json => {
+                message: 'Unlocked'
+            }
+        else
+            render :json => {
+                mesage: "Oops! An error occurred."
+            }
+        end
+    end
+
+    def level_char
+        char = User.find(params[:id])
+        params[:direction] == 'up' ? char.level += 1 : char.level -= 1
+        if char.save!
+            render :json => {
+                new_level: char.level,
+                charId: char.id
+            }
+        else
+            render :json => {
+                error: 'failed to save'
+            }
+        end
+        
+    end
+
+    def level_party
+        results = {}
+        party = Party.find(params[:party])
+        User.all.each do |user|
+            user.level += 1 if user.level < 20
+            results[user.character] = user.level
+            user.save!
+        end
+        render :json => results
     end
 
     private

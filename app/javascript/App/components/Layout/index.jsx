@@ -3,13 +3,16 @@ import styled from "styled-components";
 import themes from "../common/themes";
 import Cookies from 'js-cookie';
 import Header from "../common/Header";
+import { useUserContextState } from "../../helpers/UserContext";
 
 
 export default (props) => {
   let Page = props.page
+  const user = useUserContextState() || ''
+
   return (
   <>
-    <Header />
+    <Header user={user} />
     <MainPageLayout>
       <Page updateData={props.updateData} />
     </MainPageLayout>

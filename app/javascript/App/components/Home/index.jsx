@@ -19,7 +19,7 @@ function Homepage() {
         <PageHeading>{user.name} {user.house === 'None' ? '- Trainee Scribe' : 'of House ' + user.house}</PageHeading>
           {/* Icon bar with various icons for each section that changes the state */}
           {section === 'Bonus Actions' && <BonusActions />}
-          {section === 'Levels' && <ScribeLevels level={user.level} house={user.house} />}
+          {section === 'Levels' && <ScribeLevels level={user.level} house={user.house} follower_of={user.follower} />}
       </HomeLayout>
     </StructureContextProvider>
   );
@@ -31,12 +31,12 @@ export default Homepage
 
 // Styling
 const HomeLayout = styled.div`
-  height: 2000px;
-  max-height: 100vh;
+  height: 100%
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  text-align: center;
 `
 
 const PageHeading = styled.h1`

@@ -10,7 +10,7 @@ class RegistrationsController < ApplicationController
           # deliver_now is provided by ActiveJob.
           session[:user_id] = @user.id
           cookies.signed[:user_id] = @user.id
-          redirect_to root_path, notice: 'Successfully created account'
+          redirect_to root_path
         else
           notice = 'An unknown error occurred'
           notice = 'A character with that name already exists' if User.find_by character: @user.character

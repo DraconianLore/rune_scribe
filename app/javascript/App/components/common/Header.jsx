@@ -7,18 +7,16 @@ import "@szhsin/react-menu/dist/core.css";
 import themes from "./themes";
 import Cookies from 'js-cookie'
 
-export default (pops) => (
+export default (props) => (
   <MenuBar>
     <div>
-      <Menu menuButton={<h1><i className="fa fa-bars"></i></h1>}>
-        <MenuItem><Link to="/app">Home</Link></MenuItem>
-      </Menu>
+      <Link to="/app"><HomeIcon><i className="fa fa-home"></i></HomeIcon></Link>
     </div>
     <PageHeading>Rune Scribe Familiar</PageHeading>
     <div>
-
       <Menu menuButton={<h1><i className="fa fa-user-circle"></i></h1>}>
         <MenuItem><Link to="/app/settings">Settings</Link></MenuItem>
+        {props.user.is_dm && <MenuItem href="/admin" target='_blank'>Admin Menu</MenuItem>}
         <MenuItem href="/logout">Log Out</MenuItem>
       </Menu>
     </div>
@@ -29,6 +27,9 @@ export default (pops) => (
 // Styling
 let currentTheme = themes(Cookies.get('Theme') || 'Mind'); 
 
+const HomeIcon = styled.h1`
+  color: ${currentTheme.headerFG};
+`
 const MenuBar = styled.div`
 display: flex;
 justify-content: space-between;

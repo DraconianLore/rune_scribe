@@ -16,7 +16,6 @@ const loadUserData = () => {
         (result) => {
           console.log(`   Loading User Data...`); 
           userData = result
-          console.log(userData)  
           console.log(`   Loading Themes...`);
           Cookies.set('Theme', userData.theme, { sameSite: 'Lax'})
           const currentTheme = themes(userData.theme);
