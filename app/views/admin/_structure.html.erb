@@ -1,0 +1,30 @@
+<% dom_house = structure.dominant.downcase() %>
+<div class='structure <%= structure.dominant %> <%= 'strained' if structure.strained %>' id='<%= structure.id %>' data-details='<%= structure.to_json %>'>
+    <h3><%= structure.name %></h3>
+    <div class='structure-content'>
+        <div>
+            <ul>
+                <li class='house mind'>Mind: <%= structure.level.mind %></li>
+                <li class='house power'>Power: <%= structure.level.power %></li>
+                <li class='house death'>Death: <%= structure.level.death %></li>
+                <li class='house life'>Life: <%= structure.level.life %></li>
+            </ul>
+        </div>
+        <div>
+            <p>
+                <strong>Trace:</strong> <%= structure.trace %><br>
+                <strong>Draw:</strong> <%= structure.draw %><br>
+                <strong>Targets:</strong> <%= structure.target.join(', ') %>
+            </p>
+        </div>
+    </div>
+    <div class='rune-number'><%= structure.number_of_runes %></div>
+    <% unless structure.discovered %>
+        <div class='lock'>
+            <i class="fa fa-lock" aria-hidden="true"></i>
+        </div>
+    <% end %>
+
+    
+    
+</div>

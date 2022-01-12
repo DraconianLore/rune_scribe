@@ -509,7 +509,7 @@ Structure.create(
 )
 
 Structure.create(
-    name: 'Volcanic Srotm',
+    name: 'Volcanic Storm',
     description: %(A sudden hail storm fills a 60ft cube, however they all seem to bounce off creatures without harming them.
  
     24 random squares inside the cube immediately turn to lava, any creature on one of those squares must make a DEX saving throw to jump to the nearest clear square within 10ft, or take 18d10 fire damage on a failed save.),

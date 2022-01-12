@@ -17,8 +17,15 @@ Rails.application.routes.draw do
   # Frontend calls
   get 'getUserData', to: 'api#get_user_data'
   get 'getStructures', to: 'api#get_structures'
+  get 'getBonusActions', to: 'api#bonus_actions'
+  get 'admin', to: 'admin#index'
+  
   put 'update_settings', to: 'api#update_settings'
-
+  
+  # DM calls
+  put 'unlock/:id', to: 'api#unlock_structure'
+  put 'level_party', to: 'api#level_party'
+  put 'level/:id', to: 'api#level_char'
   
 end
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

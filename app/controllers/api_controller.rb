@@ -8,6 +8,7 @@ class ApiController < ApplicationController
             house: Current.user.house,
             level: Current.user.level,
             theme: Current.user.theme,
+            follower: Current.user.follower,
             is_dm: Current.user.dungeonmaster
         }
     end
@@ -43,7 +44,65 @@ class ApiController < ApplicationController
             house: Current.user.house,
             level: Current.user.level,
             theme: Current.user.theme,
+            follower: Current.user.follower,
             is_dm: Current.user.dungeonmaster
+        }
+    end
+
+    def unlock_structure
+        structure = Structure.find(params[:id])
+        structure.discovered = true
+        if structure.save!
+            # TODO: maybe broadcast refresh?
+            render :json => {
+                message: 'Unlocked'
+            }
+        else
+            render :json => {
+                mesage: "Oops! An error occurred."
+            }
+        end
+    end
+
+    def level_char
+        char = User.find(params[:id])
+        params[:direction] == 'up' ? char.level += 1 : char.level -= 1
+        if char.save!
+            render :json => {
+                new_level: char.level,
+                charId: char.id
+            }
+        else
+            render :json => {
+                error: 'failed to save'
+            }
+        end
+        
+    end
+
+    def level_party
+        results = {}
+        party = Party.find(params[:party])
+        User.all.each do |user|
+            user.level += 1 if user.level < 20
+            results[user.character] = user.level
+            user.save!
+        end
+        render :json => results
+    end
+
+    def bonus_actions
+        runes = load_runes
+        
+        bonus_action_list = nil
+        if Current.user.level >= 7 
+            bonus_action_list = runes.where("house = ?", Current.user.house).or(Rune.where("level <= ?", 2))
+        elsif Current.user.level.between?(5, 6)
+            bonus_action_list = runes.where("house = ?", Current.user.house)
+        end
+  
+        render :json => {
+            runes:  bonus_action_list
         }
     end
 
@@ -55,7 +114,7 @@ class ApiController < ApplicationController
         userlevel = Current.user.level
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
         runes = Rune.where("level <= ?", userlevel).or(Rune.where("level <= ? AND house = ?", house_level[userlevel], house))
-        # to be tested
+
         runes
     end
     

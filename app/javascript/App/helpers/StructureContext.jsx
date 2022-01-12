@@ -39,10 +39,8 @@ const StructureContextProvider = ({ children }) => {
                     const currentTheme = themes(Cookies.get('Theme'));
                     const theme = 'color: ' + currentTheme.bodyFG;
                     console.log(`%c   Loading Runes...`, theme);
-                    console.log(result.runes)
                     setRunes(result.runes)
                     console.log(`%c   Loading Structures...`, theme);
-                    console.log(result.structures)
                     setStructures(result.structures)
                     console.log(`%cData Load Succeeded.`, theme);
                 },

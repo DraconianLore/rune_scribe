@@ -16,20 +16,16 @@ const loadUserData = () => {
         (result) => {
           console.log(`   Loading User Data...`); 
           userData = result
-          console.log(userData)  
           console.log(`   Loading Themes...`);
           Cookies.set('Theme', userData.theme, { sameSite: 'Lax'})
           const currentTheme = themes(userData.theme);
           const theme = 'color: ' + currentTheme.bodyFG;
-          console.log(`%c   Loading Runes...`, theme);
-  
-          console.log(`%c   Loading Structures...`, theme);
           console.log(`%cData Load Succeeded.`, theme);
           console.log('%cWelcome Back ' + userData.name, 'font-size: 16px; ' + theme)
           return userData
         },
         (error) => {
-          console.log("An error occurred: " + error)
+          console.error("An error occurred: " + error)
         }
     )
   

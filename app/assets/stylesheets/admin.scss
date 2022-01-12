@@ -1,0 +1,297 @@
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+#admin {
+    // admin styling to go in here
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .menubar {
+        display: flex;
+        height: 100px;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 2em;
+        .menu-links:hover {
+            filter: drop-shadow(0px 0px 5px #cca) brightness(150%);
+        }
+        #party_level {
+            cursor: pointer;
+        }
+    }
+    .admin-page {
+        display: flex;
+        width: 90vw;
+        min-height: 800px;
+        align-items: center;
+        flex-direction: column;
+        background-color: #334;
+        .structure-title {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #111526;
+            input[type='text'] {
+                border-radius: 10px;
+                padding: 0.2em 0.5em;
+                width: 200px;
+                margin-left: 1em;
+            }
+            .new-structure {
+                width: 200px;
+                text-align: right;
+                margin-right: 1em;
+            }
+        }
+        .structure-list {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            .structure {
+                width: 300px;
+                height: 175px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                background-color: #223;
+                margin: 0.5em;
+                h3 {
+                    text-align: center;
+                }
+                .rune-number {
+                    position: relative;
+                    top: -10.4em;
+                    left: 0.2em;
+                    width: fit-content;
+                    text-align: center;
+                    padding: .3em;
+                    border-radius: 0px 5px 10px 5px;
+                }
+                .lock {
+                    position: relative;
+                    top: -12.1em;
+                    left: calc(300px - 1.8em);
+                    width: 1em;
+                    text-align: center;
+                    padding: .3em;
+                    border-radius: 5px 0px 5px 10px;
+                    cursor: pointer;
+                }
+                .structure-content {
+                    height: 110px;
+                    display: flex;
+                    width: 290px;
+                    align-items: center;
+                    justify-content: space-between;
+                    div {
+                        width: 48%;
+                    }
+                    .house {
+                        font-weight: 700;
+                        &.mind {
+                            color: #9be;
+                        }
+                        &.power {
+                            color: #c84;
+                        }
+                        &.death {
+                            color: #bad;
+                        }
+                        &.life {
+                            color: #beb;
+                        }
+                    }
+                }
+                &.Mind {
+                    background-color: #112;
+                    color: #9be;
+                    .rune-number, .lock {
+                        background-color: #334;
+                        color: #acf;
+                    }
+                }
+                &.Power {
+                    background-color: #310;
+                    color: #c84;
+                    .rune-number, .lock {
+                        background-color: #530;
+                        color: #d95;
+                    }
+                }
+                &.Death {
+                    background-color: #213;
+                    color: #bad;
+                    .rune-number, .lock {
+                        background-color: #324;
+                        color: #a9c;
+                    }
+                }
+                &.Life {
+                    background-color: #121;
+                    color: #beb;
+                    .rune-number, .lock {
+                        background-color: #343;
+                        color: #cfc;
+                    }
+                }
+                &.None {
+                    .rune-number, .lock {
+                        background-color: #334;
+                    }
+                }
+                &.strained {
+                    filter: drop-shadow(0px 0px 5px #f33);
+                }
+            }
+        }
+        .detail-modal {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            .modal-content {
+                width: 50vw;
+                max-height: 80vh;
+                background-color: #356;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                border-radius: 20px;
+                margin-top: -30%;
+                filter: drop-shadow(0px 0px 10px #997);
+                .modal-topbar {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: calc(100% - 2em);
+                    .tb-left, .tb-right {
+                        width: 100px;
+                        .s-close {
+                            width: fit-content;
+                            float: right;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                hr {
+                    width: 50%;
+                }
+                .s-title {
+                    margin-bottom: 0;
+                }
+                .s-description {
+                    white-space: pre-line;
+                    width: calc(100% - 2em);
+                    margin-top: 1em;
+                }
+                .s-strained {
+                    display: none;
+                    color: #d95;
+                    background-color: #3d1010;
+                    margin-bottom: 0;
+                    width: 100%;
+                    text-align: center;
+                    padding: 0.5em 0;
+                    border-radius: 0 0 20px 20px;
+                }
+                .s-locked {
+                    display: none;
+                    color: #d95;
+                    background-color: #000;
+                    margin-bottom: 0;
+                    width: 100%;
+                    text-align: center;
+                    padding: 0.5em 0;
+                    border-radius: 0 0 20px 20px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .player-list {
+            display: flex;
+            width: 90%;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            .player {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 1em;
+                border-radius: 20px;
+                border: 6px double #223;
+                width: 230px;
+                margin-bottom: 1em;
+                &.Mind {
+                    background-color: #112;
+                    color: #9be;
+                    border-color: #334;
+                    .level-down, .level-up {
+                        cursor: pointer;
+                        color: #334;
+                        &:hover {
+                            color: #9be;
+                        }
+                    }
+                }
+                &.Power {
+                    background-color: #310;
+                    color: #c84;
+                    border-color: #530;
+                    .level-down, .level-up {
+                        cursor: pointer;
+                        color: #530;
+                        &:hover {
+                            color: #c84;
+                        }
+                    }
+                }
+                &.Death {
+                    background-color: #213;
+                    color: #bad;
+                    border-color:#324;
+                    .level-down, .level-up {
+                        cursor: pointer;
+                        color: #324;
+                        &:hover {
+                            color: #bad;
+                        }
+                    }
+                }
+                &.Life {
+                    background-color: #121;
+                    color: #beb;
+                    border-color:#343;
+                    .level-down, .level-up {
+                        cursor: pointer;
+                        color: #343;
+                        &:hover {
+                            color: #beb;
+                        }
+                    }
+                }
+                &.None {
+                    background-color: #334;
+                    color: #cca;
+                    .level-down, .level-up {
+                        cursor: pointer;
+                        color: #223;
+                        &:hover {
+                            color: #cca;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,1 @@
+User.create(email: 'steven.wing82@gmail.com', password: 'temppass', dungeonmaster: true, character: 'Lore',  level: 20, house: 'Power', follower: 'Lady', theme: 'Power') 

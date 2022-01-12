@@ -1,0 +1,13 @@
+<h2>Your Party</h2>
+<div class='player-list'>
+    <% @players.each do |p| %>
+        <div class='player <%= p.house %>'>
+            <h1><%= p.character %></h1>
+            <h2>Scribe Level: </h2>
+            <h1 id='<%= p.character %>'><i class="level-down fas fa-minus-circle" id='D<%= p.id %>'></i> <span id='<%= p.id %>-level'><%= p.level %></span> <i class="level-up fas fa-plus-circle" id='U<%= p.id %>'></i></h1>
+            <h3>House: <%= p.house %></h3>
+            <small>Follower of the <%= p.follower %></small>
+        </div>
+
+    <% end %>
+</div>

@@ -3,6 +3,8 @@ class Structure < ApplicationRecord
     has_one :level
     before_create :calculate_details
 
+    scope :unlocked, -> { where(discovered: true) }
+    scope :locked, -> { where(discovered: false) }
 
 
     def composition
@@ -37,20 +39,22 @@ class Structure < ApplicationRecord
     end
 
 
-    private
+    # private
 
     def calculate_details
         self.dominant = self.dominant_house
         self.number_of_runes = self.composition.count
         runes = self.composition
+        house_level = {1 => 1, 2 => 1, 3 => 2, 4 => 3, 5 => 4, 7 => 5, 10 => 7}
         self.level = Level.create(
             all: runes.sort_by{|rune| rune.level}.last.level,
-            mind: runes.select{|rune| rune.house == "Mind"}.sort_by{|rune| rune.level}.last&.level || 0,
-            power: runes.select{|rune| rune.house == "Power"}.sort_by{|rune| rune.level}.last&.level || 0,
-            death: runes.select{|rune| rune.house == "Death"}.sort_by{|rune| rune.level}.last&.level || 0,
-            life: runes.select{|rune| rune.house == "Life"}.sort_by{|rune| rune.level}.last&.level || 0
+            mind: house_level[runes.select{|rune| rune.house == "Mind"}.sort_by{|rune| rune.level}.last&.level] || 0,
+            power: house_level[runes.select{|rune| rune.house == "Power"}.sort_by{|rune| rune.level}.last&.level] || 0,
+            death: house_level[runes.select{|rune| rune.house == "Death"}.sort_by{|rune| rune.level}.last&.level] || 0,
+            life: house_level[runes.select{|rune| rune.house == "Life"}.sort_by{|rune| rune.level}.last&.level] || 0
             )
         
     end
+    
 
 end
