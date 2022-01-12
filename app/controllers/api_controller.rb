@@ -91,6 +91,21 @@ class ApiController < ApplicationController
         render :json => results
     end
 
+    def bonus_actions
+        runes = load_runes
+        
+        bonus_action_list = nil
+        if Current.user.level >= 7 
+            bonus_action_list = runes.where("house = ?", Current.user.house).or(Rune.where("level <= ?", 2))
+        elsif Current.user.level.between?(5, 6)
+            bonus_action_list = runes.where("house = ?", Current.user.house)
+        end
+  
+        render :json => {
+            runes:  bonus_action_list
+        }
+    end
+
     private
 
     def load_runes
@@ -99,7 +114,7 @@ class ApiController < ApplicationController
         userlevel = Current.user.level
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
         runes = Rune.where("level <= ?", userlevel).or(Rune.where("level <= ? AND house = ?", house_level[userlevel], house))
-        # to be tested
+
         runes
     end
     

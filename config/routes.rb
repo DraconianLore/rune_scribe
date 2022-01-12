@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # Frontend calls
   get 'getUserData', to: 'api#get_user_data'
   get 'getStructures', to: 'api#get_structures'
+  get 'getBonusActions', to: 'api#bonus_actions'
   get 'admin', to: 'admin#index'
   
   put 'update_settings', to: 'api#update_settings'

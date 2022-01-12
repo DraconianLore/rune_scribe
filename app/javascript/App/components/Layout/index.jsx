@@ -16,7 +16,7 @@ export default (props) => {
     <MainPageLayout>
       <Page updateData={props.updateData} />
     </MainPageLayout>
-    <div style={{ textAlign: "center" }}>Steven Wing ©2021.</div>
+    <div style={{ textAlign: "center", paddingTop: '5px' }}>Steven Wing ©2021.</div>
   </>
 );}
 
@@ -26,10 +26,10 @@ let currentTheme = themes(Cookies.get('Theme') || "Mind");
 
 const MainPageLayout = styled.div`
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 flex-direction: column;
 background-color: ${currentTheme.bodyBG};
 color: ${currentTheme.bodyFG};
-min-height: 80vh;
+min-height: 85vh;
 `

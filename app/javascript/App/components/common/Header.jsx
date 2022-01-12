@@ -9,9 +9,9 @@ import Cookies from 'js-cookie'
 
 export default (props) => (
   <MenuBar>
-    <div>
+    <MenuIcons>
       <Link to="/app"><HomeIcon><i className="fa fa-home"></i></HomeIcon></Link>
-    </div>
+    </MenuIcons>
     <PageHeading>Rune Scribe Familiar</PageHeading>
     <div>
       <Menu menuButton={<h1><i className="fa fa-user-circle"></i></h1>}>
@@ -27,6 +27,9 @@ export default (props) => (
 // Styling
 let currentTheme = themes(Cookies.get('Theme') || 'Mind'); 
 
+const MenuIcons = styled.div`
+  display: flex;
+`
 const HomeIcon = styled.h1`
   color: ${currentTheme.headerFG};
 `
@@ -40,6 +43,7 @@ padding: 0 2em;
 color: ${currentTheme.headerFG};
 font-family: 'Roboto Mono', monospace;
 font-weight: 400;
+height: 4.8em;
 `
 
 const PageHeading = styled.h1`

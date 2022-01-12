@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import level_helper from '../../helpers/level_helper'
+import level_helper from '../../../helpers/level_helper'
 
 function level_details(props) {
     
@@ -19,7 +19,7 @@ function level_details(props) {
 
     return(
         <>
-            { props.follower_of && <small>Follower of the {props.follower_of} of the House</small>}
+        <h3>Rune Scribe Details</h3>
             <table className='scribe-levels' id='levels'>
                 <thead>
                     <tr>
