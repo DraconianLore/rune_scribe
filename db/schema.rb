@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_04_010122) do
+ActiveRecord::Schema.define(version: 2022_01_12_163835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 2022_01_04_010122) do
     t.string "name"
     t.text "description"
     t.string "house"
-    t.string "tags", default: ["rune"], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "level"
@@ -38,6 +37,7 @@ ActiveRecord::Schema.define(version: 2022_01_04_010122) do
     t.string "draw"
     t.text "additional"
     t.string "target", default: [], array: true
+    t.string "tags", array: true
   end
 
   create_table "runes_structures", force: :cascade do |t|
@@ -49,10 +49,16 @@ ActiveRecord::Schema.define(version: 2022_01_04_010122) do
     t.index ["structure_id"], name: "index_runes_structures_on_structure_id"
   end
 
+  create_table "runes_tags", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "rune_id"
+    t.index ["rune_id"], name: "index_runes_tags_on_rune_id"
+    t.index ["tag_id"], name: "index_runes_tags_on_tag_id"
+  end
+
   create_table "structures", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "tags", default: ["structure"], array: true
     t.string "sub_structures", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -64,6 +70,22 @@ ActiveRecord::Schema.define(version: 2022_01_04_010122) do
     t.integer "number_of_runes"
     t.boolean "discovered", default: false
     t.string "target", default: [], array: true
+    t.string "tags", array: true
+  end
+
+  create_table "structures_tags", force: :cascade do |t|
+    t.bigint "tag_id"
+    t.bigint "structure_id"
+    t.index ["structure_id"], name: "index_structures_tags_on_structure_id"
+    t.index ["tag_id"], name: "index_structures_tags_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.string "colour"
+    t.string "background"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

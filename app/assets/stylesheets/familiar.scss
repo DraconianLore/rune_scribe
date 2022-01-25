@@ -59,6 +59,9 @@
         &:nth-child(3) {
             text-align: left;
         }
+        &.center {
+            text-align: center;
+        }
     }
     th {
         padding: 0.25rem 0.5rem;
@@ -77,6 +80,7 @@
         }
     }
 }
+
 #levelDetails {
     display: flex;
     max-height: 600px;
@@ -121,3 +125,21 @@
         }
     }
 }
+
+#tag-table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 5px 5px 5px rgba($color: #fff, $alpha: 0.1), -5px -5px 5px rgba($color: #fff, $alpha: 0.1);
+    margin: 1em auto;
+    width: 100%;
+    max-width: calc(800px + 6em);
+    th, td {
+        padding: 0.5rem;
+        text-align: center;
+        border: 1px solid rgba($color: #fff, $alpha: 0.5);
+    }
+    th {
+        padding: 0.25rem 0.5rem;
+    }
+}
+

@@ -6,12 +6,13 @@ const tags = (tags) => {
     
     let tagList = [];
     for (let i = 0; i < tags.length; i++) {
-        tagList.push(<Tag key={i}>{tags[i]}</Tag>)
+        tagList.push(<Tag fgColour={tags[i].colour} bgColour={tags[i].background} key={i}>{tags[i].name}</Tag>)
     }
     return tagList
 }
 
 const findDuration = (trace) => {
+    // For halving the duration for bonus actions
     let duration = trace
     const words = trace.replace(/[0-9]/g, '');
     const numbers = trace.match(/\d/g);
@@ -48,7 +49,7 @@ function Rune(props) {
     
     const tagList = tags(props.rune.tags)
 
-    // non house runes have halved duration for bonus action
+    // non house runes have halved duration when used as a bonus action
     const duration =  props.bonusAction ? user.house == props.rune.house ? props.rune.trace : findDuration(props.rune.trace) : props.rune.trace;
 
     return (
@@ -73,7 +74,8 @@ const Tags = styled.div`
     height: 95px;
 `
 const Tag = styled.p`
-    background-color: #223;
+    background-color: ${props => props.bgColour};
+    color: ${props => props.fgColour};
     margin: 0.1em;
     padding: 0.1em 0.4em;
     border-radius: 5px;
@@ -101,39 +103,37 @@ const RuneItem = styled.div`
     &.Mind {
         background-color: #112;
         color: #9be;
-        p {
-            background-color: #334;
-            color: #acf;
-        }
+        // p {
+        //     background-color: #334;
+        //     color: #acf;
+        // }
     }
     &.Power {
         background-color: #310;
         color: #c84;
-        p {
-            background-color: #530;
-            color: #d95;
-        }
+        // p {
+        //     background-color: #530;
+        //     color: #d95;
+        // }
     }
     &.Death {
         background-color: #213;
         color: #bad;
-        p {
-            background-color: #324;
-            color: #a9c;
-        }
+        // p {
+        //     background-color: #324;
+        //     color: #a9c;
+        // }
     }
     &.Life {
         background-color: #121;
         color: #beb;
-        p {
-            background-color: #343;
-            color: #cfc;
-        }
+        // p {
+        //     background-color: #343;
+        //     color: #cfc;
+        // }
     }
     &.None {
-        .rune-number, .lock {
-            background-color: #334;
-        }
+        
     }
     &.strained {
         filter: drop-shadow(0px 0px 5px #f33);

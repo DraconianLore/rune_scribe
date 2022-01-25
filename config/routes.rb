@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin#index'
   
   put 'update_settings', to: 'api#update_settings'
+
+  put 'update_tag/:id', to: 'api#update_tag'
+  post 'create_tag', to: 'api#new_tag'
+  put 'delete_tag/:id', to: 'api#delete_tag'
   
   # DM calls
   put 'unlock/:id', to: 'api#unlock_structure'

@@ -22,7 +22,8 @@ class ApiController < ApplicationController
                 
         render :json => {
             runes: runes,
-            structures: structures
+            structures: structures,
+            tags: Tag.all
         }
     end
 
@@ -106,6 +107,39 @@ class ApiController < ApplicationController
         }
     end
 
+    def update_tag
+        
+        tag = Tag.find(params[:id])
+        # tag.colour = params[:colour]
+        # tag.background = params[:background]
+        # tag.name = params[:name]
+        tag.update(tag_params)
+        if tag.save!
+            render :json => {
+                message: 'Tag Updated - updating data'
+            }
+        end
+    end
+
+    def new_tag
+        
+        tag = Tag.new(tag_params)
+        if tag.save!
+            render :json => {
+                message: 'Tag Created - updating data'
+            }
+        end
+    end
+
+    def delete_tag
+        tag = Tag.find(params[:id])
+        if tag.delete
+            render :json => {
+                message: 'Tag Deleted - updating data'
+            }
+        end
+    end
+
     private
 
     def load_runes
@@ -113,7 +147,7 @@ class ApiController < ApplicationController
         house = Current.user.house
         userlevel = Current.user.level
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
-        runes = Rune.where("level <= ?", userlevel).or(Rune.where("level <= ? AND house = ?", house_level[userlevel], house))
+        runes = Rune.where("level <= ?", userlevel).or(Rune.where("level <= ? AND house = ?", house_level[userlevel], house)).order(:id)
 
         runes
     end
@@ -125,11 +159,13 @@ class ApiController < ApplicationController
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
         # work out how do have all that have house level and exclude ones with overlevelled other hosues
         # work out how to restrick levels to x rune structures
-        all = Structure.joins(:level).where("levels.all <= ?", userlevel)
-        # house = Structure.joins(:level).where("levels.#{house} <= ?", house_level[level])
+        structures = Structure.joins(:level).where("levels.all <= ?", userlevel).or(Structure.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).order(:id)
 
+        structures
     end
 
-
+    def tag_params
+        params.require(:tag).permit(:name, :colour, :background)
+    end
   end
   
