@@ -18,6 +18,7 @@ function ModalContent(props) {
             <div>
                 <h1>{props.structure.name}</h1>
                 <StructureDetails>{props.structure.description}</StructureDetails>
+                <span>Targets: {props.structure.target.join(', ')}</span>
             </div>
             <small>Click to edit tags</small>
         </StructureModal>
@@ -68,11 +69,13 @@ function Structure(props) {
     return (
         <>
             <StructureItem className={props.structure.dominant} data-description={props.structure.description} onClick={clickStructure}  onMouseLeave={closeModal} onMouseEnter={openModal} >
-                <h2>{props.structure.name}</h2>
+                <TopBar>
+                    <StructureSize>{props.structure.number_of_runes}</StructureSize>
+                    <h2>{props.structure.name}</h2>
+                    <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
+                </TopBar>
                 <hr />
                 <Tags>
-                    <StructureSize>{props.structure.number_of_runes}</StructureSize>
-                    <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
                     {tagList}
                 </Tags>
                 <small>{duration}</small>
@@ -256,23 +259,21 @@ const StructureDetails = styled.p`
     margin: 1em;
     text-align: left;
 `
-
+const TopBar = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+`
 const StructureSize = styled.h3`
     padding: 5px 10px;
     border-radius: 0 0 10px 0;
-    position: relative;
-    top: -4.3em;
-    left: -0.5em;
-    height: fit-content;
+    margin: 0;
 `
-
 const Favourite = styled.h3`
     padding: 5px 10px;
+    margin: 0;
     border-radius: 0 0 0 10px;
-    position: relative;
-    top: -4.3em;
-    left: calc(300px - 4.1em);
-    height: fit-content;
     &.not-fav i {
         color: rgba(0,0,0,0.6);
     }

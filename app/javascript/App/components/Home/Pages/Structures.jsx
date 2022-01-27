@@ -25,12 +25,12 @@ function Structures() {
             if (!structureFilter) {
                 return
             }
-            if (!favoriteFilter || data.fav_by.includes(user.id)) {
+            if (!favoriteFilter || data.fav_by.includes(user.id.toString())) {
                 if (!houseFilter || data.dominant === user.house) {
                     if(search == null) {
                         return data
                     }
-                    else if (data.name.toLowerCase().includes(search.toLowerCase()) || data.description.toLowerCase().includes(search.toLowerCase())) {
+                    else if (data.name.toLowerCase().includes(search.toLowerCase()) || data.description.toLowerCase().includes(search.toLowerCase()) || data.trace.toLowerCase().includes(search.toLowerCase()) || data.target.toString().toLowerCase().includes(search.toLowerCase())) {
                         return data
                     }
                 }
@@ -50,12 +50,12 @@ function Structures() {
             if (!runeFilter) {
                 return
             }
-            if (!favoriteFilter || data.fav_by.includes(user.id)) {
+            if (!favoriteFilter || data.fav_by.includes(user.id.toString())) {
                 if (!houseFilter || data.house === user.house) {
                     if(search == null) {
                         return data
                     }
-                    else if (data.name.toLowerCase().includes(search.toLowerCase()) || data.description.toLowerCase().includes(search.toLowerCase())) {
+                    else if (data.name.toLowerCase().includes(search.toLowerCase()) || data.description.toLowerCase().includes(search.toLowerCase()) || data.trace.toLowerCase().includes(search.toLowerCase()) || data.target.toString().toLowerCase().includes(search.toLowerCase())) {
                         return data
                     }
                 }

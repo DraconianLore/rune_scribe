@@ -138,6 +138,10 @@ const ItemModal = styled.div`
         background-color: #121;
         color: #beb;
     }
+    &.None {
+        background-color: #223;
+        color: #cca;
+    }
 `
 
 const TagList = styled.div`

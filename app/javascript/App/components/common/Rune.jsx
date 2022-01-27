@@ -51,6 +51,7 @@ function ModalContent(props) {
             <div>
                 <h1>{props.rune.name}</h1>
                 <RuneDetails>{props.rune.description}</RuneDetails>
+                <span>Targets: {props.rune.target.join(', ')}</span>
             </div>
             <small>Click to edit tags</small>
         </RuneModal>
@@ -152,10 +153,13 @@ function Rune(props) {
     return (
         <>
             <RuneItem className={props.rune.house} data-description={props.rune.description} onClick={clickRune}  onMouseLeave={closeModal} onMouseEnter={openModal} >
-                <h2>{props.rune.name}</h2>
+                <TopBar>
+                    <h3 />
+                    <h2>{props.rune.name}</h2>
+                    <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
+                </TopBar>
                 <hr />
                 <Tags>
-                    <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
                     {tagList}
                 </Tags>
                 <small>{duration}</small>
@@ -283,13 +287,21 @@ const RuneDetails = styled.p`
     margin: 1em;
     text-align: left;
 `
+
+const TopBar = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+    h3 {
+        width: 16px;
+    }
+`
+
 const Favourite = styled.h3`
     padding: 5px 10px;
     border-radius: 0 0 0 10px;
-    position: relative;
-    top: -4.3em;
-    left: calc(300px - 2.475em);
-    height: fit-content;
+    margin: 0;
     &.not-fav i {
         color: rgba(0,0,0,0.6);
     }
