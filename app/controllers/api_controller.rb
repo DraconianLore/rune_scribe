@@ -14,16 +14,13 @@ class ApiController < ApplicationController
     end
 
     def get_structures
-
         runes = load_runes
         structures = load_structures
-        # load structures and runes available to user
-        # sort data to be more readable
-                
+        # load structures and runes available to user, sort data to be more readable
         render :json => {
             runes: runes,
             structures: structures,
-            tags: Tag.all
+            tags: Tag.all.order(:id)
         }
     end
 
@@ -50,11 +47,29 @@ class ApiController < ApplicationController
         }
     end
 
+    def update_rune
+        rune = Rune.find(params[:id])
+        # update tags
+        rune.tag_ids = params[:tags] if params[:tags]
+        render :json => {
+            message: 'Rune Updated - Updating Data'
+        }
+    end
+    
+    def update_structure
+        structure = Structure.find(params[:id])
+        # update tags
+        structure.tag_ids = params[:tags] if params[:tags]
+        render :json => {
+            message: 'Rune Updated - Updating Data'
+        }
+    end
+
     def unlock_structure
         structure = Structure.find(params[:id])
         structure.discovered = true
         if structure.save!
-            # TODO: maybe broadcast refresh?
+            # TODO: maybe broadcast refresh with websockets?
             render :json => {
                 message: 'Unlocked'
             }
@@ -110,9 +125,6 @@ class ApiController < ApplicationController
     def update_tag
         
         tag = Tag.find(params[:id])
-        # tag.colour = params[:colour]
-        # tag.background = params[:background]
-        # tag.name = params[:name]
         tag.update(tag_params)
         if tag.save!
             render :json => {
@@ -136,6 +148,42 @@ class ApiController < ApplicationController
         if tag.delete
             render :json => {
                 message: 'Tag Deleted - updating data'
+            }
+        end
+    end
+
+    def fav_structure
+        structure = Structure.find(params[:id])
+        userId = params[:newUser].to_s
+        change = nil
+        if structure.fav_by.include?(userId)
+            change = 'remove'
+            structure.fav_by = structure.fav_by - [userId]
+        else
+            structure.fav_by.push(userId)
+            change = 'add'
+        end
+        if structure.save! 
+            render :json => {
+                change: change
+            }
+        end
+    end
+
+    def fav_rune
+        rune = Rune.find(params[:id])
+        userId = params[:newUser].to_s
+        change = nil
+        if rune.fav_by.include?(userId)
+            change = 'remove'
+            rune.fav_by = rune.fav_by - [userId]
+        else
+            rune.fav_by.push(userId)
+            change = 'add'
+        end
+        if rune.save! 
+            render :json => {
+                change: change
             }
         end
     end

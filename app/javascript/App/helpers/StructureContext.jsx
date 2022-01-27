@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import Cookies from 'js-cookie'
 import themes from "../components/common/themes";
+import styled from "styled-components";
 
 // create context
 const StructureContext = createContext();
@@ -40,9 +41,11 @@ const StructureContextProvider = ({ children }) => {
     const [structures, setStructures] = useState(null);
     const [runes, setRunes] = useState(null);
     const [tags, setTags] = useState(null);
+    const [ready, setReady] = useState(false)
 
     useEffect(() => {
         const loadStructures = () => {
+            setReady(false)
             fetch("/getStructures")
             .then(res => res.json())
             .then(
@@ -56,6 +59,7 @@ const StructureContextProvider = ({ children }) => {
                     console.log(`%c   Loading Tags...`, theme);
                     setTags(result.tags)
                     console.log(`%cData Load Succeeded.`, theme);
+                setReady(true)
                 },
                 (error) => {
                     console.error("An error occurred: " + error)
@@ -66,6 +70,7 @@ const StructureContextProvider = ({ children }) => {
         loadStructures()
     }, []);
     function updateData() {
+        setReady(false)
         fetch("/getStructures")
         .then(res => res.json())
         .then(
@@ -79,6 +84,7 @@ const StructureContextProvider = ({ children }) => {
                 console.log(`%c   updating Tags...`, theme);
                 setTags(result.tags)
                 console.log(`%cData Updated.`, theme);
+                setReady(true)
             },
             (error) => {
                 console.error("An error occurred: " + error)
@@ -90,11 +96,22 @@ const StructureContextProvider = ({ children }) => {
         <StructureContext.Provider value={{structures: structures, updateData: updateData}}>
             <RuneContext.Provider value={runes}>
                 <TagContext.Provider value={tags}>
+                    {ready || <Loading />}
                     {children}
                 </TagContext.Provider>
             </RuneContext.Provider>
         </StructureContext.Provider>
     )
 }
+
+const Loading = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+    background-color: rgba(0,0,0,0.1)
+`
 
 export { StructureContextProvider, useStructureContext, useRuneContext, useTagContext }

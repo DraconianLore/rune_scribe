@@ -93,24 +93,14 @@ function Tags() {
     }
 
     const editTag = (tag) => {
-        setTagPreviewFG(tag.colour)
-        setTagPreviewBG(tag.background)
-        setTagPreviewName(tag.name)
-        setCurrentTag(tag)
+        setTagPreviewFG(tag.colour || '#CCC')
+        setTagPreviewBG(tag.background || '#444')
+        setTagPreviewName(tag.name || 'New Tag')
+        tag.id && setCurrentTag(tag)
         setShowModal(true)
         setTextPicker(false)
         setBackgroundPicker(false)
     }
-    
-    const newTag = () => {
-        setTagPreviewFG('#CCC')
-        setTagPreviewBG('#444')
-        setTagPreviewName('New Tag')
-        setShowModal(true)
-        setTextPicker(false)
-        setBackgroundPicker(false)
-    }
-
     
     const tagRow = (tag) => {
         return(
@@ -138,7 +128,7 @@ function Tags() {
     
     return(
         <>
-            <TagHeader><input type='text' id='tag-filter' placeholder='Filter' onChange={(e) => setSearch(e.target.value)}></input><h3>Tags</h3><TagRight><i className="fas fa-plus-square" onClick={newTag} title='New Tag'></i></TagRight></TagHeader>
+            <TagHeader><input type='text' id='tag-filter' placeholder='Filter' onChange={(e) => setSearch(e.target.value)}></input><h3>Tags</h3><TagRight><i className="fas fa-plus-square" onClick={editTag} title='New Tag'></i></TagRight></TagHeader>
             <PageDescription>This page shows how each tag looks in each theme.<br /><em><small>Note: tags are shared between all users.</small></em></PageDescription>
             <table id='tag-table'>
                 <thead>
@@ -196,7 +186,6 @@ const TagHeader = styled.div`
     max-width: calc(800px + 6em);
     margin-top: 0.5em;
     border-radius: 10px;
-    
     input {
         width: 100px;
         margin-left: 10px;

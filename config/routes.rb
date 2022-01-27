@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   put 'update_tag/:id', to: 'api#update_tag'
   post 'create_tag', to: 'api#new_tag'
   put 'delete_tag/:id', to: 'api#delete_tag'
+  put 'update/rune/:id', to: 'api#update_rune'
+  put 'update/structure/:id', to: 'api#update_structure'
+  put 'fav/s/:id', to: 'api#fav_structure'
+  put 'fav/r/:id', to: 'api#fav_rune'
   
   # DM calls
   put 'unlock/:id', to: 'api#unlock_structure'

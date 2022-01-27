@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_163835) do
+ActiveRecord::Schema.define(version: 2022_01_27_194318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_01_12_163835) do
     t.text "additional"
     t.string "target", default: [], array: true
     t.string "tags", array: true
+    t.string "fav_by", default: [], array: true
   end
 
   create_table "runes_structures", force: :cascade do |t|
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 2022_01_12_163835) do
     t.boolean "discovered", default: false
     t.string "target", default: [], array: true
     t.string "tags", array: true
+    t.string "fav_by", default: [], array: true
   end
 
   create_table "structures_tags", force: :cascade do |t|
