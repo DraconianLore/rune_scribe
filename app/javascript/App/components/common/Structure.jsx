@@ -12,49 +12,77 @@ const tags = (tags) => {
     return tagList
 }
 
-const findDuration = (trace) => {
-    // For halving the duration for bonus actions
-    let duration = trace
-    const words = trace.replace(/[0-9]/g, '');
-    const numbers = trace.match(/\d/g);
-    if (trace != 'Instant') {
-        switch (words) {
-            case ' Rounds':
-            case ' Seconds':
-            case ' Minutes':
-            case ' Hours':
-                const halved = Math.ceil(numbers / 2)
-                const proper_word = halved == 1 ? words.slice(0, -1) : words;
-                duration = halved + proper_word
-                break;
-            case ' Round':
-            case ' Second':
-                duration = trace
-                break
-            case ' Minute':
-                duration = '30 Seconds'
-                break
-            case ' Hour':
-                duration = '30 Minutes'
-                break
-            default:
-                duration = 'Half of ' + trace
-                break;
-        }
-    }
-    return duration
-}
-
 function ModalContent(props) {
     return (
-        <RuneModal>
+        <StructureModal>
             <div>
-                <h1>{props.rune.name}</h1>
-                <RuneDetails>{props.rune.description}</RuneDetails>
-                <span>Targets: {props.rune.target.join(', ')}</span>
+                <h1>{props.structure.name}</h1>
+                <StructureDetails>{props.structure.description}</StructureDetails>
+                <span>Targets: {props.structure.target.join(', ')}</span>
             </div>
             <small>Click to edit tags</small>
-        </RuneModal>
+        </StructureModal>
+    )
+}
+
+function Structure(props) {
+    const user = useUserContextState() || ''
+    const [showModal, setShowModal] = useState(false)
+    const [showTagModal, setShowTagModal] = useState(false)
+    const [fav, setFav] = useState(props.structure.fav_by.includes(user.id.toString()))
+    const tagList = tags(props.structure.tags)
+
+    const clickStructure = () => {
+        setShowModal(false)
+        setShowTagModal(true)
+    }
+    const toggleFavourite = (e) => {
+        e.stopPropagation();
+        fetch("/fav/s/" + props.structure.id, {
+            method: 'PUT',
+            headers:  {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+              },
+              body: JSON.stringify({newUser: user.id})
+        })
+        .then(res => res.json())
+        .then(result => {
+            if (result.change === 'add') {
+                setFav(true)
+            } else {
+                setFav(false)
+            }
+        })
+    }
+    const closeTagModal = () => {
+        setShowTagModal(false)
+    }
+    const openModal = () => {
+        setShowModal(true)
+    }
+    const closeModal = () => {
+        setShowModal(false)
+    }
+    // non house structures have halved duration when used as a bonus action
+    const duration =  props.bonusAction ? user.house == props.structure.house ? props.structure.trace : findDuration(props.structure.trace) : props.structure.trace;
+    return (
+        <>
+            <StructureItem className={props.structure.dominant} data-description={props.structure.description} onClick={clickStructure}  onMouseLeave={closeModal} onMouseEnter={openModal} >
+                <TopBar>
+                    <StructureSize>{props.structure.number_of_runes}</StructureSize>
+                    <h2>{props.structure.name}</h2>
+                    <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
+                </TopBar>
+                <hr />
+                <Tags>
+                    {tagList}
+                </Tags>
+                <small>{duration}</small>
+            </StructureItem>
+            {showModal && <HoverModal structure={props.structure} />}
+            {showTagModal && <ItemTagModal item={props.structure} close={closeTagModal} type='structure' reload={props.reload || null} />}
+        </>
     )
 }
 
@@ -99,78 +127,14 @@ const HoverModal = (props) => {
 
     return(
         <>
-        {visible && <ModalContainer className={props.rune.house} style={{top: modalOffsetY ? mousePos.y - 400 : mousePos.y + 50, left: modalOffset == 'left' ? '50px' : modalOffset == 'right' ? 'calc(100vw - 650px)' : mousePos.x - 300}}>
-                <ModalContent rune={props.rune} />
+            {visible && <ModalContainer className={props.structure.dominant} style={{top: modalOffsetY ? mousePos.y - 400 : mousePos.y + 50, left: modalOffset == 'left' ? '50px' : modalOffset == 'right' ? 'calc(100vw - 650px)' : mousePos.x - 300}}>
+                <ModalContent structure={props.structure} />
             </ModalContainer>}
         </>
     )
 }
 
-
-function Rune(props) {
-    const user = useUserContextState() || ''
-    const [showModal, setShowModal] = useState(false)
-    const [showTagModal, setShowTagModal] = useState(false)
-    const [fav, setFav] = useState(props.rune.fav_by.includes(user.id.toString()))
-    const tagList = tags(props.rune.tags)
-
-    const toggleFavourite = (e) => {
-        e.stopPropagation();
-        fetch("/fav/r/" + props.rune.id, {
-            method: 'PUT',
-            headers:  {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-              },
-              body: JSON.stringify({newUser: user.id})
-        })
-        .then(res => res.json())
-        .then(result => {
-            if (result.change === 'add') {
-                setFav(true)
-            } else {
-                setFav(false)
-            }
-        })
-    }
-
-    const clickRune = () => {
-        setShowModal(false)
-        setShowTagModal(true)
-    }
-    const closeTagModal = () => {
-        setShowTagModal(false)
-    }
-    const openModal = () => {
-        setShowModal(true)
-    }
-    const closeModal = () => {
-        setShowModal(false)
-    }
-    // non house runes have halved duration when used as a bonus action
-    const duration =  props.bonusAction ? user.house == props.rune.house ? props.rune.trace : findDuration(props.rune.trace) : props.rune.trace;
-
-    return (
-        <>
-            <RuneItem className={props.rune.house} data-description={props.rune.description} onClick={clickRune}  onMouseLeave={closeModal} onMouseEnter={openModal} >
-                <TopBar>
-                    <h3 />
-                    <h2>{props.rune.name}</h2>
-                    <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
-                </TopBar>
-                <hr />
-                <Tags>
-                    {tagList}
-                </Tags>
-                <small>{duration}</small>
-            </RuneItem>
-            {showModal && <HoverModal rune={props.rune} />}
-            {showTagModal && <ItemTagModal item={props.rune} close={closeTagModal} type='rune' reload={props.reload || null} />}
-        </>
-    )
-}
-
-export default Rune;
+export default Structure;
 
 // styling
 const Tags = styled.div`
@@ -188,7 +152,7 @@ const Tag = styled.p`
     height: 1.2em;
 `
 
-const RuneItem = styled.div`
+const StructureItem = styled.div`
     width: 300px;
     height: 175px;
     display: flex;
@@ -239,6 +203,14 @@ const RuneItem = styled.div`
            color: ${themes('Life').headerFG};
         }
     }
+    &.None {
+        background-color: #223;
+        color: #cca;
+        h3 {
+            background-color: #334;
+           color: #bb9};
+        }
+    }
     &.strained {
         filter: drop-shadow(0px 0px 5px #f33);
     }
@@ -274,7 +246,7 @@ const ModalContainer = styled.div`
     }
 `
 
-const RuneModal = styled.div`
+const StructureModal = styled.div`
     width: 600px;
     min-height: 350px;
     display: flex;
@@ -282,26 +254,26 @@ const RuneModal = styled.div`
     justify-content: space-between;
     `
     
-const RuneDetails = styled.p`
+const StructureDetails = styled.p`
     white-space: pre-line;
     margin: 1em;
     text-align: left;
 `
-
 const TopBar = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-direction: row;
-    h3 {
-        width: 16px;
-    }
 `
-
+const StructureSize = styled.h3`
+    padding: 5px 10px;
+    border-radius: 0 0 10px 0;
+    margin: 0;
+`
 const Favourite = styled.h3`
     padding: 5px 10px;
-    border-radius: 0 0 0 10px;
     margin: 0;
+    border-radius: 0 0 0 10px;
     &.not-fav i {
         color: rgba(0,0,0,0.6);
     }

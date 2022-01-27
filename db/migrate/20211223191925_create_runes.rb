@@ -4,7 +4,7 @@ class CreateRunes < ActiveRecord::Migration[6.1]
       t.string :name
       t.text :description
       t.string :house
-      t.string :tags, array: true, default: ['rune']
+      t.string :tags, array: true, default: []
       t.timestamps
     end
   end

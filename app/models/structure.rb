@@ -2,6 +2,7 @@ class Structure < ApplicationRecord
     has_and_belongs_to_many :runes
     has_one :level
     before_create :calculate_details
+    has_and_belongs_to_many :tags
 
     scope :unlocked, -> { where(discovered: true) }
     scope :locked, -> { where(discovered: false) }

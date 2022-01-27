@@ -31,7 +31,7 @@ const UserContextProvider = ({ children }) => {
   // the value that will be given to the context
   const [user, setUser] = useState(null);
 
-    const updateData = useCallback((data) => {
+  const updateData = useCallback((data) => {
     fetch("/update_settings",{
         method: 'PUT',
         headers:  {

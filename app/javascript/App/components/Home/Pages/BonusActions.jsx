@@ -4,19 +4,6 @@ import Rune from "../../common/Rune";
 import themes from "../../common/themes";
 import Cookies from "js-cookie";
 
-const RuneList = (props) => {
-    let runes = [];
-    for (let i = 0; i < props.runes.length; i++){
-        runes.push(<Rune rune={props.runes[i]} bonusAction={true} key={'rune' + i} />)
-    }
-
-    return (
-        <RuneContainer>
-            {runes}
-        </RuneContainer>
-    )
-}
-
 
 function BonusActions() {
 
@@ -37,15 +24,24 @@ function BonusActions() {
         }
         loadBonusActionRunes();
     }, []);
+    const RuneList = () => {
+        const runeList = runes.map((rune, i) => {
+            return(<Rune rune={rune} bonusAction={true} key={i}  />)    
+        })
+
+        return (
+            <RuneContainer>
+                {runeList}
+            </RuneContainer>
+        )
+    }
     
     return(
         <>
             <h3>Bonus Actions</h3>
-            {runes ? <RuneList runes={runes}/> : <h2>No Bonus action runes available until level 5</h2>}
+            {runes ? <RuneList /> : <h2>No Bonus action runes available until level 5</h2>}
         </>
     )
-
-
 }
 
 export default BonusActions

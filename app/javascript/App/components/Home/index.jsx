@@ -5,9 +5,10 @@ import styled from "styled-components";
 import themes from "../common/themes";
 import Cookies from 'js-cookie'
 // Pages
-import BonusActions from "./Pages/BonusActions";
 import ScribeLevels from './Pages/ScribeLevels'
 import Structures from "./Pages/Structures";
+import BonusActions from "./Pages/BonusActions";
+import Tags from "./Pages/Tags";
 
 // images
 import img_levels from './images/levels.png'
@@ -53,9 +54,10 @@ function Homepage() {
               Tracking
             </Icon></ExternalLink>
           </IconBar>
-          {section === 'Bonus Actions' && <BonusActions />}
-          {section === 'Structures' && <Structures />}
           {section === 'Levels' && <ScribeLevels level={user.level} house={user.house} />}
+          {section === 'Structures' && <Structures />}
+          {section === 'Bonus Actions' && <BonusActions />}
+          {section === 'Tags' && <Tags />}
       </HomeLayout>
     </StructureContextProvider>
   );

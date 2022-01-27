@@ -14,15 +14,13 @@ class ApiController < ApplicationController
     end
 
     def get_structures
-
         runes = load_runes
         structures = load_structures
-        # load structures and runes available to user
-        # sort data to be more readable
-                
+        # load structures and runes available to user, sort data to be more readable
         render :json => {
             runes: runes,
-            structures: structures
+            structures: structures,
+            tags: Tag.all.order(:id)
         }
     end
 
@@ -49,11 +47,29 @@ class ApiController < ApplicationController
         }
     end
 
+    def update_rune
+        rune = Rune.find(params[:id])
+        # update tags
+        rune.tag_ids = params[:tags] if params[:tags]
+        render :json => {
+            message: 'Rune Updated - Updating Data'
+        }
+    end
+    
+    def update_structure
+        structure = Structure.find(params[:id])
+        # update tags
+        structure.tag_ids = params[:tags] if params[:tags]
+        render :json => {
+            message: 'Rune Updated - Updating Data'
+        }
+    end
+
     def unlock_structure
         structure = Structure.find(params[:id])
         structure.discovered = true
         if structure.save!
-            # TODO: maybe broadcast refresh?
+            # TODO: maybe broadcast refresh with websockets?
             render :json => {
                 message: 'Unlocked'
             }
@@ -106,6 +122,72 @@ class ApiController < ApplicationController
         }
     end
 
+    def update_tag
+        
+        tag = Tag.find(params[:id])
+        tag.update(tag_params)
+        if tag.save!
+            render :json => {
+                message: 'Tag Updated - updating data'
+            }
+        end
+    end
+
+    def new_tag
+        
+        tag = Tag.new(tag_params)
+        if tag.save!
+            render :json => {
+                message: 'Tag Created - updating data'
+            }
+        end
+    end
+
+    def delete_tag
+        tag = Tag.find(params[:id])
+        if tag.delete
+            render :json => {
+                message: 'Tag Deleted - updating data'
+            }
+        end
+    end
+
+    def fav_structure
+        structure = Structure.find(params[:id])
+        userId = params[:newUser].to_s
+        change = nil
+        if structure.fav_by.include?(userId)
+            change = 'remove'
+            structure.fav_by = structure.fav_by - [userId]
+        else
+            structure.fav_by.push(userId)
+            change = 'add'
+        end
+        if structure.save! 
+            render :json => {
+                change: change
+            }
+        end
+    end
+
+    def fav_rune
+        rune = Rune.find(params[:id])
+        userId = params[:newUser].to_s
+        change = nil
+        if rune.fav_by.include?(userId)
+            change = 'remove'
+            rune.fav_by = rune.fav_by - [userId]
+        else
+            rune.fav_by.push(userId)
+            change = 'add'
+        end
+        if rune.save! 
+            render :json => {
+                change: change
+            }
+        end
+    end
+
     private
 
     def load_runes
@@ -113,7 +195,7 @@ class ApiController < ApplicationController
         house = Current.user.house
         userlevel = Current.user.level
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
-        runes = Rune.where("level <= ?", userlevel).or(Rune.where("level <= ? AND house = ?", house_level[userlevel], house))
+        runes = Rune.where("level <= ?", userlevel).or(Rune.where("level <= ? AND house = ?", house_level[userlevel], house)).order(:id)
 
         runes
     end
@@ -125,11 +207,13 @@ class ApiController < ApplicationController
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
         # work out how do have all that have house level and exclude ones with overlevelled other hosues
         # work out how to restrick levels to x rune structures
-        all = Structure.joins(:level).where("levels.all <= ?", userlevel)
-        # house = Structure.joins(:level).where("levels.#{house} <= ?", house_level[level])
+        structures = Structure.joins(:level).where("levels.all <= ?", userlevel).or(Structure.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).order(:id)
 
+        structures
     end
 
-
+    def tag_params
+        params.require(:tag).permit(:name, :colour, :background)
+    end
   end
   

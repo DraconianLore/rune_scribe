@@ -26,15 +26,15 @@ const levels = {
 const houses = {
     'Mind': {
         1: [],
-        2: ['Gentle Breeze'],
+        2: ['<em>Gentle Breeze</em>'],
         3: [],
         4: [],
         5: [],
-        6: ['Mind Reading'],
+        6: ['<em>Mind Reading</em>'],
         7: [],
         8: [],
         9: [],
-        10: ['Master Mind'],
+        10: ['<em>Master Mind</em>'],
         11: [],
         12: [],
         13: [],
@@ -42,21 +42,21 @@ const houses = {
         15: [],
         16: [],
         17: [],
-        18: ['All in the Mind'],
+        18: ['<em>All in the Mind</em>'],
         19: [],
         20: []
     },
     'Power': {
         1: [],
-        2: ['Flaming Brand'],
+        2: ['<em>Flaming Brand</em>'],
         3: [],
         4: [],
         5: [],
-        6: ['Engravers Preservation'],
+        6: ['<em>Engravers Preservation</em>'],
         7: [],
         8: [],
         9: [],
-        10: ['Persistent Runes'],
+        10: ['<em>Persistent Runes</em>'],
         11: [],
         12: [],
         13: [],
@@ -64,21 +64,21 @@ const houses = {
         15: [],
         16: [],
         17: [],
-        18: ['Lifeblood Blade'],
+        18: ['<em>Lifeblood Blade</em>'],
         19: [],
         20: []
     },
     'Death': {
         1: [],
-        2: ['Dust to Dust'],
+        2: ['<em>Dust to Dust</em>'],
         3: [],
         4: [],
         5: [],
-        6: ["Death's Apprentice"],
+        6: ["<em>Death's Apprentice</em>"],
         7: [],
         8: [],
         9: [],
-        10: ["Death's Companion"],
+        10: ["<em>Death's Companion</em>"],
         11: [],
         12: [],
         13: [],
@@ -86,21 +86,21 @@ const houses = {
         15: [],
         16: [],
         17: [],
-        18: ["Death's Master"],
+        18: ["<em>Death's Master</em>"],
         19: [],
         20: []
     },
     'Life': {
         1: [],
-        2: ['Fluid Motion'],
+        2: ['<em>Fluid Motion</em>'],
         3: [],
         4: [],
         5: [],
-        6: ['Master of Life'],
+        6: ['<em>Master of Life</em>'],
         7: [],
         8: [],
         9: [],
-        10: ['Resouling'],
+        10: ['<em>Resouling</em>'],
         11: [],
         12: [],
         13: [],
@@ -108,7 +108,7 @@ const houses = {
         15: [],
         16: [],
         17: [],
-        18: ['Halflife'],
+        18: ['<em>Halflife</em>'],
         19: [],
         20: []
     },
@@ -242,12 +242,11 @@ const levelDetails = {
 
 
 const levelFeats = (level, house) => {
+    
     const feats = levels[level].concat(house && houses[house][level])
 
     return(
-        <span>
-            {feats.join(", ")}
-        </span>
+        <span dangerouslySetInnerHTML={{ __html: feats.join(", ")}} />
     )
 }
 
