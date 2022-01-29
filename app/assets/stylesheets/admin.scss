@@ -231,7 +231,8 @@
                 border: 6px double #223;
                 width: 230px;
                 margin-bottom: 1em;
-                &.Mind {
+                filter: drop-shadow(0px 0px 10px #c66);
+                    &.Mind {
                     background-color: #112;
                     color: #9be;
                     border-color: #334;
@@ -289,6 +290,9 @@
                             color: #cca;
                         }
                     }
+                }
+                &.connected {
+                    filter: drop-shadow(0px 0px 10px #6c6);
                 }
             }
         }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_194318) do
+ActiveRecord::Schema.define(version: 2022_01_29_204108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2022_01_27_194318) do
     t.string "house", default: "None"
     t.string "theme", default: "Mind"
     t.string "follower"
+    t.boolean "connected", default: false
   end
 
 end

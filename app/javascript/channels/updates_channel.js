@@ -11,7 +11,6 @@ const UpdatesChannel = consumer.subscriptions.create("UpdatesChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    console.log('incoming from channeljs', data)
   }
 });
 
