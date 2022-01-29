@@ -7,6 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each do |seed|
-    load seed
-end
+puts 'Starting Database Seed'
+
+load 'db/seeds/admin.rb'
+load 'db/seeds/tags.rb'
+load 'db/seeds/runes.rb'
+load 'db/seeds/structures2.rb'
+load 'db/seeds/structures4.rb'
+load 'db/seeds/structuresx.rb'
+
+puts '------------------------------------'
+puts 'Database Seeding Complete'

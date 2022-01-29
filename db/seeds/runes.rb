@@ -8,7 +8,8 @@ Rune.create(
     trace: '2 Rounds',
     draw: '1 Hour',
     house: 'Mind',
-    level: 1
+    level: 1,
+    tag_ids: [Tag.find_by(name: 'Buff').id]
 )
 Rune.create(
     name: 'Rune of the Mind',
@@ -20,7 +21,8 @@ Rune.create(
     trace: '2 Rounds',
     draw: '5 Minutes',
     house: 'Mind',
-    level: 2
+    level: 2,
+    tag_ids: [Tag.find_by(name: 'Debuff').id]
 )
 Rune.create(
     name: 'Rune of Air',
@@ -36,7 +38,8 @@ Rune.create(
     trace: '5 Rounds',
     draw: '5 Minutes',
     house: 'Mind',
-    level: 3
+    level: 3,
+    tag_ids: [Tag.find_by(name: 'AoE').id]
 )
 Rune.create(
     name: 'Rune of Sight',
@@ -45,7 +48,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Mind',
-    level: 4
+    level: 4,
+    tag_ids: [Tag.find_by(name: 'Buff').id]
 )
 Rune.create(
     name: 'Rune of Fear',
@@ -54,7 +58,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Mind',
-    level: 5
+    level: 5,
+    tag_ids: [Tag.find_by(name: 'Aura').id]
 )
 Rune.create(
     name: 'Rune of the Sky',
@@ -64,7 +69,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Mind',
-    level: 7
+    level: 7,
+    tag_ids: [Tag.find_by(name: 'AoE').id]
 )
 Rune.create(
     name: 'Rune of Imagination',
@@ -81,7 +87,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Mind',
-    level: 10
+    level: 10,
+    tag_ids: []
 )
 puts "Mind runes populated"
 
@@ -93,7 +100,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Power',
-    level: 1
+    level: 1,
+    tag_ids: []
 )
 Rune.create(
     name: 'Rune of Embers',
@@ -103,7 +111,8 @@ Rune.create(
     trace: '5 Rounds',
     draw: '5 Minutes',
     house: 'Power',
-    level: 2
+    level: 2,
+    tag_ids: [Tag.find_by(name: 'Augment').id]
 )
 Rune.create(
     name: 'Rune of Flames',
@@ -115,7 +124,8 @@ Rune.create(
     trace: '5 Rounds',
     draw: '5 Minutes',
     house: 'Power',
-    level: 3
+    level: 3,
+    tag_ids: [Tag.find_by(name: 'Augment').id]
 )
 Rune.create(
     name: 'Rune of the Forge',
@@ -125,7 +135,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Power',
-    level: 4
+    level: 4,
+    tag_ids: [Tag.find_by(name: 'Augment').id]
 )
 Rune.create(
     name: 'Rune of Strength',
@@ -135,7 +146,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Power',
-    level: 5
+    level: 5,
+    tag_ids: [Tag.find_by(name: 'Augment').id]
 )
 Rune.create(
     name: 'Rune of Fury',
@@ -146,7 +158,8 @@ Rune.create(
     trace: '5 Rounds',
     draw: '1 Hour',
     house: 'Power',
-    level: 7
+    level: 7,
+    tag_ids: [Tag.find_by(name: 'Debuff').id, Tag.find_by(name: 'Buff').id]
 )
 Rune.create(
     name: 'Rune of Destruction',
@@ -158,7 +171,8 @@ Rune.create(
     trace: 'Instant',
     draw: 'Instant',
     house: 'Power',
-    level: 10
+    level: 10,
+    tag_ids: [Tag.find_by(name: 'AoE').id]
 )
 puts "Power runes populated"
 
@@ -171,7 +185,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Death',
-    level: 1
+    level: 1,
+    tag_ids: [Tag.find_by(name: 'Buff').id]
 )
 Rune.create(
     name: 'Rune of Death',
@@ -181,7 +196,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Death',
-    level: 2
+    level: 2,
+    tag_ids: []
 )
 Rune.create(
     name: 'Rune of Earth',
@@ -193,7 +209,8 @@ Rune.create(
     trace: 'Instant',
     draw: 'Instant',
     house: 'Death',
-    level: 3
+    level: 3,
+    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id]
 )
 Rune.create(
     name: 'Rune of Mountains',
@@ -205,7 +222,8 @@ Rune.create(
     trace: 'Instant',
     draw: 'Instant',
     house: 'Death',
-    level: 4
+    level: 4,
+    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id]
 )
 Rune.create(
     name: 'Rune of Stone',
@@ -215,7 +233,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Death',
-    level: 5
+    level: 5,
+    tag_ids: [Tag.find_by(name: 'Buff').id]
 )
 Rune.create(
     name: 'Rune of Ore',
@@ -225,7 +244,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Death',
-    level: 7
+    level: 7,
+    tag_ids: [Tag.find_by(name: 'Utility').id]
 )
 Rune.create(
     name: 'Rune of Oblivion',
@@ -237,7 +257,8 @@ Rune.create(
     trace: '3 Rounds',
     draw: '1 Hour',
     house: 'Death',
-    level: 10
+    level: 10,
+    tag_ids: []
 )
 puts "Death runes populated"
 
@@ -250,7 +271,8 @@ Rune.create(
     trace: '5 Rounds',
     draw: '10 Minutes',
     house: 'Life',
-    level: 1
+    level: 1,
+    tag_ids: [Tag.find_by(name: 'Healing').id]
 )
 Rune.create(
     name: 'Rune of Water',
@@ -260,7 +282,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Life',
-    level: 2
+    level: 2,
+    tag_ids: [Tag.find_by(name: 'AoE').id]
 )
 Rune.create(
     name: 'Rune of Leaves',
@@ -269,7 +292,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Life',
-    level: 3
+    level: 3,
+    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id]
 )
 Rune.create(
     name: 'Rune of Depth',
@@ -278,7 +302,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Life',
-    level: 4
+    level: 4,
+    tag_ids: [Tag.find_by(name: 'Buff').id]
 )
 Rune.create(
     name: 'Rune of Frost',
@@ -287,7 +312,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Life',
-    level: 5
+    level: 5,
+    tag_ids: [Tag.find_by(name: 'AoE').id]
 )
 Rune.create(
     name: 'Rune of Waves',
@@ -299,7 +325,8 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Life',
-    level: 7
+    level: 7,
+    tag_ids: [Tag.find_by(name: 'AoE').id]
 )
 Rune.create(
     name: 'Rune of Rebirth',
@@ -308,6 +335,7 @@ Rune.create(
     trace: '1 Minute',
     draw: '1 Hour',
     house: 'Life',
-    level: 10
+    level: 10,
+    tag_ids: [Tag.find_by(name: 'Buff').id, Tag.find_by(name: 'Healing').id]
 )
 puts "Life runes populated"

@@ -1,20 +1,8 @@
 # Seeds for base structures
 
-# TEMPLATE:
-# Structure.create(
-#     name: '',
-#     description: %(),
-#     additional: %(),
-#     trace: '',
-#     target: '',
-#     draw: '',
-#     strained: false,
-#     sub_structures: [],
-#     discovered: false
-# )
-
 # Two Rune Structures
 puts 'Adding two rune structures'
+
 # Mind Structures
 puts 'Mind...'
 s = Structure.new(
@@ -28,6 +16,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Imagination')
+s.tags << Tag.find_by(name: 'Debuff')
 s.save!
     
 s = Structure.new(
@@ -55,6 +44,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Air')
+s.tags << Tag.find_by(name: 'Aura')
 s.save!
 
 s = Structure.new(
@@ -68,6 +58,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Imagination')
+s.tags << Tag.find_by(name: 'Aura')
 s.save!
 
 s = Structure.new(
@@ -94,6 +85,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of the Sky')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -107,6 +99,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Sight')
 s.runes << Rune.find_by(name: 'Rune of Sight')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -121,6 +114,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Force')
 s.runes << Rune.find_by(name: 'Rune of Force')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -150,6 +144,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Air')
+s.tags << Tag.find_by(name: 'Utility')
+s.tags << Tag.find_by(name: 'Debuff')
 s.save!
 
 s = Structure.new(
@@ -163,6 +159,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Sight')
+s.tags << Tag.find_by(name: 'Utility')
 s.save!
 
 s = Structure.new(
@@ -176,6 +173,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of the Mind')
+s.tags << Tag.find_by(name: 'Debuff')
 s.save!
 
 s = Structure.new(
@@ -189,6 +187,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Sight')
 s.runes << Rune.find_by(name: 'Rune of Fear')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -202,6 +201,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of the Sky')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -218,6 +218,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Air')
 s.runes << Rune.find_by(name: 'Rune of Force')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -231,6 +232,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Fear')
+s.tags << Tag.find_by(name: 'Aura')
 s.save!
 
 s = Structure.new(
@@ -244,6 +246,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Air')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 # Power structures
@@ -252,7 +255,7 @@ puts 'Power...'
 s = Structure.new(
     name: 'Armour of Power',
     description: %(Your armour becomes a force to be reckoned with, you have advantage on Athletics ability checks and strength saving throws, and can grapple creatures up to two sizes larger than you.),
-    target: ['medium Armour', 'Heavy Armour'],
+    target: ['Medium Armour', 'Heavy Armour'],
     trace: '2 Rounds',
     draw: '20 Minutes',
     strained: false,
@@ -260,6 +263,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Strength')
 s.runes << Rune.find_by(name: 'Rune of Strength')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -273,6 +277,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Flames')
 s.runes << Rune.find_by(name: 'Rune of Fury')
+s.tags << Tag.find_by(name: 'Aura')
 s.save!
 
 s = Structure.new(
@@ -286,6 +291,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Embers')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -300,6 +306,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Flames')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -313,6 +320,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Forge')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -326,6 +334,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Flames')
 s.runes << Rune.find_by(name: 'Rune of Flames')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -339,6 +348,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Flames')
 s.runes << Rune.find_by(name: 'Rune of Destruction')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -352,6 +362,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Light')
 s.runes << Rune.find_by(name: 'Rune of Light')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -367,6 +378,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Light')
 s.runes << Rune.find_by(name: 'Rune of Embers')
+s.tags << Tag.find_by(name: 'Utility')
 s.save!
 
 s = Structure.new(
@@ -384,6 +396,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Destruction')
 s.runes << Rune.find_by(name: 'Rune of Destruction')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -399,13 +412,14 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Fury')
 s.runes << Rune.find_by(name: 'Rune of Destruction')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
     name: 'Revengance',
     description: %(For the duration any time a creature damages the target, they become a Nemesis of the target, and can feel the pure rage of the target.
         
-        The target has advantage on all attacks against the targets Nemeses have advantage, and nemeses making saving throws against the caster have disadvantage on their saves.),
+        The target has advantage on all attacks against the targets Nemeses, and nemeses making saving throws against the caster have disadvantage on their saves.),
     target: ['Creature'],
     trace: '1 Minute',
     draw: '20 Minutes',
@@ -414,6 +428,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Fury')
+s.tags << Tag.find_by(name: 'Debuff')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -431,6 +447,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Fury')
 s.runes << Rune.find_by(name: 'Rune of Fury')
+s.tags << Tag.find_by(name: 'Debuff')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -444,6 +462,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Light')
 s.runes << Rune.find_by(name: 'Rune of Strength')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -532,6 +551,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Earth')
 s.runes << Rune.find_by(name: 'Rune of Death')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -571,6 +591,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Protection')
 s.runes << Rune.find_by(name: 'Rune of Death')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -584,6 +605,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Mountains')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -597,6 +619,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Earth')
 s.runes << Rune.find_by(name: 'Rune of Protection')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -610,6 +633,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Death')
 s.runes << Rune.find_by(name: 'Rune of Mountains')
+s.tags << Tag.find_by(name: 'AoE')
+s.tags << Tag.find_by(name: 'Utility')
 s.save!
 
 s = Structure.new(
@@ -624,6 +649,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Mountains')
 s.runes << Rune.find_by(name: 'Rune of Mountains')
+s.tags << Tag.find_by(name: 'AoE')
+s.tags << Tag.find_by(name: 'Utility')
 s.save!
 
 s = Structure.new(
@@ -654,6 +681,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Earth')
+s.tags << Tag.find_by(name: 'Aura')
+s.tags << Tag.find_by(name: 'Utility')
 s.save!
 
 s = Structure.new(
@@ -669,6 +698,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Protection')
 s.runes << Rune.find_by(name: 'Rune of Protection')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -682,6 +712,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Stone')
 s.runes << Rune.find_by(name: 'Rune of Stone')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -708,6 +739,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Ore')
+s.tags << Tag.find_by(name: 'AoE')
+s.tags << Tag.find_by(name: 'Utility')
 s.save!
 
 s = Structure.new(
@@ -722,6 +755,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Earth')
 s.runes << Rune.find_by(name: 'Rune of Earth')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 # Life Structures
@@ -740,6 +774,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -767,6 +802,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Leaves')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
+s.tags << Tag.find_by(name: 'Buff')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -780,6 +817,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -793,6 +831,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Frost')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -806,6 +845,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Life')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -820,6 +860,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Depth')
 s.runes << Rune.find_by(name: 'Rune of Depth')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -837,6 +878,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Water')
 s.runes << Rune.find_by(name: 'Rune of Water')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -857,6 +899,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Water')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -876,6 +919,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Waves')
 s.runes << Rune.find_by(name: 'Rune of Waves')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -891,6 +935,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Waves')
+s.tags << Tag.find_by(name: 'Buff')
+s.tags << Tag.find_by(name: 'Healing')
 s.save!
 
 s = Structure.new(
@@ -917,6 +963,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
+s.tags << Tag.find_by(name: 'Utility')
+s.tags << Tag.find_by(name: 'Healing')
 s.save!
 
 s = Structure.new(
@@ -931,12 +979,14 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Life')
+s.tags << Tag.find_by(name: 'Aura')
+s.tags << Tag.find_by(name: 'Healing')
 s.save!
 
 s = Structure.new(
     name: 'Water of Life',
     description: %(In a cube of 20ft around the rune a gentle rain starts to fall, each creature who starts their turn in the rain gains 1d4 HP),
-    target: ['Creature'],
+    target: ['Surface'],
     trace: '5 Roudns',
     draw: '10 Minutes',
     strained: false,
@@ -944,6 +994,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Water')
+s.tags << Tag.find_by(name: 'AoE')
+s.tags << Tag.find_by(name: 'Healing')
 s.save!
 
 s = Structure.new(
@@ -959,6 +1011,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 # Neutral Structures
@@ -976,6 +1029,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Air')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -989,6 +1043,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1002,6 +1057,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Waves')
 s.runes << Rune.find_by(name: 'Rune of Sight')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -1028,6 +1084,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Oblivion')
+s.tags << Tag.find_by(name: 'Aura')
 s.save!
 
 s = Structure.new(
@@ -1043,6 +1100,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Mountains')
 s.runes << Rune.find_by(name: 'Rune of Fury')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1058,6 +1116,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Air')
 s.runes << Rune.find_by(name: 'Rune of Flames')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1071,6 +1130,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1086,6 +1146,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Water')
+s.tags << Tag.find_by(name: 'Utility')
 s.save!
 
 s = Structure.new(
@@ -1099,6 +1160,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -1112,6 +1174,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Flames')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -1125,6 +1188,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Death')
+s.tags << Tag.find_by(name: 'Aura')
 s.save!
 
 s = Structure.new(
@@ -1152,6 +1216,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Destruction')
 s.runes << Rune.find_by(name: 'Rune of Protection')
+s.tags << Tag.find_by(name: 'Debuff')
 s.save!
 
 s = Structure.new(
@@ -1183,6 +1248,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Protection')
 s.runes << Rune.find_by(name: 'Rune of Light')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -1196,6 +1262,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Force')
 s.runes << Rune.find_by(name: 'Rune of Light')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1237,6 +1304,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Force')
 s.runes << Rune.find_by(name: 'Rune of Protection')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -1279,6 +1347,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
 s.runes << Rune.find_by(name: 'Rune of Embers')
+s.tags << Tag.find_by(name: 'Healing')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -1310,6 +1380,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Sight')
 s.runes << Rune.find_by(name: 'Rune of Earth')
+s.tags << Tag.find_by(name: 'Buff')
 s.save!
 
 s = Structure.new(
@@ -1323,6 +1394,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Waves')
 s.runes << Rune.find_by(name: 'Rune of Strength')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1339,6 +1411,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Earth')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1369,6 +1442,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Force')
+s.tags << Tag.find_by(name: 'Healing')
 s.save!
 
 s = Structure.new(
@@ -1384,6 +1458,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Light')
+s.tags << Tag.find_by(name: 'Buff')
+s.tags << Tag.find_by(name: 'Healing')
 s.save!
 
 s = Structure.new(
@@ -1397,6 +1473,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Stone')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -1410,6 +1487,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Stone')
 s.runes << Rune.find_by(name: 'Rune of Sight')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1423,6 +1501,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Air')
 s.runes << Rune.find_by(name: 'Rune of Death')
+s.tags << Tag.find_by(name: 'Aura')
 s.save!
 
 s = Structure.new(
@@ -1441,6 +1520,8 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
+s.tags << Tag.find_by(name: 'Utility')
+s.tags << Tag.find_by(name: 'Augment')
 s.save!
 
 s = Structure.new(
@@ -1481,6 +1562,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Embers')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 s = Structure.new(
@@ -1494,6 +1576,7 @@ s = Structure.new(
 )
 s.runes << Rune.find_by(name: 'Rune of Light')
 s.runes << Rune.find_by(name: 'Rune of Mountains')
+s.tags << Tag.find_by(name: 'AoE')
 s.save!
 
 puts "Two Rune Structures populated"

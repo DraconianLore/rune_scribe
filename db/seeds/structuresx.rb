@@ -12,6 +12,7 @@ s = Structure.new(
     discovered: true
 )
 s.runes << Rune.where(house: "Power")
+s.tags << Tag.find_by(name: 'Utility')
 s.save!
 
 

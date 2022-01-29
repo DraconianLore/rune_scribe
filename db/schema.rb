@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2022_01_29_204108) do
     t.string "name"
     t.text "description"
     t.string "house"
+    t.string "tags", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "level"
@@ -37,7 +38,6 @@ ActiveRecord::Schema.define(version: 2022_01_29_204108) do
     t.string "draw"
     t.text "additional"
     t.string "target", default: [], array: true
-    t.string "tags", array: true
     t.string "fav_by", default: [], array: true
   end
 
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2022_01_29_204108) do
   create_table "structures", force: :cascade do |t|
     t.string "name"
     t.text "description"
+    t.string "tags", default: [], array: true
     t.string "sub_structures", default: [], array: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -71,7 +72,6 @@ ActiveRecord::Schema.define(version: 2022_01_29_204108) do
     t.integer "number_of_runes"
     t.boolean "discovered", default: false
     t.string "target", default: [], array: true
-    t.string "tags", array: true
     t.string "fav_by", default: [], array: true
   end
 
