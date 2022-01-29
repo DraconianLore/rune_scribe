@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import Cookies from 'js-cookie'
 import themes from "../components/common/themes";
 import styled from "styled-components";
+import Notification from "../components/common/Notification";
 
 // create context
 const StructureContext = createContext();
@@ -42,7 +43,9 @@ const StructureContextProvider = ({ children }) => {
     const [runes, setRunes] = useState(null);
     const [tags, setTags] = useState(null);
     const [ready, setReady] = useState(false)
-
+    const [notification, setNotification] = useState(false)
+    const [notificationData, setNotificationData] = useState(null)
+  
     useEffect(() => {
         const loadStructures = () => {
             setReady(false)
@@ -69,7 +72,7 @@ const StructureContextProvider = ({ children }) => {
         };
         loadStructures()
     }, []);
-    function updateData() {
+    function updateData(data) {
         setReady(false)
         fetch("/getStructures")
         .then(res => res.json())
@@ -81,9 +84,13 @@ const StructureContextProvider = ({ children }) => {
                 setRunes(result.runes)
                 console.log(`%c   Updating Structures...`, theme);
                 setStructures(result.structures)
-                console.log(`%c   updating Tags...`, theme);
+                console.log(`%c   Updating Tags...`, theme);
                 setTags(result.tags)
                 console.log(`%cData Updated.`, theme);
+                if(data.message == 'new structure') {
+                    setNotificationData({type: 'structure', structure: data.structure})
+                    setNotification(true)
+                }
                 setReady(true)
             },
             (error) => {
@@ -92,11 +99,16 @@ const StructureContextProvider = ({ children }) => {
         )
     }
 
+    const closeNotification = () => {
+        setNotification(false)
+    }
+
     return (
         <StructureContext.Provider value={{structures: structures, updateData: updateData}}>
             <RuneContext.Provider value={runes}>
                 <TagContext.Provider value={tags}>
                     {ready || <Loading />}
+                    {notification && <Notification notificationData={notificationData} closeNotification={closeNotification} />}
                     {children}
                 </TagContext.Provider>
             </RuneContext.Provider>

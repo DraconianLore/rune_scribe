@@ -2,12 +2,22 @@ class AdminController < ApplicationController
     before_action :check_is_admin
 
     def index
-        @page = params[:page] || nil
+        @page = params[:page] || 'players'
         @players = User.where(dungeonmaster: false)
         
         if @page == 'structures'
             @structures = load_structures
         end
+    end
+
+    def send_notification
+        ActionCable.server.broadcast(
+            'updates', 
+            message: 'other',
+            title: params[:title],
+            body: params[:notification]
+        )
+        redirect_to({ action: 'index', page: 'players'})
     end
 
     private

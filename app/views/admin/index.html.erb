@@ -11,7 +11,10 @@
     <div class='admin-page'>
         <% if @page %>
             <%= render @page %>
+        <% else %>
+            <%= render 'players' %>
         <% end %>
+
     </div>
 
 

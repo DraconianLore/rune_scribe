@@ -11,3 +11,19 @@
 
     <% end %>
 </div>
+<div class='custom-notification'>
+        <h3>Custom Notification to All Players</h3>
+        <%= form_with(url: '/admin/send_notification', method: 'post') do %>
+            <div>
+                <%= label_tag(:title, "Title:") %>
+                <%= text_field_tag(:title) %>
+            </div>
+            <div>
+                <br>
+                <%= label_tag(:notification, "Notification:") %>
+                <br>
+                <%= text_area_tag(:notification) %>
+            </div>
+            <%= submit_tag("Send") %>
+        <% end %>
+</div>

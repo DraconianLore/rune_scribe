@@ -293,5 +293,27 @@
             }
         }
     }
-
+    .custom-notification {
+        text-align: center;
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            label {
+                display: inline-block;
+            }
+            #title {
+                width: 200px;
+            }
+            #notification {
+                width: 400px;
+                height: 6em;
+                text-align: center;
+            }
+            input[type='submit'] {
+                width: 50px;
+                align-self: flex-end;
+            }
+        }
+    }
 }

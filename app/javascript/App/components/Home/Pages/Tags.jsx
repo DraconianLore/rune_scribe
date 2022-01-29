@@ -1,12 +1,11 @@
 import React, { useState } from "react"
 import styled from "styled-components";
-import { useTagContext, useStructureContext } from '../../../helpers/StructureContext'
+import { useTagContext } from '../../../helpers/StructureContext'
 import themes from "../../common/themes";
 import { HexColorPicker } from "react-colorful";
 
 
 function Tags() {
-    const {updateData} = useStructureContext()
     const tags = useTagContext() || ''
     const [search, setSearch] = useState(null)
     const [showModal, setShowModal] = useState(false)
@@ -29,7 +28,6 @@ function Tags() {
             .then(res => res.json())
             .then(result => {
                 console.warn(result.message)
-                updateData()
             })
             .catch(error => {
                 console.error('Error: ', error)
@@ -62,8 +60,7 @@ function Tags() {
             })
             .then(res => res.json())
             .then(result => {
-                console.warn(result.message)
-                updateData()
+                console.log(result.message)
                 closeModal()
             })
             .catch(error => {
@@ -81,8 +78,7 @@ function Tags() {
             })
             .then(res => res.json())
             .then(result => {
-                console.warn(result.message)
-                updateData()
+                console.log(result.message)
                 closeModal()
             })
             .catch(error => {
