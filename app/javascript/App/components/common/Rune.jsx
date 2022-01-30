@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useStructureContext } from "../../helpers/StructureContext";
 import { useUserContextState } from "../../helpers/UserContext";
 import ItemTagModal from "./ItemTags";
 import themes from "./themes";
@@ -113,6 +114,8 @@ function Rune(props) {
     const [showTagModal, setShowTagModal] = useState(false)
     const [fav, setFav] = useState(props.rune.fav_by.includes(user.id.toString()))
     const tagList = tags(props.rune.tags)
+    const {updateData} = useStructureContext()
+
 
     const toggleFavourite = (e) => {
         e.stopPropagation();
@@ -131,6 +134,7 @@ function Rune(props) {
             } else {
                 setFav(false)
             }
+            updateData({tpye: 'favourite'})
         })
     }
 
