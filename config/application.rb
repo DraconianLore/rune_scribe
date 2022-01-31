@@ -1,4 +1,5 @@
 require_relative "boot"
+require_relative '../app/middleware/fix_action_cable'
 
 require "rails/all"
 
