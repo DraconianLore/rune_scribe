@@ -195,11 +195,6 @@ class ApiController < ApplicationController
         )
     end
 
-    def send_level_update
-        ActionCable.server.broadcast(
-            'updates', 
-            message: 'level'
-        )
-    end
+
   end
   
