@@ -14,7 +14,7 @@ Tag.create(
 
 Tag.create(
     name: 'Aura',
-    colour: '#CCC',
+    colour: '#9b00e5',
     background: '#83ADB5'
 )
 
@@ -26,8 +26,8 @@ Tag.create(
 
 Tag.create(
     name: 'Debuff',
-    colour: '#FCC',
-    background: '#17202a'
+    colour: '#fe0',
+    background: '#2562a8'
 )
 
 Tag.create(
@@ -39,7 +39,7 @@ Tag.create(
 Tag.create(
     name: 'Utility',
     colour: '#666',
-    background: '#CCC'
+    background: '#000'
 )
 
 puts 'Tags Created'

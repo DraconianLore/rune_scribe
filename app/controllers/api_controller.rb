@@ -31,6 +31,9 @@ class ApiController < ApplicationController
         @user.theme = params[:theme] if params[:theme]
         # For setting custom notifications
         @notification = params[:notification] || nil
+        # For setting user house and follower
+        @user.house = params[:house] if params[:house]
+        @user.follower = params[:follower] if params[:follower]
         # save user and set current
         if @user.save
             Current.user = @user
@@ -73,52 +76,8 @@ class ApiController < ApplicationController
         end
     end
 
-    def unlock_structure
-        structure = Structure.find(params[:id])
-        structure.discovered = true
-        if structure.save!
-            ActionCable.server.broadcast(
-                'updates', 
-                message: 'new structure',
-                structure: structure
-            )
-            render :json => {
-                message: 'Unlocked'
-            }
-        else
-            render :json => {
-                mesage: "Oops! An error occurred."
-            }
-        end
-    end
 
-    def level_char
-        char = User.find(params[:id])
-        params[:direction] == 'up' ? char.level += 1 : char.level -= 1
-        if char.save!
-            send_level_update
-            render :json => {
-                new_level: char.level,
-                charId: char.id
-            }
-        else
-            render :json => {
-                error: 'failed to save'
-            }
-        end
-        
-    end
 
-    def level_party
-        results = {}
-        User.all.each do |user|
-            user.level += 1 if user.level < 20
-            results[user.character] = user.level
-            user.save!
-        end
-        send_level_update
-        render :json => results
-    end
 
     def bonus_actions
         runes = load_runes 

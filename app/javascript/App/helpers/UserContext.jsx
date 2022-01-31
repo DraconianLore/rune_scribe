@@ -40,8 +40,9 @@ const UserContextProvider = ({ children }) => {
   }
 
   const updateData = (data) => {
-    if (data.theme) {
-      useCallback((data) => {
+
+    if (data.type == 'theme' || data.type == 'house') {
+      
         fetch("/update_settings",{
           method: 'PUT',
           headers:  {
@@ -52,6 +53,8 @@ const UserContextProvider = ({ children }) => {
       })
       .then(res => res.json())
       .then(result => {
+      console.log('hitting results')
+
         console.log('Updated: ', result);
         setUser(result)
         // themes require reload
@@ -60,7 +63,7 @@ const UserContextProvider = ({ children }) => {
       })
       .catch(error => {
         console.error('Error: ', error);
-      })})
+      })
     } else if (data.type == 'level') {
       let userData = {}
         fetch("/getUserData")

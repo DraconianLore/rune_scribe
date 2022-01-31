@@ -82,7 +82,6 @@ function Structures() {
         }).map((data) => {
             return(<Structure structure={data} key={data.id}  />)    
         })
-
         return (
             <>
                 {structureList}

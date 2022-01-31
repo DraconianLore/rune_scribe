@@ -11,7 +11,8 @@ export default (props) => {
 
   const changeTheme = (theme) => {
     updateSettings({
-      'theme': theme
+      type: 'theme',
+      theme: theme
     })
   }
   
