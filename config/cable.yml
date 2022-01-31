@@ -6,8 +6,7 @@ test:
 
 production:
   adapter: redis
-  :url:
-  redis://redistogo:50120c0fc785ff0b9b91a12b98f9d17e@sole.redistogo.com:10479
+  :url: redis://redistogo:50120c0fc785ff0b9b91a12b98f9d17e@sole.redistogo.com:10479
   :host: sole.redistogo.com
   :port: 10272
   :password: 50120c0fc785ff0b9b91a12b98f9d17e
