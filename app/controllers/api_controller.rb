@@ -176,11 +176,31 @@ class ApiController < ApplicationController
         # load and organize structures
         house = Current.user.house
         userlevel = Current.user.level
+        complexity = {
+            1 => 1,
+            2 => 1,
+            3 => 2,
+            4 => 2,
+            5 => 2,
+            6 => 4,
+            7 => 4,
+            9 => 4,
+            9 => 4,
+            10 => 8,
+            11 => 8,
+            12 => 8,
+            13 => 8,
+            14 => 16,
+            15 => 16,
+            16 => 16,
+            17 => 32,
+            18 => 32,
+            19 => 64,
+            20 => 128
+        }
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
-        # work out how do have all that have house level and exclude ones with overlevelled other hosues
-        # work out how to restrick levels to x rune structures
-        structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).order(:id)
-
+        structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).where('number_of_runes <= ?', complexity[userlevel]).order(:id)
+        
         structures
     end
 
