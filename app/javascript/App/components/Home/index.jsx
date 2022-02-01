@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { StructureContextProvider } from "../../helpers/StructureContext";
-import { useUserContextState } from "../../helpers/UserContext";
+import React, { useState, useEffect } from "react";
+import { useStructureContext } from "../../helpers/StructureContext";
+import { useUserContextState, useUserContextUpdater } from "../../helpers/UserContext";
 import styled from "styled-components";
 import themes from "../common/themes";
 import Cookies from 'js-cookie'
+import ChooseHouse from "../common/ChoseHouse";
 // Pages
 import ScribeLevels from './Pages/ScribeLevels'
 import Structures from "./Pages/Structures";
@@ -17,17 +18,35 @@ import img_bonus from './images/bonus-action.png'
 import img_tags from './images/tags.png'
 import img_sheets from './images/sheets.png'
 
+// Websockets
+import 'channels'
+import UpdatesChannel from "../../../channels/updates_channel";
+
+
 function Homepage() {
   const user = useUserContextState() || ''
+  const {updateData} = useStructureContext()
+  const updateUser = useUserContextUpdater()
   const [section, setSection] = useState('Levels')
-
   const changePage = (page) => {
     setSection(page)
   }
 
+
+  useEffect(() => {
+    UpdatesChannel.received = (data) => {
+      if (data.message == 'level') {
+        updateUser({type: 'level'})
+      } else if (data.message == 'other') {
+        updateUser({type: 'other', title: data.title, body: data.body})
+      }
+      updateData(data)
+    }
+  }, [])
+
   return(
-    <StructureContextProvider>
       <HomeLayout>
+        {user.level > 1 && user.house == 'None' && <ChooseHouse />}
         <PageHeading>{user.name} {user.house === 'None' ? '- Trainee Scribe' : 'of House ' + user.house}</PageHeading>
           { user.follower && <small>Follower of the {user.follower} of the House</small>}
 
@@ -59,7 +78,6 @@ function Homepage() {
           {section === 'Bonus Actions' && <BonusActions />}
           {section === 'Tags' && <Tags />}
       </HomeLayout>
-    </StructureContextProvider>
   );
 }
 
@@ -118,3 +136,4 @@ const IconBar = styled.div`
     }
   }
 `
+

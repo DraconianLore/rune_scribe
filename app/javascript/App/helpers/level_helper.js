@@ -1,5 +1,6 @@
 import React from "react"
 import scribeFeatDetails from "./scribeFeatDetails"
+import styled from "styled-components"
 
 const levels = {
     1: ['Rune Tracing', 'Sealing'],
@@ -26,15 +27,15 @@ const levels = {
 const houses = {
     'Mind': {
         1: [],
-        2: ['<em>Gentle Breeze</em>'],
+        2: ['Gentle Breeze'],
         3: [],
         4: [],
         5: [],
-        6: ['<em>Mind Reading</em>'],
+        6: ['Mind Reading'],
         7: [],
         8: [],
         9: [],
-        10: ['<em>Master Mind</em>'],
+        10: ['Master Mind'],
         11: [],
         12: [],
         13: [],
@@ -42,21 +43,21 @@ const houses = {
         15: [],
         16: [],
         17: [],
-        18: ['<em>All in the Mind</em>'],
+        18: ['All in the Mind'],
         19: [],
         20: []
     },
     'Power': {
         1: [],
-        2: ['<em>Flaming Brand</em>'],
+        2: ['Flaming Brand'],
         3: [],
         4: [],
         5: [],
-        6: ['<em>Engravers Preservation</em>'],
+        6: ['Engravers Preservation'],
         7: [],
         8: [],
         9: [],
-        10: ['<em>Persistent Runes</em>'],
+        10: ['Persistent Runes'],
         11: [],
         12: [],
         13: [],
@@ -64,21 +65,21 @@ const houses = {
         15: [],
         16: [],
         17: [],
-        18: ['<em>Lifeblood Blade</em>'],
+        18: ['Lifeblood Blade'],
         19: [],
         20: []
     },
     'Death': {
         1: [],
-        2: ['<em>Dust to Dust</em>'],
+        2: ['Dust to Dust'],
         3: [],
         4: [],
         5: [],
-        6: ["<em>Death's Apprentice</em>"],
+        6: ["Death's Apprentice"],
         7: [],
         8: [],
         9: [],
-        10: ["<em>Death's Companion</em>"],
+        10: ["Death's Companion"],
         11: [],
         12: [],
         13: [],
@@ -86,21 +87,21 @@ const houses = {
         15: [],
         16: [],
         17: [],
-        18: ["<em>Death's Master</em>"],
+        18: ["Death's Master"],
         19: [],
         20: []
     },
     'Life': {
         1: [],
-        2: ['<em>Fluid Motion</em>'],
+        2: ['Fluid Motion'],
         3: [],
         4: [],
         5: [],
-        6: ['<em>Master of Life</em>'],
+        6: ['Master of Life'],
         7: [],
         8: [],
         9: [],
-        10: ['<em>Resouling</em>'],
+        10: ['Resouling'],
         11: [],
         12: [],
         13: [],
@@ -108,7 +109,7 @@ const houses = {
         15: [],
         16: [],
         17: [],
-        18: ['<em>Halflife</em>'],
+        18: ['Halflife'],
         19: [],
         20: []
     },
@@ -140,102 +141,122 @@ const levelDetails = {
     1: {
         'prof': '+2',
         'tracing': 0,
-        'complexity': 'Single Rune'
+        'complexity': 'Single Rune',
+        'features': [1, 2]
     },
     2: {
         'prof': '+2',
         'tracing': 1,
-        'complexity': 'Single Rune'
+        'complexity': 'Single Rune',
+        'features': [3,4,5,6,7,8]
     },
     3: {
         'prof': '+2',
         'tracing': 1,
-        'complexity': '2 Runes'
+        'complexity': '2 Runes',
+        'features': [9]
     },
     4: {
         'prof': '+2',
         'tracing': 2,
-        'complexity': '2 Runes'
+        'complexity': '2 Runes',
+        'features': [10]
     },
     5: {
         'prof': '+3',
         'tracing': 2,
-        'complexity': '2 Runes'
+        'complexity': '2 Runes',
+        'features': [11]
     },
     6: {
         'prof': '+3',
         'tracing': 2,
-        'complexity': '4 Runes'
+        'complexity': '4 Runes',
+        'features': [12,13,14,15]
     },
     7: {
         'prof': '+3',
         'tracing': 4,
-        'complexity': '4 Runes'
+        'complexity': '4 Runes',
+        'features': [16]
     },
     8: {
         'prof': '+3',
         'tracing': 4,
-        'complexity': '4 Runes'
+        'complexity': '4 Runes',
+        'features': [10]
     },
     9: {
         'prof': '+4',
         'tracing': 4,
-        'complexity': '4 Runes'
+        'complexity': '4 Runes',
+        'features': []
     },
     10: {
         'prof': '+4',
         'tracing': 4,
-        'complexity': '8 Runes'
+        'complexity': '8 Runes',
+        'features': [17,18,19,20,21]
     },
     11: {
         'prof': '+4',
         'tracing': 8,
-        'complexity': '8 Runes'
+        'complexity': '8 Runes',
+        'features': []
     },
     12: {
         'prof': '+4',
         'tracing': 8,
-        'complexity': '8 Runes'
+        'complexity': '8 Runes',
+        'features': [10]
     },
     13: {
         'prof': '+5',
         'tracing': 8,
-        'complexity': '8 Runes'
+        'complexity': '8 Runes',
+        'features': []
     },
     14: {
         'prof': '+5',
         'tracing': 8,
-        'complexity': '16 Runes'
+        'complexity': '16 Runes',
+        'features': [22,23]
     },
     15: {
         'prof': '+5',
         'tracing': 16,
-        'complexity': '16 Runes'
+        'complexity': '16 Runes',
+        'features': []
     },
     16: {
         'prof': '+5',
         'tracing': 16,
-        'complexity': '16 Runes'
+        'complexity': '16 Runes',
+        'features': [10]
     },
     17: {
         'prof': '+6',
         'tracing': 16,
-        'complexity': '32 Runes'
+        'complexity': '32 Runes',
+        'features': []
     },
     18: {
         'prof': '+6',
         'tracing': 32,
-        'complexity': '32 Runes'
+        'complexity': '32 Runes',
+        'features': [24,25,26,27]
     },
     19: {
         'prof': '+6',
         'tracing': 32,
-        'complexity': '64 Runes'
+        'complexity': '64 Runes',
+        'features': []
     },
     20: {
         'prof': '+6',
         'tracing': 64,
-        'complexity': '128 Runes'
+        'complexity': '128 Runes',
+        'features': [28]
     },
     
 }
@@ -246,7 +267,9 @@ const levelFeats = (level, house) => {
     const feats = levels[level].concat(house && houses[house][level])
 
     return(
-        <span dangerouslySetInnerHTML={{ __html: feats.join(", ")}} />
+        <span>
+            {feats.join(", ")}
+        </span>
     )
 }
 
@@ -289,4 +312,24 @@ const playerFeatures = (house) => {
     )
 }
 
-export default { levelFeats, levelRow, playerFeatures }
+const newLevelDetails = (level, house) => {
+    const levelDetail = levelDetails[level]
+    const levelFeatures = []
+
+    levelDetail.features.forEach(feature => {
+        if(scribeFeatDetails[feature]['house'] == 'all' || scribeFeatDetails[feature]['house'] === house) {
+            levelFeatures.push(scribeFeatDetails[feature])
+        }
+    });
+    
+    const levelInfo = {
+        levelDetails: levelDetail,
+        levelFeats: levelFeatures
+    }
+    
+    return levelInfo
+}
+
+
+
+export default { levelFeats, levelRow, playerFeatures, newLevelDetails }

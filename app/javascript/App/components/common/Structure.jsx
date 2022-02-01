@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useStructureContext } from "../../helpers/StructureContext";
 import { useUserContextState } from "../../helpers/UserContext";
 import ItemTagModal from "./ItemTags";
 import themes from "./themes";
@@ -31,6 +32,7 @@ function Structure(props) {
     const [showTagModal, setShowTagModal] = useState(false)
     const [fav, setFav] = useState(props.structure.fav_by.includes(user.id.toString()))
     const tagList = tags(props.structure.tags)
+    const {updateData} = useStructureContext()
 
     const clickStructure = () => {
         setShowModal(false)
@@ -53,6 +55,7 @@ function Structure(props) {
             } else {
                 setFav(false)
             }
+            updateData({tpye: 'favourite'})
         })
     }
     const closeTagModal = () => {

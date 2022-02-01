@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useTagContext, useStructureContext} from "../../helpers/StructureContext"
+import { useTagContext } from "../../helpers/StructureContext"
 
 
 
 
 function ItemTagModal(props) {
-    const {updateData} = useStructureContext()
     const tags = useTagContext() || ''
     const item = props.item
     const tagIds = item.tags.map(i => i.id)
@@ -32,7 +31,6 @@ function ItemTagModal(props) {
         .then(res => res.json())
         .then(result => {
             console.log(result.message)
-            updateData()
             props.reload && props.reload()
         })
         .catch(error => {

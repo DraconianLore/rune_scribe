@@ -1,7 +1,7 @@
 <h2>Your Party</h2>
 <div class='player-list'>
     <% @players.each do |p| %>
-        <div class='player <%= p.house %>'>
+        <div class='player <%= p.house %> <%= p.connected ? 'connected' : '' %>'>
             <h1><%= p.character %></h1>
             <h2>Scribe Level: </h2>
             <h1 id='<%= p.character %>'><i class="level-down fas fa-minus-circle" id='D<%= p.id %>'></i> <span id='<%= p.id %>-level'><%= p.level %></span> <i class="level-up fas fa-plus-circle" id='U<%= p.id %>'></i></h1>
@@ -11,3 +11,20 @@
 
     <% end %>
 </div>
+<div class='custom-notification'>
+        <h3>Custom Notification to All Players</h3>
+        <%= form_with(url: '/admin/send_notification', method: 'post') do %>
+            <div>
+                <%= label_tag(:title, "Title:") %>
+                <%= text_field_tag(:title) %>
+            </div>
+            <div>
+                <br>
+                <%= label_tag(:notification, "Notification:") %>
+                <br>
+                <%= text_area_tag(:notification) %>
+            </div>
+            <%= submit_tag("Send") %>
+        <% end %>
+</div>
+<h1><%= @party %></h1>

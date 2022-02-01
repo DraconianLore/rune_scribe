@@ -29,7 +29,11 @@ class ApiController < ApplicationController
         @user = User.find(Current.user.id)
         # change settings as required
         @user.theme = params[:theme] if params[:theme]
-
+        # For setting custom notifications
+        @notification = params[:notification] || nil
+        # For setting user house and follower
+        @user.house = params[:house] if params[:house]
+        @user.follower = params[:follower] if params[:follower]
         # save user and set current
         if @user.save
             Current.user = @user
@@ -43,7 +47,8 @@ class ApiController < ApplicationController
             level: Current.user.level,
             theme: Current.user.theme,
             follower: Current.user.follower,
-            is_dm: Current.user.dungeonmaster
+            is_dm: Current.user.dungeonmaster,
+            notification: @notification
         }
     end
 
@@ -51,65 +56,31 @@ class ApiController < ApplicationController
         rune = Rune.find(params[:id])
         # update tags
         rune.tag_ids = params[:tags] if params[:tags]
-        render :json => {
-            message: 'Rune Updated - Updating Data'
-        }
+        if rune.save!
+            send_general_update
+            render :json => {
+                message: 'Rune Updated - Updating Data'
+            }
+        end
     end
     
     def update_structure
         structure = Structure.find(params[:id])
         # update tags
         structure.tag_ids = params[:tags] if params[:tags]
-        render :json => {
-            message: 'Rune Updated - Updating Data'
-        }
-    end
-
-    def unlock_structure
-        structure = Structure.find(params[:id])
-        structure.discovered = true
-        if structure.save!
-            # TODO: maybe broadcast refresh with websockets?
+        if tag.save!
+            send_general_update
             render :json => {
-                message: 'Unlocked'
-            }
-        else
-            render :json => {
-                mesage: "Oops! An error occurred."
+                message: 'Rune Updated - Updating Data'
             }
         end
     end
 
-    def level_char
-        char = User.find(params[:id])
-        params[:direction] == 'up' ? char.level += 1 : char.level -= 1
-        if char.save!
-            render :json => {
-                new_level: char.level,
-                charId: char.id
-            }
-        else
-            render :json => {
-                error: 'failed to save'
-            }
-        end
-        
-    end
 
-    def level_party
-        results = {}
-        party = Party.find(params[:party])
-        User.all.each do |user|
-            user.level += 1 if user.level < 20
-            results[user.character] = user.level
-            user.save!
-        end
-        render :json => results
-    end
+
 
     def bonus_actions
-        runes = load_runes
-        
+        runes = load_runes 
         bonus_action_list = nil
         if Current.user.level >= 7 
             bonus_action_list = runes.where("house = ?", Current.user.house).or(Rune.where("level <= ?", 2))
@@ -122,21 +93,21 @@ class ApiController < ApplicationController
         }
     end
 
-    def update_tag
-        
+    def update_tag   
         tag = Tag.find(params[:id])
         tag.update(tag_params)
         if tag.save!
+            send_general_update
             render :json => {
                 message: 'Tag Updated - updating data'
             }
         end
     end
 
-    def new_tag
-        
+    def new_tag      
         tag = Tag.new(tag_params)
         if tag.save!
+            send_general_update
             render :json => {
                 message: 'Tag Created - updating data'
             }
@@ -146,6 +117,7 @@ class ApiController < ApplicationController
     def delete_tag
         tag = Tag.find(params[:id])
         if tag.delete
+            send_general_update
             render :json => {
                 message: 'Tag Deleted - updating data'
             }
@@ -207,13 +179,27 @@ class ApiController < ApplicationController
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
         # work out how do have all that have house level and exclude ones with overlevelled other hosues
         # work out how to restrick levels to x rune structures
-        structures = Structure.joins(:level).where("levels.all <= ?", userlevel).or(Structure.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).order(:id)
+        structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).order(:id)
 
         structures
     end
 
     def tag_params
         params.require(:tag).permit(:name, :colour, :background)
+    end
+
+    def send_general_update
+        ActionCable.server.broadcast(
+            'updates', 
+            message: 'structures'
+        )
+    end
+
+    def send_level_update
+        ActionCable.server.broadcast(
+            'updates', 
+            message: 'level'
+        )
     end
   end
   

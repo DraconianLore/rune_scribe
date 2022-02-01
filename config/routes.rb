@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  mount ActionCable.server => '/cable'
   get 'app', to: 'familiar#index'
   get 'app/*path', to: 'familiar#index'
   root 'landing#index'
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   post 'password/reset', to: 'password_resets#create'
   get 'password/reset/edit', to: 'password_resets#edit'
   patch 'password/reset/edit', to: 'password_resets#update'
+
+  post '/admin/send_notification', to: 'admin#send_notification'
 
   # Frontend calls
   get 'getUserData', to: 'api#get_user_data'
@@ -31,9 +35,9 @@ Rails.application.routes.draw do
   put 'fav/r/:id', to: 'api#fav_rune'
   
   # DM calls
-  put 'unlock/:id', to: 'api#unlock_structure'
-  put 'level_party', to: 'api#level_party'
-  put 'level/:id', to: 'api#level_char'
+  put 'unlock/:id', to: 'admin#unlock_structure'
+  put 'level_party', to: 'admin#level_party'
+  put 'level/:id', to: 'admin#level_char'
   
 end
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
