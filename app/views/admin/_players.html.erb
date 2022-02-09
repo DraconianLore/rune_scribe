@@ -24,6 +24,10 @@
                 <br>
                 <%= text_area_tag(:notification) %>
             </div>
+            <div>
+                <%= label_tag(:refresh, "Refresh:") %>
+                <%= check_box_tag(:refresh) %> 
+                </div>
             <%= submit_tag("Send") %>
         <% end %>
 </div>

@@ -38,7 +38,7 @@ function Homepage() {
       if (data.message == 'level') {
         updateUser({type: 'level'})
       } else if (data.message == 'other') {
-        updateUser({type: 'other', title: data.title, body: data.body})
+        updateUser({type: 'other', title: data.title, body: data.body, refresh:data.refresh})
       }
       updateData(data)
     }
