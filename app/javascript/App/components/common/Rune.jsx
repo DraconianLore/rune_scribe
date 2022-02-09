@@ -54,7 +54,7 @@ function ModalContent(props) {
                 <RuneDetails>{props.rune.description}</RuneDetails>
                 <span>Targets: {props.rune.target.join(', ')}</span>
             </div>
-            <small>Click to edit tags</small>
+            <small>Click to edit</small>
         </RuneModal>
     )
 }
@@ -134,7 +134,7 @@ function Rune(props) {
             } else {
                 setFav(false)
             }
-            updateData({tpye: 'favourite'})
+            updateData({type: 'favourite'})
         })
     }
 
@@ -144,6 +144,9 @@ function Rune(props) {
     }
     const closeTagModal = () => {
         setShowTagModal(false)
+        if (props.bonusAction) {
+            props.reload()
+        }
     }
     const openModal = () => {
         setShowModal(true)
@@ -163,6 +166,9 @@ function Rune(props) {
                     <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
                 </TopBar>
                 <hr />
+                {props.rune.tldr && <Tldr className='inverted'>
+                    {props.rune.tldr}
+                </Tldr>}
                 <Tags>
                     {tagList}
                 </Tags>
@@ -214,15 +220,15 @@ const RuneItem = styled.div`
     &.Mind {
         background-color: ${themes('Mind').bodyBG};
         color: ${themes('Mind').bodyFG};
-        h3 {
+        h3, .inverted {
             background-color: ${themes('Mind').headerBG};
-           color: ${themes('Mind').headerFG};
+            color: ${themes('Mind').headerFG};
         }
     }
     &.Power {
         background-color: ${themes('Power').bodyBG};
         color: ${themes('Power').bodyFG};
-        h3 {
+        h3, .inverted {
             background-color: ${themes('Power').headerBG};
            color: ${themes('Power').headerFG};
         }
@@ -230,7 +236,7 @@ const RuneItem = styled.div`
     &.Death {
         background-color: ${themes('Death').bodyBG};
         color: ${themes('Death').bodyFG};
-        h3 {
+        h3, .inverted {
             background-color: ${themes('Death').headerBG};
            color: ${themes('Death').headerFG};
         }
@@ -238,7 +244,7 @@ const RuneItem = styled.div`
     &.Life {
         background-color: ${themes('Life').bodyBG};
         color: ${themes('Life').bodyFG};
-        h3 {
+        h3, .inverted {
             background-color: ${themes('Life').headerBG};
            color: ${themes('Life').headerFG};
         }
@@ -309,4 +315,12 @@ const Favourite = styled.h3`
     &.not-fav i {
         color: rgba(0,0,0,0.6);
     }
+`
+
+const Tldr = styled.p`
+    white-space: pre-line;
+    margin: 0.2em auto 0.5em;
+    padding: 0.2em 0.5em;
+    border-radius: 2px;
+    max-width: 80%;
 `

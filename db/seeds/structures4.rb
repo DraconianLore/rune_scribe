@@ -14,7 +14,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Calming Presence').id, Structure.find_by(name: 'Nausea').id],
-    tag_ids: []
+    tag_ids: [],
+    tldr: "Spy training 101\nEmotions make target sick"
 )
 
 Structure.create(
@@ -26,7 +27,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Airlift').id, Structure.find_by(name: 'Swift Wind').id],
-    tag_ids: []
+    tag_ids: [],
+    tldr: "Pushed 200ft in air"
 )
 
 Structure.create(
@@ -41,7 +43,8 @@ Structure.create(
     strained: true,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Updraft').id, Structure.find_by(name: 'Downforce').id],
-    tag_ids: []
+    tag_ids: [],
+    tldr: "2ft shorter"
 )
 
 Structure.create(
@@ -52,7 +55,8 @@ Structure.create(
     draw: '1 Month',
     strained: true,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Reckoning').id, Structure.find_by(name: 'Mindbend').id]
+    sub_structures: [Structure.find_by(name: 'Reckoning').id, Structure.find_by(name: 'Mindbend').id],
+    tldr: "You mad bro?\nMake target Mad"
 )
 
 Structure.create(
@@ -64,7 +68,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Mindread').id, Structure.find_by(name: 'Light Shell').id],
-    tag_ids: [Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'Utility').id],
+    tldr: "Can see lies, +15 insight & passive"
 )
 
 Structure.create(
@@ -78,7 +83,8 @@ Structure.create(
     draw: '1 Hour',
     strained: false,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Frostburn').id, Structure.find_by(name: 'Force Field').id]
+    sub_structures: [Structure.find_by(name: 'Frostburn').id, Structure.find_by(name: 'Force Field').id],
+    tldr: "Freeze!\nTrap target inside cold globe"
 )
 
 Structure.create(
@@ -97,7 +103,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Enhanced Vision').id, Structure.find_by(name: 'Mindread').id],
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: "Insight Aura"
 )
 
 Structure.create(
@@ -109,7 +116,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Pretty Pictures').id, Structure.find_by(name: 'Daymare').id],
-    tag_ids: [Tag.find_by(name: 'Aura').id]
+    tag_ids: [Tag.find_by(name: 'Aura').id],
+    tldr: "30ft aura - people tell you what you want to know"
 )
 
 # Power Structures
@@ -126,7 +134,8 @@ Structure.create(
     draw: '10 Minutes',
     strained: true,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Backlash').id, Structure.find_by(name: 'Revengance').id]
+    sub_structures: [Structure.find_by(name: 'Backlash').id, Structure.find_by(name: 'Revengance').id],
+    tldr: "The weapon for amputees\nFlying retaliation weapon"
 )
 
 Structure.create(
@@ -139,7 +148,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Repressed Anger').id, Structure.find_by(name: 'Emberbane').id],
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: "Say that to my face!\nGrapply weapons attacking from behind"
 )
 
 Structure.create(
@@ -152,7 +162,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Shockwave').id, Structure.find_by(name: 'Starburst').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Oooh Pretty!\n100ft Stun radius"
 )
 
 Structure.create(
@@ -172,7 +183,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Stone Strike').id, Structure.find_by(name: 'Frostburn').id],
-    tag_ids: [Tag.find_by(name: 'Augment').id]
+    tag_ids: [Tag.find_by(name: 'Augment').id],
+    tldr: "Cool Sword!\nWeapon gives Frostblood Virus"
 )
 
 Structure.create(
@@ -185,7 +197,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Armour of Power').id, Structure.find_by(name: 'Halo').id],
-    tag_ids: [Tag.find_by(name: 'Augment').id]
+    tag_ids: [Tag.find_by(name: 'Augment').id],
+    tldr: "+1 AC, reflective dmg radiant"
 )
 
 Structure.create(
@@ -197,7 +210,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Holy Flame').id, Structure.find_by(name: 'Meteor Storm').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "You cannot escape my wrath!\nHigh rad damage each turn"
 )
 
 Structure.create(
@@ -211,7 +225,8 @@ Structure.create(
     draw: '10 Minutes',
     strained: true,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Napalm').id, Structure.find_by(name: 'Light Shell').id]
+    sub_structures: [Structure.find_by(name: 'Napalm').id, Structure.find_by(name: 'Light Shell').id],
+    tldr: "Creamation is tidier!\nTrap target in a hot ball"
 )
 
 Structure.create(
@@ -226,7 +241,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Fire Starter').id, Structure.find_by(name: 'Light Beam').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Laser 4d6 fire, keeps going"
 )
 
 Structure.create(
@@ -238,7 +254,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Savagery').id, Structure.find_by(name: 'Shockwave').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Thats right dogs!\n30ft cone of dropping weapons/shields"
 )
 
 Structure.create(
@@ -252,7 +269,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Forge Blade').id, Structure.find_by(name: 'Light Trick').id],
-    tag_ids: [Tag.find_by(name: 'Augment').id]
+    tag_ids: [Tag.find_by(name: 'Augment').id],
+    tldr: "Silver bullets!\nMake ammo Rad dmg, continues in line after hitting"
 )
 
 Structure.create(
@@ -269,7 +287,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Sinkhole').id, Structure.find_by(name: 'Halo').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "BOOM!\n40ft circle of damage and trapping"
 )
 
 # Death Structures
@@ -286,7 +305,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Disrobe').id, Structure.find_by(name: 'Corruption').id],
-    tag_ids: [Tag.find_by(name: 'Debuff').id]
+    tag_ids: [Tag.find_by(name: 'Debuff').id],
+    tldr: "You cant stop me!\nTarget becomes vulnerable to all, or loses resis/imm"
 )
 
 Structure.create(
@@ -303,7 +323,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Seismic Sight').id, Structure.find_by(name: 'Stone Strike').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Transparent Earthen shell"
 )
 
 Structure.create(
@@ -318,7 +339,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'DemiVitae').id, Structure.find_by(name: 'Phoenix').id],
-    tag_ids: [Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'Utility').id],
+    tldr: "Similar to a Teleportation circle"
 )
 
 Structure.create(
@@ -329,7 +351,8 @@ Structure.create(
     draw: '10 Minutes',
     strained: false,
     discovered: true,
-    sub_structures: [Structure.find_by(name: 'Iron Boot').id, Structure.find_by(name: 'Death March').id]
+    sub_structures: [Structure.find_by(name: 'Iron Boot').id, Structure.find_by(name: 'Death March').id],
+    tldr: "5ft movement 1d4 dmg"
 )
 
 Structure.create(
@@ -342,7 +365,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Hellscape').id, Structure.find_by(name: 'Disrobe').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Welcome to my Hell!\n60ft fear aura + enemies attack each other"
 )
 
 Structure.create(
@@ -354,7 +378,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Natural Wall').id, Structure.find_by(name: 'Tremor').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "5ft above knocked prone, 0 movement"
 )
 
 Structure.create(
@@ -366,7 +391,8 @@ Structure.create(
     draw: '10 Minutes',
     strained: false,
     discovered: true,
-    sub_structures: [Structure.find_by(name: 'Mind Shell').id, Structure.find_by(name: 'Light Shell').id]
+    sub_structures: [Structure.find_by(name: 'Mind Shell').id, Structure.find_by(name: 'Light Shell').id],
+    tldr: "Bonus action para"
 )
 
 Structure.create(
@@ -380,7 +406,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Transmutation').id, Structure.find_by(name: 'Moat').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Make ground gooey and swallow creatures"
 )
 
 Structure.create(
@@ -391,7 +418,8 @@ Structure.create(
     draw: '20 Minutes',
     strained: true,
     discovered: true,
-    sub_structures: [Structure.find_by(name: 'Protective Shell').id, Structure.find_by(name: 'Hidden Defences').id]
+    sub_structures: [Structure.find_by(name: 'Protective Shell').id, Structure.find_by(name: 'Hidden Defences').id],
+    tldr: "First att hits attacker"
 )
 
 Structure.create(
@@ -402,7 +430,8 @@ Structure.create(
     draw: '10 Minutes',
     strained: false,
     discovered: true,
-    sub_structures: [Structure.find_by(name: 'Impaler').id, Structure.find_by(name: 'Hidden Defences').id]
+    sub_structures: [Structure.find_by(name: 'Impaler').id, Structure.find_by(name: 'Hidden Defences').id],
+    tldr: "4d6 piercing dmg + restrained"
 )
 
 # Life Structures
@@ -420,7 +449,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Lifeblood').id, Structure.find_by(name: 'Water of Life').id],
-    tag_ids: [Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'Utility').id],
+    tldr: "Tastes like Wine!\nCreate healing pots from corpses."
 )
 
 Structure.create(
@@ -434,7 +464,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Cold Blooded').id, Structure.find_by(name: 'Cryogenics').id],
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: "I'm so cool!\nImm to all except blud and fire dmg, Vulnerable to blud"
 )
 
 Structure.create(
@@ -447,7 +478,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Restoration').id, Structure.find_by(name: 'Ring of Life').id],
-    tag_ids: [Tag.find_by(name: 'Aura').id]
+    tag_ids: [Tag.find_by(name: 'Aura').id],
+    tldr: "60ft aura of life saving"
 )
 
 Structure.create(
@@ -460,7 +492,8 @@ Structure.create(
     draw: '1 Hour',
     strained: true,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Clarification').id, Structure.find_by(name: 'Starburst').id]
+    sub_structures: [Structure.find_by(name: 'Clarification').id, Structure.find_by(name: 'Starburst').id],
+    tldr: "Clear as Day!\n1 mile bright sky, +10 per, 1 mile vision"
 )
 
 Structure.create(
@@ -477,7 +510,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'High Tide').id, Structure.find_by(name: 'Cold Snap').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Ring wall of ice"
 )
 
 Structure.create(
@@ -491,7 +525,8 @@ Structure.create(
     draw: '2 Hours',
     strained: true,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Bubble Boy').id, Structure.find_by(name: 'Volcanic Cloud').id]
+    sub_structures: [Structure.find_by(name: 'Bubble Boy').id, Structure.find_by(name: 'Volcanic Cloud').id],
+    tldr: "Better than Bane\nBlind and suffocate target"
 )
 
 Structure.create(
@@ -505,7 +540,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Autumn').id, Structure.find_by(name: 'Leafy Amalgimate').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Leafy aura, bonus action cut 4 creatures"
 )
 
 Structure.create(
@@ -517,7 +553,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Water Walk').id, Structure.find_by(name: 'Downpour').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "120ft cube w flying speed + adv"
 )
 
 Structure.create(
@@ -532,7 +569,8 @@ Structure.create(
     draw: '10 Hours',
     strained: false,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Miniaturization').id, Structure.find_by(name: 'Bubble Boy').id]
+    sub_structures: [Structure.find_by(name: 'Miniaturization').id, Structure.find_by(name: 'Bubble Boy').id],
+    tldr: "Shrink target and protect inside force bubble"
 )
 
 Structure.create(
@@ -546,7 +584,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Effusive Eruption').id, Structure.find_by(name: 'Hail Storm').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "60ft cube of lava patches"
 )
 
 # Neutral Structures
@@ -565,7 +604,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Savagery').id, Structure.find_by(name: 'Airlift').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Its a matter of perspective\n50ft radius, 100ft high Reverse gravity"
 )
 
 Structure.create(
@@ -576,7 +616,8 @@ Structure.create(
     draw: '1 Day',
     strained: true,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Meteor Storm').id, Structure.find_by(name: 'Hidden Defences').id]
+    sub_structures: [Structure.find_by(name: 'Meteor Storm').id, Structure.find_by(name: 'Hidden Defences').id],
+    tldr: "Like the old-world Nukes\nSuicide bomb if hits 0hp"
 )
 
 Structure.create(
@@ -588,7 +629,8 @@ Structure.create(
     strained: false,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Downforce').id, Structure.find_by(name: 'Tremor').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id],
+    tldr: "Hollow floor collapses"
 )
 
 Structure.create(
@@ -603,7 +645,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Disturbia').id, Structure.find_by(name: 'Phoenix').id],
-    tag_ids: [Tag.find_by(name: 'Debuff').id]
+    tag_ids: [Tag.find_by(name: 'Debuff').id],
+    tldr: "Drop shield, -2 AC, +2 att & dmg, Adv attacks vs target"
 )
 
 Structure.create(
@@ -617,7 +660,8 @@ Structure.create(
     strained: true,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Natural Wall').id, Structure.find_by(name: 'Force Field').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "Wall of force with longer duration"
 )
 
 Structure.create(
@@ -635,7 +679,8 @@ Structure.create(
     draw: '10 Minutes',
     strained: true,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Reckoning').id, Structure.find_by(name: 'Ghost').id]
+    sub_structures: [Structure.find_by(name: 'Reckoning').id, Structure.find_by(name: 'Ghost').id],
+    tldr: "Death befalls... YOU!\nSummon death to frighten/kill"
 )
 
 Structure.create(
@@ -650,7 +695,8 @@ Structure.create(
     strained: true,
     discovered: true,
     sub_structures: [Structure.find_by(name: 'Cryogenics').id, Structure.find_by(name: 'Updraft').id],
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: "10 dmg per round freeze cube 30ft"
 )
 
 Structure.create(
@@ -663,7 +709,8 @@ Structure.create(
     strained: false,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Lifeblood').id, Structure.find_by(name: 'Smiths Strength').id],
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: "When 0hp adv on att, 18+ = crit, no healing, +2 death fails"
 )
 
 Structure.create(
@@ -676,7 +723,8 @@ Structure.create(
     strained: true,
     discovered: false,
     sub_structures: [Structure.find_by(name: 'Wall of Light').id, Structure.find_by(name: 'Fluid Thoughts').id],
-    tag_ids: [Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'Utility').id],
+    tldr: "Change the channel\nView memories on wall"
 )
 
 Structure.create(
@@ -694,7 +742,8 @@ Structure.create(
     draw: '10 Minutes',
     strained: false,
     discovered: false,
-    sub_structures: [Structure.find_by(name: 'Water Walk').id, Structure.find_by(name: 'Corruption').id]
+    sub_structures: [Structure.find_by(name: 'Water Walk').id, Structure.find_by(name: 'Corruption').id],
+    tldr: "Walking spreads Russet Mold"
 )
 
 Structure.create(
@@ -706,7 +755,8 @@ Structure.create(
     draw: 'Instant',
     strained: false,
     discovered: true,
-    sub_structures: [Structure.find_by(name: 'Downforce').id, Structure.find_by(name: 'Deep Touch').id]
+    sub_structures: [Structure.find_by(name: 'Downforce').id, Structure.find_by(name: 'Deep Touch').id],
+    tldr: "drops down 1 mile in bubble"
 )
 
 Structure.create(
@@ -718,7 +768,8 @@ Structure.create(
     draw: 'Instant',
     strained: true,   
     discovered: true,
-    sub_structures: [Structure.find_by(name: 'Smiths Strength').id, Structure.find_by(name: 'Daymare').id]
+    sub_structures: [Structure.find_by(name: 'Smiths Strength').id, Structure.find_by(name: 'Daymare').id],
+    tldr: "Cut off left hand and dmg"
 )
 
 puts "Four Rune Structures populated"

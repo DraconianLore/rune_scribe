@@ -9,7 +9,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Mind',
     level: 1,
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: 'Ranged have DisAdv'
 )
 Rune.create(
     name: 'Rune of the Mind',
@@ -22,7 +23,8 @@ Rune.create(
     draw: '5 Minutes',
     house: 'Mind',
     level: 2,
-    tag_ids: [Tag.find_by(name: 'Debuff').id]
+    tag_ids: [Tag.find_by(name: 'Debuff').id],
+    tldr: 'Dex save or Dis on att + save'
 )
 Rune.create(
     name: 'Rune of Air',
@@ -39,7 +41,8 @@ Rune.create(
     draw: '5 Minutes',
     house: 'Mind',
     level: 3,
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: '60ft cone of wind affects movement'
 )
 Rune.create(
     name: 'Rune of Sight',
@@ -49,7 +52,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Mind',
     level: 4,
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: '10ft blindsight + 120ft darkvision'
 )
 Rune.create(
     name: 'Rune of Fear',
@@ -59,7 +63,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Mind',
     level: 5,
-    tag_ids: [Tag.find_by(name: 'Aura').id]
+    tag_ids: [Tag.find_by(name: 'Aura').id],
+    tldr: '120ft fear aura - int save'
 )
 Rune.create(
     name: 'Rune of the Sky',
@@ -70,7 +75,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Mind',
     level: 7,
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: '30ft air lift area'
 )
 Rune.create(
     name: 'Rune of Imagination',
@@ -88,7 +94,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Mind',
     level: 10,
-    tag_ids: []
+    tag_ids: [],
+    tldr: 'Cast phantasmal force'
 )
 puts "Mind runes populated"
 
@@ -101,7 +108,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Power',
     level: 1,
-    tag_ids: []
+    tag_ids: [],
+    tldr: '30ft light'
 )
 Rune.create(
     name: 'Rune of Embers',
@@ -112,7 +120,8 @@ Rune.create(
     draw: '5 Minutes',
     house: 'Power',
     level: 2,
-    tag_ids: [Tag.find_by(name: 'Augment').id]
+    tag_ids: [Tag.find_by(name: 'Augment').id],
+    tldr: 'add fire dmg to metal weapon'
 )
 Rune.create(
     name: 'Rune of Flames',
@@ -125,7 +134,8 @@ Rune.create(
     draw: '5 Minutes',
     house: 'Power',
     level: 3,
-    tag_ids: [Tag.find_by(name: 'Augment').id]
+    tag_ids: [Tag.find_by(name: 'Augment').id],
+    tldr: 'give metal weapon reach + fire dmg'
 )
 Rune.create(
     name: 'Rune of the Forge',
@@ -136,7 +146,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Power',
     level: 4,
-    tag_ids: [Tag.find_by(name: 'Augment').id]
+    tag_ids: [Tag.find_by(name: 'Augment').id],
+    tldr: 'make armour bashing weapon'
 )
 Rune.create(
     name: 'Rune of Strength',
@@ -147,7 +158,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Power',
     level: 5,
-    tag_ids: [Tag.find_by(name: 'Augment').id]
+    tag_ids: [Tag.find_by(name: 'Augment').id],
+    tldr: 'adv on STR/DEX saves'
 )
 Rune.create(
     name: 'Rune of Fury',
@@ -159,7 +171,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Power',
     level: 7,
-    tag_ids: [Tag.find_by(name: 'Debuff').id, Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Debuff').id, Tag.find_by(name: 'Buff').id],
+    tldr: 'Blind rage - adv & +5 att'
 )
 Rune.create(
     name: 'Rune of Destruction',
@@ -172,7 +185,8 @@ Rune.create(
     draw: 'Instant',
     house: 'Power',
     level: 10,
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: '3x mini fireballs'
 )
 puts "Power runes populated"
 
@@ -186,7 +200,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Death',
     level: 1,
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: '+1 AC'
 )
 Rune.create(
     name: 'Rune of Death',
@@ -197,7 +212,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Death',
     level: 2,
-    tag_ids: []
+    tag_ids: [],
+    tldr: 'landmine'
 )
 Rune.create(
     name: 'Rune of Earth',
@@ -210,7 +226,8 @@ Rune.create(
     draw: 'Instant',
     house: 'Death',
     level: 3,
-    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id],
+    tldr: 'mini earthquake = rough terrain'
 )
 Rune.create(
     name: 'Rune of Mountains',
@@ -223,7 +240,8 @@ Rune.create(
     draw: 'Instant',
     house: 'Death',
     level: 4,
-    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id],
+    tldr: '30ft wall of earth'
 )
 Rune.create(
     name: 'Rune of Stone',
@@ -234,7 +252,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Death',
     level: 5,
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: 'resist b/p/s + DisAdv on DEX saves'
 )
 Rune.create(
     name: 'Rune of Ore',
@@ -245,7 +264,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Death',
     level: 7,
-    tag_ids: [Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'Utility').id],
+    tldr: 'change metal type of object'
 )
 Rune.create(
     name: 'Rune of Oblivion',
@@ -258,7 +278,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Death',
     level: 10,
-    tag_ids: []
+    tag_ids: [],
+    tldr: 'Con save blud dmg + turn to clay'
 )
 puts "Death runes populated"
 
@@ -272,7 +293,8 @@ Rune.create(
     draw: '10 Minutes',
     house: 'Life',
     level: 1,
-    tag_ids: [Tag.find_by(name: 'Healing').id]
+    tag_ids: [Tag.find_by(name: 'Healing').id],
+    tldr: 'Heal 1hp per RS level'
 )
 Rune.create(
     name: 'Rune of Water',
@@ -283,7 +305,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Life',
     level: 2,
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: 'Make it rain'
 )
 Rune.create(
     name: 'Rune of Leaves',
@@ -293,7 +316,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Life',
     level: 3,
-    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id, Tag.find_by(name: 'Utility').id],
+    tldr: 'Hide stuff'
 )
 Rune.create(
     name: 'Rune of Depth',
@@ -303,7 +327,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Life',
     level: 4,
-    tag_ids: [Tag.find_by(name: 'Buff').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id],
+    tldr: '1 hour hold breath + swim speed'
 )
 Rune.create(
     name: 'Rune of Frost',
@@ -313,7 +338,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Life',
     level: 5,
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: '30ft cone of freezing'
 )
 Rune.create(
     name: 'Rune of Waves',
@@ -326,7 +352,8 @@ Rune.create(
     draw: '1 Hour',
     house: 'Life',
     level: 7,
-    tag_ids: [Tag.find_by(name: 'AoE').id]
+    tag_ids: [Tag.find_by(name: 'AoE').id],
+    tldr: '40ft cube of water'
 )
 Rune.create(
     name: 'Rune of Rebirth',
@@ -336,6 +363,7 @@ Rune.create(
     draw: '1 Hour',
     house: 'Life',
     level: 10,
-    tag_ids: [Tag.find_by(name: 'Buff').id, Tag.find_by(name: 'Healing').id]
+    tag_ids: [Tag.find_by(name: 'Buff').id, Tag.find_by(name: 'Healing').id],
+    tldr: 'Stop unconsciousness at 0hp'
 )
 puts "Life runes populated"
