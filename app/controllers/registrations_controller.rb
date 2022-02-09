@@ -5,6 +5,9 @@ class RegistrationsController < ApplicationController
     end
     def create
         @user = User.new(user_params)
+        @user.level = 7 if ['Virdi','Virdi Caiman'].include? @user.character
+        @user.level = 7 if ['Belmin', 'Belmin Internus'].include? @user.character
+        @user.level = 2 if ['Charlotte', 'Charlotte Foe Wayne'].include? @user.character
         if @user.save
           # WelcomeMailer.with(user: @user).welcome_email.deliver_now
           # deliver_now is provided by ActiveJob.
