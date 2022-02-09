@@ -79,6 +79,7 @@ function ItemTagModal(props) {
         <ModalContainer  onClick={closeModal}>
             <ItemModal className={item.house || item.dominant} onClick={(e) => e.stopPropagation()}>
                 <h1>{item.name}</h1>
+                <p>TRLD:</p>
                 <TldrEdit value={tldr} onChange={(e) => setTldr(e.target.value)} />
                 <p>Current Tags:</p>
                 <CurrentTagList />
@@ -175,5 +176,7 @@ const CloseButton = styled.h1`
 `
 
 const TldrEdit = styled.textarea`
-
+    width: 50%;
+    background-color: #223;
+    color: #cca;
 `

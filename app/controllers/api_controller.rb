@@ -200,7 +200,7 @@ class ApiController < ApplicationController
             20 => 128
         }
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
-        structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).where('number_of_runes <= ?', complexity[userlevel]).order(:id)
+        structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.unlocked.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).where('number_of_runes <= ?', complexity[userlevel]).order(:id)
         
         structures
     end
