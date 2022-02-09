@@ -71,7 +71,7 @@ function Structure(props) {
     const duration =  props.bonusAction ? user.house == props.structure.house ? props.structure.trace : findDuration(props.structure.trace) : props.structure.trace;
     return (
         <>
-            <StructureItem className={props.structure.dominant} data-description={props.structure.description} onClick={clickStructure}  onMouseLeave={closeModal} onMouseEnter={openModal} >
+            <StructureItem className={`${props.structure.dominant} ${props.structure.strained && 'strained'}`} data-description={props.structure.description} onClick={clickStructure}  onMouseLeave={closeModal} onMouseEnter={openModal} >
                 <TopBar>
                     <StructureSize>{props.structure.number_of_runes}</StructureSize>
                     <h2>{props.structure.name}</h2>
