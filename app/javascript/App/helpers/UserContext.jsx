@@ -37,6 +37,9 @@ const UserContextProvider = ({ children }) => {
   const closeNotification = () => {
     setNotificationData(false)
     setNotification(false)
+    if (notificationData.type == 'other') {
+      window.location.reload(false);
+    }
   }
 
   const updateData = (data) => {
