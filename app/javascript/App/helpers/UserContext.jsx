@@ -37,6 +37,9 @@ const UserContextProvider = ({ children }) => {
   const closeNotification = () => {
     setNotificationData(false)
     setNotification(false)
+    if (notificationData.type == 'other' && notificationData.refresh == true) {
+      window.location.reload(false);
+    }
   }
 
   const updateData = (data) => {
@@ -86,6 +89,7 @@ const UserContextProvider = ({ children }) => {
         )
     } else if(data.type == 'other') {
       setNotificationData(data)
+      console.log('data', data)
       setNotification(true)
     }
   }

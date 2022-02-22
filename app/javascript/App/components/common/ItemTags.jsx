@@ -10,11 +10,12 @@ function ItemTagModal(props) {
     const item = props.item
     const tagIds = item.tags.map(i => i.id)
     const [currentTags, setCurrentTags] = useState(tagIds)
+    const [tldr, setTldr] = useState(item.tldr || '')
     
 
     const closeModal = (e) => {
         e.stopPropagation();
-        if (currentTags.toString() != tagIds.toString() && confirm("Do you want to save changes?")) {
+        if ((currentTags.toString() != tagIds.toString() || tldr != item.tldr) && confirm("Do you want to save changes?")) {
             saveChanges()
         }
         props.close()
@@ -26,7 +27,7 @@ function ItemTagModal(props) {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
               },
-              body: JSON.stringify({tags: currentTags})
+              body: JSON.stringify({tags: currentTags, tldr: tldr})
         })
         .then(res => res.json())
         .then(result => {
@@ -76,8 +77,10 @@ function ItemTagModal(props) {
         
     return (
         <ModalContainer  onClick={closeModal}>
-            <ItemModal className={item.house || item.dominant}>
+            <ItemModal className={item.house || item.dominant} onClick={(e) => e.stopPropagation()}>
                 <h1>{item.name}</h1>
+                <p>TRLD:</p>
+                <TldrEdit value={tldr} onChange={(e) => setTldr(e.target.value)} />
                 <p>Current Tags:</p>
                 <CurrentTagList />
                 <p>Add Tags:</p>
@@ -170,4 +173,10 @@ const CloseButton = styled.h1`
     &:hover {
         filter: brightness(150%);
     }
+`
+
+const TldrEdit = styled.textarea`
+    width: 50%;
+    background-color: #223;
+    color: #cca;
 `

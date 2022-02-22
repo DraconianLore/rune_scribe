@@ -12,7 +12,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: 'Eek! The sky is falling!'
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Imagination')
@@ -27,7 +28,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '20ft airlift'
 )
 s.runes << Rune.find_by(name: 'Rune of Air')
 s.runes << Rune.find_by(name: 'Rune of Air')
@@ -40,7 +42,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'invisible revealing aura'
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Air')
@@ -54,7 +57,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Imm to Stun, Para, Charm, Firght - aura'
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Imagination')
@@ -68,7 +72,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'WIS save or stunned'
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Fear')
@@ -81,7 +86,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '5 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '15ft cube of slow/prone'
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of the Sky')
@@ -95,7 +101,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'blindsight + darkvision + RS to per/inv'
 )
 s.runes << Rune.find_by(name: 'Rune of Sight')
 s.runes << Rune.find_by(name: 'Rune of Sight')
@@ -110,7 +117,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Att at DisAdv v target'
 )
 s.runes << Rune.find_by(name: 'Rune of Force')
 s.runes << Rune.find_by(name: 'Rune of Force')
@@ -127,7 +135,8 @@ s = Structure.new(
     trace: '10 Minutes',
     draw: '1 Week',
     strained: true,
-    discovered: true
+    discovered: true,
+    tldr: 'Para target and trap in mind'
 )
 s.runes << Rune.find_by(name: 'Rune of Imagination')
 s.runes << Rune.find_by(name: 'Rune of Imagination')
@@ -140,7 +149,8 @@ s = Structure.new(
     trace: '1 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Lose action or forget stuff'
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Air')
@@ -155,7 +165,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'see targets thoughts'
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Sight')
@@ -169,7 +180,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: 'Short Rest',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Similar to slow'
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of the Mind')
@@ -183,7 +195,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '20 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Imm to fear'
 )
 s.runes << Rune.find_by(name: 'Rune of Sight')
 s.runes << Rune.find_by(name: 'Rune of Fear')
@@ -197,7 +210,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '60ft fly speed'
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of the Sky')
@@ -214,7 +228,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '+50% move speed'
 )
 s.runes << Rune.find_by(name: 'Rune of Air')
 s.runes << Rune.find_by(name: 'Rune of Force')
@@ -228,7 +243,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Fear aura'
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Fear')
@@ -242,7 +258,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '5 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Forced fly up'
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Air')
@@ -259,7 +276,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '20 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Adv on Ath + STR saves, grapple bigger'
 )
 s.runes << Rune.find_by(name: 'Rune of Strength')
 s.runes << Rune.find_by(name: 'Rune of Strength')
@@ -273,7 +291,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: 'Too hot! Retaliation Aura'
 )
 s.runes << Rune.find_by(name: 'Rune of Flames')
 s.runes << Rune.find_by(name: 'Rune of Fury')
@@ -287,7 +306,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Resist cold/fire dmg'
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Embers')
@@ -302,7 +322,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '30ft cone of fire'
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Flames')
@@ -316,7 +337,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Reaction +5 AC'
 )
 s.runes << Rune.find_by(name: 'Rune of the Forge')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
@@ -330,7 +352,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Cold resist + 5ft heat radius'
 )
 s.runes << Rune.find_by(name: 'Rune of Flames')
 s.runes << Rune.find_by(name: 'Rune of Flames')
@@ -344,7 +367,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "By the Light!\n40ft column of fire+rad dmg"
 )
 s.runes << Rune.find_by(name: 'Rune of Flames')
 s.runes << Rune.find_by(name: 'Rune of Destruction')
@@ -358,7 +382,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '60ft beam of blinding light'
 )
 s.runes << Rune.find_by(name: 'Rune of Light')
 s.runes << Rune.find_by(name: 'Rune of Light')
@@ -374,7 +399,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Mini dancing lights'
 )
 s.runes << Rune.find_by(name: 'Rune of Light')
 s.runes << Rune.find_by(name: 'Rune of Embers')
@@ -392,7 +418,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: true,
-    discovered: false
+    discovered: false,
+    tldr: "Burn baby Burn!\n3x meteors hit"
 )
 s.runes << Rune.find_by(name: 'Rune of Destruction')
 s.runes << Rune.find_by(name: 'Rune of Destruction')
@@ -408,7 +435,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Crazy Eyes!\nAttacks have Dis, if damaged half suicide bomb"
 )
 s.runes << Rune.find_by(name: 'Rune of Fury')
 s.runes << Rune.find_by(name: 'Rune of Destruction')
@@ -424,7 +452,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '20 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "I will remember that!\nAdv on att + enemy disadv on saves"
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Fury')
@@ -443,7 +472,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "ROAR!\nAdv & +5 att, attacks last to hit or anyone"
 )
 s.runes << Rune.find_by(name: 'Rune of Fury')
 s.runes << Rune.find_by(name: 'Rune of Fury')
@@ -458,7 +488,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '60ft wave of psy dmg'
 )
 s.runes << Rune.find_by(name: 'Rune of Light')
 s.runes << Rune.find_by(name: 'Rune of Strength')
@@ -472,7 +503,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Grapple to unconscious'
 )
 s.runes << Rune.find_by(name: 'Rune of Strength')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
@@ -517,7 +549,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "You dont look so good...\nSimilar to Contagion spell"
 )
 s.runes << Rune.find_by(name: 'Rune of Earth')
 s.runes << Rune.find_by(name: 'Rune of Oblivion')
@@ -533,7 +566,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'line of land mines'
 )
 s.runes << Rune.find_by(name: 'Rune of Death')
 s.runes << Rune.find_by(name: 'Rune of Death')
@@ -547,7 +581,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '5 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '8x 5 round land mines'
 )
 s.runes << Rune.find_by(name: 'Rune of Earth')
 s.runes << Rune.find_by(name: 'Rune of Death')
@@ -561,7 +596,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: true,
-    discovered: false
+    discovered: false,
+    tldr: "What doesn't kill you makes you weaker!\n-1/3 of max hp"
 )
 s.runes << Rune.find_by(name: 'Rune of Oblivion')
 s.runes << Rune.find_by(name: 'Rune of Oblivion')
@@ -574,7 +610,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: true,
-    discovered: false
+    discovered: false,
+    tldr: "Hope you have something on under that.\nNon-magic metal armour breaker"
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Oblivion')
@@ -587,7 +624,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'next melee att misses'
 )
 s.runes << Rune.find_by(name: 'Rune of Protection')
 s.runes << Rune.find_by(name: 'Rune of Death')
@@ -601,7 +639,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: true,
-    discovered: true
+    discovered: true,
+    tldr: '6x high dmg spikes'
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Mountains')
@@ -615,7 +654,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '2 Hours',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Resist prone'
 )
 s.runes << Rune.find_by(name: 'Rune of Earth')
 s.runes << Rune.find_by(name: 'Rune of Protection')
@@ -629,7 +669,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '10ft deep moat'
 )
 s.runes << Rune.find_by(name: 'Rune of Death')
 s.runes << Rune.find_by(name: 'Rune of Mountains')
@@ -645,7 +686,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '120ft wall, 50ft high'
 )
 s.runes << Rune.find_by(name: 'Rune of Mountains')
 s.runes << Rune.find_by(name: 'Rune of Mountains')
@@ -664,7 +706,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Weak flesh-to-stone spell'
 )
 s.runes << Rune.find_by(name: 'Rune of Death')
 s.runes << Rune.find_by(name: 'Rune of Stone')
@@ -677,7 +720,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '500ft metal detector'
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Earth')
@@ -694,7 +738,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '+2 AC, -1 AC if hit'
 )
 s.runes << Rune.find_by(name: 'Rune of Protection')
 s.runes << Rune.find_by(name: 'Rune of Protection')
@@ -708,7 +753,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Imm to s/p, resist to all except psy'
 )
 s.runes << Rune.find_by(name: 'Rune of Stone')
 s.runes << Rune.find_by(name: 'Rune of Stone')
@@ -735,7 +781,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Transmute Rock spell + metals'
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Ore')
@@ -751,7 +798,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '60ft cone quake'
 )
 s.runes << Rune.find_by(name: 'Rune of Earth')
 s.runes << Rune.find_by(name: 'Rune of Earth')
@@ -770,7 +818,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Its not a race.\n30ft swim speed + 1hr hold breath, infinitely chainable"
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
@@ -784,7 +833,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '20 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Drown creature'
 )
 s.runes << Rune.find_by(name: 'Rune of Waves')
 s.runes << Rune.find_by(name: 'Rune of Depth')
@@ -798,7 +848,8 @@ s = Structure.new(
     trace: '5 Minutes',
     draw: '8 Hours',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '30ft stealth cube'
 )
 s.runes << Rune.find_by(name: 'Rune of Leaves')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
@@ -813,7 +864,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Frosty!\nImm to cold, regen from cold"
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
@@ -827,7 +879,8 @@ s = Structure.new(
     trace: '4 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '30ft cone, 0 movement, diff terrain'
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Frost')
@@ -841,7 +894,8 @@ s = Structure.new(
     trace: '4 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Imm to all dmg, petrified'
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Life')
@@ -856,7 +910,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Imm pressure, swim speed, 1hr hold breath'
 )
 s.runes << Rune.find_by(name: 'Rune of Depth')
 s.runes << Rune.find_by(name: 'Rune of Depth')
@@ -874,7 +929,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '1d4 Hours',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '60ft cube heavy rain'
 )
 s.runes << Rune.find_by(name: 'Rune of Water')
 s.runes << Rune.find_by(name: 'Rune of Water')
@@ -895,7 +951,8 @@ s = Structure.new(
     trace: '4 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Cube of damaging hailstones'
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Water')
@@ -915,7 +972,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '2 Rounds',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Small Tsunami spell'
 )
 s.runes << Rune.find_by(name: 'Rune of Waves')
 s.runes << Rune.find_by(name: 'Rune of Waves')
@@ -931,7 +989,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Vamparic attacks'
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Waves')
@@ -946,7 +1005,8 @@ s = Structure.new(
     trace: '10 Minutes',
     draw: '12 Hours',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Ooh lets explore the mousehole!\nYou + 6 shrink to 1in - 1ft"
 )
 s.runes << Rune.find_by(name: 'Rune of Leaves')
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
@@ -959,7 +1019,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: true,
-    discovered: false
+    discovered: false,
+    tldr: "Tired?.\nInstant long rest"
 )
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
@@ -975,7 +1036,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '5ft heal aura'
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Life')
@@ -990,7 +1052,8 @@ s = Structure.new(
     trace: '5 Roudns',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '20ft heal aura'
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Water')
@@ -1007,7 +1070,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Water walk spell'
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
@@ -1025,7 +1089,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "You need two hands fro that?\nMake 2 hand weapon versitile"
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of Air')
@@ -1039,7 +1104,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '5 Rounds',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Summer is over.\n30ft cube of blind"
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
@@ -1053,7 +1119,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Did I want to see that?\nCan see in murky water."
 )
 s.runes << Rune.find_by(name: 'Rune of Waves')
 s.runes << Rune.find_by(name: 'Rune of Sight')
@@ -1067,7 +1134,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Reduce max health + breath'
 )
 s.runes << Rune.find_by(name: 'Rune of Force')
 s.runes << Rune.find_by(name: 'Rune of Depth')
@@ -1078,9 +1146,10 @@ s = Structure.new(
     description: %(A wave of fear radiates out from you, all creatures more than 20ft from you, and within 1 mile feel compelled to move away from you and will keep moving until they leave the ares.),
     target: ['Self'],
     trace: '10 Minutes',
-    draw: '8 Hour',
+    draw: '8 Hours',
     strained: true,
-    discovered: false
+    discovered: false,
+    tldr: "WTF is that?!?\n 1 Mile creature clearing"
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Oblivion')
@@ -1096,7 +1165,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '10 Minutes',
     strained: true,
-    discovered: false
+    discovered: false,
+    tldr: "It's Melting!\nLava flows - extreme dmg"
 )
 s.runes << Rune.find_by(name: 'Rune of Mountains')
 s.runes << Rune.find_by(name: 'Rune of Fury')
@@ -1112,7 +1182,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Burning Hands spell'
 )
 s.runes << Rune.find_by(name: 'Rune of Air')
 s.runes << Rune.find_by(name: 'Rune of Flames')
@@ -1126,7 +1197,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '30ft cube of fire'
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
@@ -1142,7 +1214,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Next structure is fluid'
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Water')
@@ -1156,7 +1229,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '20 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Change dmg to cold + slow movement'
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
@@ -1170,7 +1244,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'fire + cold dmg from weapon'
 )
 s.runes << Rune.find_by(name: 'Rune of Frost')
 s.runes << Rune.find_by(name: 'Rune of Flames')
@@ -1184,7 +1259,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'aura of fear + slow'
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Death')
@@ -1199,7 +1275,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Go to Hell!\nPsy dmg each turn"
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Imagination')
@@ -1212,7 +1289,8 @@ s = Structure.new(
     trace: '1 Roud',
     draw: '1 Minute',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Like Aqua but better!\nAC = 10, remove magic effects"
 )
 s.runes << Rune.find_by(name: 'Rune of Destruction')
 s.runes << Rune.find_by(name: 'Rune of Protection')
@@ -1228,7 +1306,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Leaf me alone!\nSummon Dancinf Foliage"
 )
 s.runes << Rune.find_by(name: 'Rune of Fury')
 s.runes << Rune.find_by(name: 'Rune of Leaves')
@@ -1244,7 +1323,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '5 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '+1 AC - blind attackers'
 )
 s.runes << Rune.find_by(name: 'Rune of Protection')
 s.runes << Rune.find_by(name: 'Rune of Light')
@@ -1258,7 +1338,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '60ft push back 5ft'
 )
 s.runes << Rune.find_by(name: 'Rune of Force')
 s.runes << Rune.find_by(name: 'Rune of Light')
@@ -1273,7 +1354,8 @@ s = Structure.new(
     trace: '1 Round',
     draw: '1 Minute',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "You're not so big\nShrink creature, STR = 5"
 )
 s.runes << Rune.find_by(name: 'Rune of Strength')
 s.runes << Rune.find_by(name: 'Rune of Oblivion')
@@ -1286,7 +1368,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Can Not Compute\nGive madness to target"
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Destruction')
@@ -1300,7 +1383,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Resist psy, Imm charm'
 )
 s.runes << Rune.find_by(name: 'Rune of Force')
 s.runes << Rune.find_by(name: 'Rune of Protection')
@@ -1314,7 +1398,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'INT save or Suggestion spell'
 )
 s.runes << Rune.find_by(name: 'Rune of the Mind')
 s.runes << Rune.find_by(name: 'Rune of Strength')
@@ -1329,7 +1414,8 @@ s = Structure.new(
     trace: '1d4 + 2 Rounds',
     draw: '12 Rounds',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'Water fueled fire'
 )
 s.runes << Rune.find_by(name: 'Rune of Flames')
 s.runes << Rune.find_by(name: 'Rune of Water')
@@ -1343,7 +1429,8 @@ s = Structure.new(
     trace: '10 Minutes',
     draw: '3 Hours',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "From the ashes\nReaction to refill health at 0hp"
 )
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
 s.runes << Rune.find_by(name: 'Rune of Embers')
@@ -1363,7 +1450,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '5 Rounds',
     strained: true,
-    discovered: false
+    discovered: false,
+    tldr: "The death curse!\nTarget makes death saves"
 )
 s.runes << Rune.find_by(name: 'Rune of Death')
 s.runes << Rune.find_by(name: 'Rune of Imagination')
@@ -1376,7 +1464,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '30ft Tremorsense'
 )
 s.runes << Rune.find_by(name: 'Rune of Sight')
 s.runes << Rune.find_by(name: 'Rune of Earth')
@@ -1390,7 +1479,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Suck it up!\n30ft whirlpool"
 )
 s.runes << Rune.find_by(name: 'Rune of Waves')
 s.runes << Rune.find_by(name: 'Rune of Strength')
@@ -1407,7 +1497,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'smoke cloud = darkness'
 )
 s.runes << Rune.find_by(name: 'Rune of Embers')
 s.runes << Rune.find_by(name: 'Rune of Earth')
@@ -1421,7 +1512,8 @@ s = Structure.new(
     trace: '2 Rounds',
     draw: '5 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Look at me!\nBlind everyone on lower ground."
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Light')
@@ -1438,7 +1530,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'remove status effect'
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Force')
@@ -1454,7 +1547,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'on 0hp blind nearby and revive'
 )
 s.runes << Rune.find_by(name: 'Rune of Life')
 s.runes << Rune.find_by(name: 'Rune of Light')
@@ -1469,7 +1563,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '1 Hour',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'long-range melee attacks'
 )
 s.runes << Rune.find_by(name: 'Rune of Stone')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
@@ -1483,7 +1578,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '15ft para beam'
 )
 s.runes << Rune.find_by(name: 'Rune of Stone')
 s.runes << Rune.find_by(name: 'Rune of Sight')
@@ -1497,7 +1593,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '5 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: '10ft aurless aura'
 )
 s.runes << Rune.find_by(name: 'Rune of Air')
 s.runes << Rune.find_by(name: 'Rune of Death')
@@ -1516,7 +1613,8 @@ s = Structure.new(
     trace: 'Instant',
     draw: 'Instant',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'add bonus to weapons'
 )
 s.runes << Rune.find_by(name: 'Rune of Ore')
 s.runes << Rune.find_by(name: 'Rune of the Forge')
@@ -1532,7 +1630,8 @@ s = Structure.new(
     trace: '3 Rounds',
     draw: '10 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "You will look up to me!\nSTR = 25, size +1"
 )
 s.runes << Rune.find_by(name: 'Rune of Strength')
 s.runes << Rune.find_by(name: 'Rune of Rebirth')
@@ -1545,7 +1644,8 @@ s = Structure.new(
     trace: '1 Minute',
     draw: '30 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'fear of heights'
 )
 s.runes << Rune.find_by(name: 'Rune of Fear')
 s.runes << Rune.find_by(name: 'Rune of Depth')
@@ -1558,7 +1658,8 @@ s = Structure.new(
     trace: '5 Rounds',
     draw: '20 Minutes',
     strained: false,
-    discovered: false
+    discovered: false,
+    tldr: "Get down here!\nFlying killer"
 )
 s.runes << Rune.find_by(name: 'Rune of the Sky')
 s.runes << Rune.find_by(name: 'Rune of Embers')
@@ -1572,7 +1673,8 @@ s = Structure.new(
     trace: '1 Round',
     draw: '1d4 Minutes',
     strained: false,
-    discovered: true
+    discovered: true,
+    tldr: 'blinding wall behind caster'
 )
 s.runes << Rune.find_by(name: 'Rune of Light')
 s.runes << Rune.find_by(name: 'Rune of Mountains')

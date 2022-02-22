@@ -24,9 +24,21 @@ function BonusActions() {
         }
         loadBonusActionRunes();
     }, []);
+    const reload = () => {
+        fetch("/getBonusActions")
+        .then(res => res.json())
+        .then(
+            (result) => {
+                setRunes(result.runes)
+            },
+            (error) => { 
+                console.error("An error occurred: " + error)
+            }
+        )
+    }
     const RuneList = () => {
         const runeList = runes.map((rune, i) => {
-            return(<Rune rune={rune} bonusAction={true} key={i}  />)    
+            return(<Rune rune={rune} bonusAction={true} key={i} reload={reload} />)    
         })
 
         return (
@@ -35,6 +47,7 @@ function BonusActions() {
             </RuneContainer>
         )
     }
+
     
     return(
         <>

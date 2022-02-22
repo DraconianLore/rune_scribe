@@ -16,7 +16,8 @@ class AdminController < ApplicationController
             'updates', 
             message: 'other',
             title: params[:title],
-            body: params[:notification]
+            body: params[:notification],
+            refresh: params[:refresh]
         )
         redirect_to({ action: 'index', page: 'players'})
     end

@@ -21,7 +21,7 @@ function ModalContent(props) {
                 <StructureDetails>{props.structure.description}</StructureDetails>
                 <span>Targets: {props.structure.target.join(', ')}</span>
             </div>
-            <small>Click to edit tags</small>
+            <small>Click to edit</small>
         </StructureModal>
     )
 }
@@ -71,13 +71,16 @@ function Structure(props) {
     const duration =  props.bonusAction ? user.house == props.structure.house ? props.structure.trace : findDuration(props.structure.trace) : props.structure.trace;
     return (
         <>
-            <StructureItem className={props.structure.dominant} data-description={props.structure.description} onClick={clickStructure}  onMouseLeave={closeModal} onMouseEnter={openModal} >
+            <StructureItem className={`${props.structure.dominant} ${props.structure.strained && 'strained'}`} data-description={props.structure.description} onClick={clickStructure}  onMouseLeave={closeModal} onMouseEnter={openModal} >
                 <TopBar>
                     <StructureSize>{props.structure.number_of_runes}</StructureSize>
                     <h2>{props.structure.name}</h2>
                     <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
                 </TopBar>
                 <hr />
+                {props.structure.tldr && <Tldr className='inverted'>
+                    {props.structure.tldr}
+                </Tldr>}
                 <Tags>
                     {tagList}
                 </Tags>
@@ -177,7 +180,7 @@ const StructureItem = styled.div`
     &.Mind {
         background-color: ${themes('Mind').bodyBG};
         color: ${themes('Mind').bodyFG};
-        h3 {
+        h3, .inverted {
             background-color: ${themes('Mind').headerBG};
            color: ${themes('Mind').headerFG};
         }
@@ -185,7 +188,7 @@ const StructureItem = styled.div`
     &.Power {
         background-color: ${themes('Power').bodyBG};
         color: ${themes('Power').bodyFG};
-        h3 {
+        h3, .inverted {
             background-color: ${themes('Power').headerBG};
            color: ${themes('Power').headerFG};
         }
@@ -193,7 +196,7 @@ const StructureItem = styled.div`
     &.Death {
         background-color: ${themes('Death').bodyBG};
         color: ${themes('Death').bodyFG};
-        h3 {
+        h3, .inverted {
             background-color: ${themes('Death').headerBG};
            color: ${themes('Death').headerFG};
         }
@@ -201,7 +204,7 @@ const StructureItem = styled.div`
     &.Life {
         background-color: ${themes('Life').bodyBG};
         color: ${themes('Life').bodyFG};
-        h3 {
+        h3, .inverted {
             background-color: ${themes('Life').headerBG};
            color: ${themes('Life').headerFG};
         }
@@ -209,7 +212,7 @@ const StructureItem = styled.div`
     &.None {
         background-color: #223;
         color: #cca;
-        h3 {
+        h3, .inverted {
             background-color: #334;
            color: #bb9};
         }
@@ -280,4 +283,12 @@ const Favourite = styled.h3`
     &.not-fav i {
         color: rgba(0,0,0,0.6);
     }
+`
+
+const Tldr = styled.p`
+    white-space: pre-line;
+    margin: 0.2em auto 0.5em;
+    padding: 0.2em 0.5em;
+    border-radius: 2px;
+    max-width: 80%;
 `

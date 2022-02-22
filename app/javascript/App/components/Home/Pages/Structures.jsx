@@ -23,7 +23,7 @@ function Structures() {
     
     const toggleTagFilters = () => {
         setTagFilter(!tagFilter)
-        setTagFilters(tags.map(tag => tag.id))
+        setTagFilters([])
     }
 
     const choseTagFilters = (tagId) => {
@@ -122,8 +122,8 @@ function Structures() {
             <h3>Runes and Structures</h3>
             <StructureHeader border={!tagFilter}>
                 <input type='text' id='tag-filter' placeholder='Filter' onChange={(e) => setSearch(e.target.value)}></input>
-                <Filter onClick={() => setRuneFilter(!runeFilter)} className={runeFilter ? 'active' : 'inactive'}>Runes</Filter>
-                <Filter onClick={() => setStructureFilter(!structureFilter)} className={structureFilter ? 'active' : 'inactive'}>Structures</Filter>
+                <Filter onClick={() => setRuneFilter(!runeFilter)} className={runeFilter ? 'active large' : 'inactive large'}>Runes</Filter>
+                <Filter onClick={() => setStructureFilter(!structureFilter)} className={structureFilter ? 'active large' : 'inactive large'}>Structures</Filter>
                 <Filter onClick={() => toggleTagFilters()} className={tagFilter ? 'active' : 'inactive'}>Tags</Filter>
                 <Filter onClick={() => setHouseFilter(!houseFilter)} className={houseFilter ? 'active' : 'inactive'}>Dominant</Filter>
                 <Filter onClick={() => setFavoriteFilter(!favoriteFilter)} className={favoriteFilter ? 'active' : 'inactive'}><i className="fas fa-heart" aria-hidden='true' /></Filter>
@@ -178,6 +178,9 @@ const Filter = styled.h3`
     }
     &.inactive {
         filter: brightness(50%);
+    }
+    &.large {
+        font-size: 200%;
     }
 `
 

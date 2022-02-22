@@ -56,6 +56,8 @@ class ApiController < ApplicationController
         rune = Rune.find(params[:id])
         # update tags
         rune.tag_ids = params[:tags] if params[:tags]
+        # update TLDR
+        rune.tldr = params[:tldr] if params[:tldr]
         if rune.save!
             send_general_update
             render :json => {
@@ -68,16 +70,15 @@ class ApiController < ApplicationController
         structure = Structure.find(params[:id])
         # update tags
         structure.tag_ids = params[:tags] if params[:tags]
-        if tag.save!
+        # update TLDR
+        structure.tldr = params[:tldr] if params[:tldr]
+        if structure.save!
             send_general_update
             render :json => {
                 message: 'Rune Updated - Updating Data'
             }
         end
     end
-
-
-
 
     def bonus_actions
         runes = load_runes 
@@ -199,7 +200,7 @@ class ApiController < ApplicationController
             20 => 128
         }
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
-        structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).where('number_of_runes <= ?', complexity[userlevel]).order(:id)
+        structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.unlocked.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).where('number_of_runes <= ?', complexity[userlevel]).order(:id)
         
         structures
     end
