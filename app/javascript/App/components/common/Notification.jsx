@@ -53,18 +53,21 @@ const Notification = (props) => {
         )
     } else if(props.notificationData.type == 'structure') {
         const structure = props.notificationData.structure
+        console.log(structure)
         return(
             <NotificationLayout>
                 <NewStructure>
                     <h1>New Structure Unlocked</h1>
                     <StructureModal>
-                        <ModalContainer className={structure.dominant, structure.strained ? 'strained' : ''} >
+                        <ModalContainer className={`${structure.dominant} ${structure.strained ? 'strained' : ''}`} >
                             <h1>{structure.name}</h1>
                             <StructureDetails>{structure.description}</StructureDetails>
                             <span>Targets: {structure.target.join(', ')}</span>
                             {structure.strained && <em><Strained>Strained Structure</Strained></em>}
+                            {structure.runes > 1 && structure.runes.map((a) => {return a.name}).join(', ')}
                         </ModalContainer>
                     </StructureModal>
+                    <OkButton onClick={acknowledge}>Acknowledge</OkButton>
                 </NewStructure>
             </NotificationLayout>
         )
@@ -242,6 +245,9 @@ const StructureDetails = styled.p`
     white-space: pre-line;
     margin: 1em;
     text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
 `
 
 const Strained = styled.h3`
