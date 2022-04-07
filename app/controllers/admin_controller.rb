@@ -29,7 +29,8 @@ class AdminController < ApplicationController
             ActionCable.server.broadcast(
                 'updates', 
                 message: 'new structure',
-                structure: structure
+                structure: structure,
+                runes: structure.runes
             )
             render :json => {
                 message: 'Unlocked'

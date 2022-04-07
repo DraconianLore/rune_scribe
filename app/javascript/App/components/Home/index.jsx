@@ -10,6 +10,7 @@ import ScribeLevels from './Pages/ScribeLevels'
 import Structures from "./Pages/Structures";
 import BonusActions from "./Pages/BonusActions";
 import Tags from "./Pages/Tags";
+import StructureUnlocking from "../Learning";
 
 // images
 import img_levels from './images/levels.png'
@@ -68,15 +69,20 @@ function Homepage() {
               <img src={img_tags} />
               Tag Editor
             </Icon>
-            <ExternalLink href='https://docs.google.com/spreadsheets/d/1X01wocKPtiUQuVIeHJRRl__avzNRAmfTyzZCJcWCOvI/edit#gid=0' target='_blank'><Icon>
+            {/* <ExternalLink href='https://docs.google.com/spreadsheets/d/1X01wocKPtiUQuVIeHJRRl__avzNRAmfTyzZCJcWCOvI/edit#gid=0' target='_blank'><Icon>
               <img src={img_sheets} />
               Tracking
-            </Icon></ExternalLink>
+            </Icon></ExternalLink> */}
+            <Icon onClick={() => changePage('Learning')}>
+              <img src={img_sheets} />
+              Learning
+            </Icon>
           </IconBar>
           {section === 'Levels' && <ScribeLevels level={user.level} house={user.house} />}
           {section === 'Structures' && <Structures />}
           {section === 'Bonus Actions' && <BonusActions />}
           {section === 'Tags' && <Tags />}
+          {section === 'Learning' && <StructureUnlocking />}
       </HomeLayout>
   );
 }

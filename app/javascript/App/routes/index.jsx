@@ -7,6 +7,7 @@ import { StructureContextProvider } from "../helpers/StructureContext";
 // Pages
 import Settings from "../components/Settings";
 import Home from "../components/Home";
+import StructureUnlocking from "../components/Learning";
 
 function MainApp() {
   
@@ -17,6 +18,7 @@ function MainApp() {
           <Routes>
             <Route path="/app" element={<Layout page={Home}  />} />
             <Route path="/app/settings" element={<Layout page={Settings} />} />
+            <Route path="/app/Learning-Runes" element={<Layout page={StructureUnlocking} />} />
           </Routes>
         </Router>
         </StructureContextProvider>
