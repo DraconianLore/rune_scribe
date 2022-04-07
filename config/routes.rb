@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'sign_up', to: 'registrations#create'
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create', as: 'log_in'
+  get 'demo', to: 'sessions#demo'
   get 'logout', to: 'sessions#destroy'
   get 'password', to: 'passwords#edit', as: 'edit_password'
   patch 'password', to: 'passwords#update'
