@@ -6,9 +6,9 @@ class CreateCombinations < ActiveRecord::Migration[6.1]
       t.integer :rune2                          # rune 2 ID if a two rune structure
       t.integer :structure1                     # structure 1 ID if > 2 runes
       t.integer :structure2                     # structure 2 ID if > 2 runes
-      t.intiger :modifier                       # current modifier to rolls to discover
-      t.string :result, default => 'unknown'    # result for checks: unknown, not found, found
-      t.integer :recent, default => 0           # keep the last 5 highlighted as recent (-1 to all above 0 when one is discovered)
+      t.integer :modifier                       # current modifier to rolls to discover
+      t.string :result, default: 'unknown'    # result for checks: unknown, not found, found
+      t.integer :recent, default: 0           # keep the last 5 highlighted as recent (-1 to all above 0 when one is discovered)
       t.integer :structure                      # structure ID - if the structure exists AND is found
       t.timestamps
     end

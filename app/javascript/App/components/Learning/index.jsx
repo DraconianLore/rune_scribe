@@ -3,6 +3,9 @@ import styled from "styled-components";
 import themes from "../common/themes";
 import Cookies from 'js-cookie'
 
+// pages
+import Overview from "./Overview";
+
 // Websockets
 import 'channels'
 import UnlockChannel from "../../../channels/unlocking_channel";
@@ -116,9 +119,9 @@ function StructureUnlocking() {
         <>
           <LearningBar />
           {/* TODO: Figure out what views would best show the data tables, ie; without Xs, house columns, single rune/structure columns... */}
-          {/* <Overview data={currentData} /> */}
-          {/* <HouseView data={currentData} /> */}
-          {/* <SingleView data={currentData} /> */}
+          {overview && <Overview data={currentData} />}
+          {houseView && <HouseView data={currentData} />}
+          {singleView && <SingleView data={currentData} />}
         </>
     )
 }

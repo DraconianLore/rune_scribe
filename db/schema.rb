@@ -15,6 +15,20 @@ ActiveRecord::Schema.define(version: 2022_04_07_181615) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "combinations", force: :cascade do |t|
+    t.integer "structure_size"
+    t.integer "rune1"
+    t.integer "rune2"
+    t.integer "structure1"
+    t.integer "structure2"
+    t.integer "modifier"
+    t.string "result", default: "unknown"
+    t.integer "recent", default: 0
+    t.integer "structure"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "levels", force: :cascade do |t|
     t.bigint "structure_id"
     t.integer "all"
@@ -104,6 +118,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_181615) do
     t.string "theme", default: "Mind"
     t.string "follower"
     t.boolean "connected", default: false
+    t.integer "last_selected"
   end
 
 end

@@ -26,6 +26,13 @@ const life = {
     bodyFG: "#beb",
     houseInfo: "House Spring, house of life and water, the magic in this house is based on the manipulation of water and flora, and using the rune magic to travel in the blink of an eye."
 }
+const none = {
+    headerBG: '#334',
+    headerFG: '#bb9',
+    bodyBG: '#223',
+    bodyFG: '#cca',
+    houseInfo: ""
+}
 
 export default (theme) => {
     let currentTheme;
@@ -41,6 +48,9 @@ export default (theme) => {
             break;
         case 'Life':
             currentTheme = life;
+            break;
+        case 'None':
+            currentTheme = none;
             break;
         default:
             currentTheme = mind;
