@@ -3,6 +3,8 @@ import styled from "styled-components";
 import themes from "../common/themes";
 import Cookies from 'js-cookie'
 
+import Overview from "./Overview";
+
 // Websockets
 import 'channels'
 import UnlockChannel from "../../../channels/unlocking_channel";
@@ -21,10 +23,9 @@ const loadInitialData = () => {
 function StructureUnlocking() {
     // Data
     const [rawData, setRawData] = useState(loadInitialData);
-    const [currentData, setCurrentData] = useState(null)
-    const [structureSize, setStructureSize] = useState('Two')
-    const [showStructureSelect, setShowStructureSelect] = useState(false)
-    const [userSelected, setUserSelected] = useState(loadSelected)
+    const [currentData, setCurrentData] = useState(null);
+    const [structureSize, setStructureSize] = useState('Two');
+    const [showStructureSelect, setShowStructureSelect] = useState(false);
     
     // Views
     const [overview, setOverview] = useState(true) // Show overview of structure size area
@@ -32,24 +33,10 @@ function StructureUnlocking() {
     const [singleView, setSingleView] = useState(false) // Show Rune or Structure view for a single item
     
     
-    const loadSelected = () => {
-      // request selected data from backend
-    
-      let whoIsWhere = [] // [COMBO_ID: 'user(s)']
-      return whoIsWhere;
-    }
-    
     const updateStructures = (data) => {
-      if (data.type == 'selection') {
-        setUserSelected(loadSelected)
-      }
-      else {
-
+      // make call to backend so each user gets only their available details
+      // Sort data into sections as in 'loadInitialData' function
         
-        // make call to backend so each user gets only their available details
-        // Sort data into sections as in 'loadInitialData' function
-        
-      }
     }
 
     useEffect(() => {
@@ -67,13 +54,10 @@ function StructureUnlocking() {
       // TODO: load new data for view
 
       // set correct view for house or rune
-      newView.changeTo == 'House' && changeHouse(newView.house)
+      newView.changeTo == 'House' && setHouseView(newView.house)
       newView.changeTo == 'Rune' && changeSingleItem({house: newView.house, rune: newView.item})
     }
-    const changeHouse = (newHouse) => {
-      //   set house in current data and move to house overview
-      setHouseView(newHouse)
-    }
+
     const changeSingleItem = (newItem) => {
       const house = newItem.house;
       const item = newItem.item;
@@ -116,7 +100,7 @@ function StructureUnlocking() {
         <>
           <LearningBar />
           {/* TODO: Figure out what views would best show the data tables, ie; without Xs, house columns, single rune/structure columns... */}
-          {/* <Overview data={currentData} /> */}
+          {overview && <Overview numberOfRunes={structureSize} />}
           {/* <HouseView data={currentData} /> */}
           {/* <SingleView data={currentData} /> */}
         </>

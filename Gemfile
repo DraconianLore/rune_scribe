@@ -24,6 +24,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'font-awesome-sass'
 
+# Google API
+gem 'google_drive'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

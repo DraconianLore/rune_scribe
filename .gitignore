@@ -35,5 +35,7 @@
 yarn-debug.log*
 .yarn-integrity
 
+# Ignore google credentials
+*creds.json 
 
 .env

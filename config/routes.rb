@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   put 'update/structure/:id', to: 'api#update_structure'
   put 'fav/s/:id', to: 'api#fav_structure'
   put 'fav/r/:id', to: 'api#fav_rune'
+  # learning
+  get 'learning/overview/:number_of_runes', to: 'learning#overview'
   
   # DM calls
   put 'unlock/:id', to: 'admin#unlock_structure'
