@@ -56,9 +56,7 @@ const UserContextProvider = ({ children }) => {
       })
       .then(res => res.json())
       .then(result => {
-      console.log('hitting results')
 
-        console.log('Updated: ', result);
         setUser(result)
         // themes require reload
         Cookies.set('Theme', data.theme, { sameSite: 'Lax'})
