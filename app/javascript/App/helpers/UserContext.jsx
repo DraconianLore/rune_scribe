@@ -89,7 +89,6 @@ const UserContextProvider = ({ children }) => {
         )
     } else if(data.type == 'other') {
       setNotificationData(data)
-      console.log('data', data)
       setNotification(true)
     }
   }
