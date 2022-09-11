@@ -7,5 +7,5 @@ test:
 production:
   adapter: redis
   # channel_prefix: runescribe_production
-  url: redis://redistogo:50120c0fc785ff0b9b91a12b98f9d17e@sole.redistogo.com:10479/
+  url: redis://:c45d9aef2a4ddf1262cbb6354f04a30891373b76fa8ab101161e8247274a5c12@dokku-redis-redis-runescribe:6379
   
