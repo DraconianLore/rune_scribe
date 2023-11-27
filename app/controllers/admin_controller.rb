@@ -4,7 +4,7 @@ class AdminController < ApplicationController
 
     def index
         @page = params[:page] || 'players'
-        @players = User.where(dungeonmaster: false)
+        @players = User.where(dungeonmaster: false).where.not(character: "Demo Character")
         
         if @page == 'structures'
             @structures = load_structures

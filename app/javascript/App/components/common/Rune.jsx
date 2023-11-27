@@ -53,6 +53,7 @@ function ModalContent(props) {
                 <h1>{props.rune.name}</h1>
                 <RuneDetails>{props.rune.description}</RuneDetails>
                 <span>Targets: {props.rune.target.join(', ')}</span>
+                <p>Drawn Duration: {props.rune.draw}</p>
             </div>
             <small>Click to edit</small>
         </RuneModal>
