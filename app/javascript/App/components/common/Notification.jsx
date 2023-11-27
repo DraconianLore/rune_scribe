@@ -198,7 +198,7 @@ const OkButton = styled.h3`
 const ModalContainer = styled.div`
     position: fixed;
     width: 600px;
-    min-height: 350px;
+    height: 350px;
     background-color: #223;
     z-index: 20;
     filter: drop-shadow(0px 0px 5px #cca);
@@ -226,13 +226,13 @@ const ModalContainer = styled.div`
     &.strained {
         filter: drop-shadow(0px 0px 5px #f33);
     }
-
+    overflow: scroll;
 `
 
 
 const StructureModal = styled.div`
     width: 600px;
-    min-height: 350px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
