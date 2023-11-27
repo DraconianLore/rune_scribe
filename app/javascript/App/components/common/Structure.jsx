@@ -20,6 +20,8 @@ function ModalContent(props) {
                 <h1>{props.structure.name}</h1>
                 <StructureDetails>{props.structure.description}</StructureDetails>
                 <span>Targets: {props.structure.target.join(', ')}</span>
+                <p>Drawn Duration: {props.structure.draw}</p>
+                {props.structure.strained && <Strained>Strained Structure</Strained>}
             </div>
             <small>Click to edit</small>
         </StructureModal>
@@ -291,4 +293,8 @@ const Tldr = styled.p`
     padding: 0.2em 0.5em;
     border-radius: 2px;
     max-width: 80%;
+`
+const Strained = styled.p`
+    font-weight: 700;
+    color: red;
 `

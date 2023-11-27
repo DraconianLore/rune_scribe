@@ -56,6 +56,7 @@ const Notification = (props) => {
         return(
             <NotificationLayout>
                 <NewStructure>
+                    <CloseButton  onClick={acknowledge}>X</CloseButton>
                     <h1>New Structure Unlocked</h1>
                     <StructureModal>
                         <ModalContainer className={structure.dominant, structure.strained ? 'strained' : ''} >
@@ -246,4 +247,17 @@ const StructureDetails = styled.p`
 
 const Strained = styled.h3`
     color: #c22;
+`
+
+const CloseButton = styled.h2`
+    position: fixed;
+    top: -0.5em;
+    right: 0.5em;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0,0.1);
+    padding: 0.2em 0.3em;
+    border-radius: 40%;
+    &:hover {
+        color: #ffffc5;
+    }
 `
