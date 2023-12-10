@@ -185,12 +185,12 @@ class ApiController < ApplicationController
             5 => 2,
             6 => 4,
             7 => 4,
-            9 => 4,
-            9 => 4,
+            8 => 4,
+            9 => 8,
             10 => 8,
             11 => 8,
             12 => 8,
-            13 => 8,
+            13 => 16,
             14 => 16,
             15 => 16,
             16 => 16,
@@ -200,8 +200,15 @@ class ApiController < ApplicationController
             20 => 128
         }
         house_level = {1 => 1, 2 => 3, 3 => 4, 4 => 5, 5 => 7, 6 => 7, 7 => 10}
-        structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.unlocked.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).where('number_of_runes <= ?', complexity[userlevel]).order(:id)
-        
+        available_structures = Structure.unlocked.joins(:level).where("levels.all <= ?", userlevel).or(Structure.unlocked.joins(:level).where("levels.all <= ? AND dominant = ?", house_level[userlevel], house)).where('number_of_runes <= ?', complexity[userlevel]).order(:id)
+        unknown_structures = Structure.unlocked.where.not(id: available_structures.pluck(:id))
+
+        unknown_structures.each do |us|
+            us.is_locked = true
+        end
+
+        structures = available_structures + unknown_structures
+
         structures
     end
 

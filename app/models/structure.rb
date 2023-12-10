@@ -4,6 +4,8 @@ class Structure < ApplicationRecord
     before_create :calculate_details
     has_and_belongs_to_many :tags
 
+    attribute :is_locked, :boolean
+    
     scope :unlocked, -> { where(discovered: true) }
     scope :locked, -> { where(discovered: false) }
 

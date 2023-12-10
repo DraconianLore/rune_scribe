@@ -79,7 +79,8 @@ function ItemTagModal(props) {
         <ModalContainer  onClick={closeModal}>
             <ItemModal className={item.house || item.dominant} onClick={(e) => e.stopPropagation()}>
                 <h1>{item.name}</h1>
-                <p>TRLD:</p>
+                <p>{item.description}</p>
+                <div>TLDR:</div>
                 <TldrEdit value={tldr} onChange={(e) => setTldr(e.target.value)} />
                 <p>Current Tags:</p>
                 <CurrentTagList />
