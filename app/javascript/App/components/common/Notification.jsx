@@ -227,6 +227,12 @@ const ModalContainer = styled.div`
         filter: drop-shadow(0px 0px 5px #f33);
     }
     overflow: scroll;
+    ::-webkit-scrollbar {
+        display: none;
+      }
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
 `
 
 

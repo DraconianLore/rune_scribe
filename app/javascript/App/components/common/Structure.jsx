@@ -39,6 +39,7 @@ function Structure(props) {
     const clickStructure = () => {
         setShowModal(false)
         setShowTagModal(true)
+        
     }
     const toggleFavourite = (e) => {
         e.stopPropagation();
@@ -73,20 +74,24 @@ function Structure(props) {
     const duration =  props.bonusAction ? user.house == props.structure.house ? props.structure.trace : findDuration(props.structure.trace) : props.structure.trace;
     return (
         <>
-            <StructureItem className={`${props.structure.dominant} ${props.structure.strained && 'strained'}`} data-description={props.structure.description} onClick={clickStructure}  onMouseLeave={closeModal} onMouseEnter={openModal} >
+            <StructureItem className={`${props.structure.dominant} ${props.structure.strained && 'strained'} ${props.structure.is_locked && 'locked'}`} data-description={props.structure.description} onClick={clickStructure}  onMouseLeave={closeModal} onMouseEnter={openModal} >
                 <TopBar>
                     <StructureSize>{props.structure.number_of_runes}</StructureSize>
                     <h2>{props.structure.name}</h2>
                     <Favourite className={fav ? 'fav' : 'not-fav'} onClick={toggleFavourite}><i className="fas fa-heart" /></Favourite>
                 </TopBar>
                 <hr />
-                {props.structure.tldr && <Tldr className='inverted'>
-                    {props.structure.tldr}
-                </Tldr>}
-                <Tags>
-                    {tagList}
-                </Tags>
-                <small>{duration}</small>
+                {props.structure.is_locked? <h2>LOCKED</h2> : 
+                <>
+                    props.structure.tldr && <Tldr className='inverted'>
+                        {props.structure.tldr}
+                        </Tldr>
+                    <Tags>
+                        {tagList}
+                    </Tags>
+                    <small>{duration}</small>
+                </>
+                }
             </StructureItem>
             {showModal && <HoverModal structure={props.structure} />}
             {showTagModal && <ItemTagModal item={props.structure} close={closeTagModal} type='structure' reload={props.reload || null} />}
@@ -221,6 +226,9 @@ const StructureItem = styled.div`
     }
     &.strained {
         filter: drop-shadow(0px 0px 5px #f33);
+    }
+    &.locked {
+        filter: blur(1px) grayscale(50%);
     }
 `
 
