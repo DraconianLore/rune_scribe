@@ -43,7 +43,6 @@ function Structure(props) {
     }
     const toggleFavourite = (e) => {
         e.stopPropagation();
-        console.log(props.structure)
         fetch("/fav/s/" + props.structure.id, {
             method: 'PUT',
             headers:  {
