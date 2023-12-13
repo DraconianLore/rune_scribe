@@ -83,9 +83,9 @@ function Structure(props) {
                 <hr />
                 {props.structure.is_locked? <h2>LOCKED</h2> : 
                 <>
-                    props.structure.tldr && <Tldr className='inverted'>
+                    {props.structure.tldr && <Tldr className='inverted'>
                         {props.structure.tldr}
-                        </Tldr>
+                        </Tldr>}
                     <Tags>
                         {tagList}
                     </Tags>
