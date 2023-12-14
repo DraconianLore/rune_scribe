@@ -189,7 +189,7 @@ const levelDetails = {
     9: {
         'prof': '+4',
         'tracing': 4,
-        'complexity': '4 Runes',
+        'complexity': '8 Runes',
         'features': []
     },
     10: {
@@ -213,7 +213,7 @@ const levelDetails = {
     13: {
         'prof': '+5',
         'tracing': 8,
-        'complexity': '8 Runes',
+        'complexity': '16 Runes',
         'features': []
     },
     14: {
