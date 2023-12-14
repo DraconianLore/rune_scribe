@@ -8,7 +8,7 @@ import Rune from "../../common/Rune";
 import { useUserContextState } from "../../../helpers/UserContext";
 
 
-function Structures() {
+function Structures({searchRef}) {
     const { structures } = useStructureContext() || ''
     const runes = useRuneContext() || '';
     const user = useUserContextState() || '';
@@ -121,7 +121,7 @@ function Structures() {
         <>
             <h3>Runes and Structures</h3>
             <StructureHeader border={!tagFilter}>
-                <input type='text' id='tag-filter' placeholder='Filter' onChange={(e) => setSearch(e.target.value)}></input>
+                <input type='text' id='tag-filter' placeholder='Filter' onChange={(e) => setSearch(e.target.value)} ref={searchRef}></input>
                 <Filter onClick={() => setRuneFilter(!runeFilter)} className={runeFilter ? 'active large' : 'inactive large'}>Runes</Filter>
                 <Filter onClick={() => setStructureFilter(!structureFilter)} className={structureFilter ? 'active large' : 'inactive large'}>Structures</Filter>
                 <Filter onClick={() => toggleTagFilters()} className={tagFilter ? 'active' : 'inactive'}>Tags</Filter>
