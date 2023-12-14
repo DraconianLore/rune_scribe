@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useStructureContext } from "../../helpers/StructureContext";
 import { useUserContextState, useUserContextUpdater } from "../../helpers/UserContext";
 import styled from "styled-components";
@@ -28,6 +28,7 @@ function Homepage() {
   const {updateData} = useStructureContext()
   const updateUser = useUserContextUpdater()
   const [section, setSection] = useState('Levels')
+  const searchRef = useRef(null)
   const changePage = (page) => {
     setSection(page)
   }
@@ -42,6 +43,16 @@ function Homepage() {
       }
       updateData(data)
     }
+
+    window.addEventListener('keydown',  e => {
+      
+      if(e.key == '`'){
+        e.preventDefault()
+        changePage('Structures')
+        searchRef.current && searchRef.current.focus()
+
+      }
+    })
   }, [])
 
   return(
@@ -74,7 +85,7 @@ function Homepage() {
             </Icon></ExternalLink>
           </IconBar>
           {section === 'Levels' && <ScribeLevels level={user.level} house={user.house} />}
-          {section === 'Structures' && <Structures />}
+          {section === 'Structures' && <Structures searchRef={searchRef} />}
           {section === 'Bonus Actions' && <BonusActions />}
           {section === 'Tags' && <Tags />}
       </HomeLayout>
