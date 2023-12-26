@@ -503,7 +503,7 @@ Structure.create(
          
         Creatures caught in the ring have no air and start Suffocating.
          
-        While encased in the ice, creatures are immune to all damage except psychic damage and the cold damage the ring deals itself.),
+        While encased in the ice, creatures are immune to all damage except psychic damage.),
     target: ['Self'],
     trace: '2 Minutes',
     draw: '2 Hours',
